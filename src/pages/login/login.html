@@ -1,0 +1,50 @@
+<ion-content padding class="background">
+
+  <p class="image-middle-card nomargin">
+    
+  </p>
+  <ion-card id="content">
+    <ion-avatar id="user-info">
+      <img id="user-image" src="../../assets/imgs/user.png" />
+    </ion-avatar>
+    <!-- <ion-card-header class="primary-header">Authentication Gate</ion-card-header> -->
+    <ion-card-content>
+          <!-- <ion-item class="mt-10">
+            <ion-label color="primary" stacked>Phone Number</ion-label>
+            <ion-input type="tel" maxlength=10 placeholder="Your registered mobile number" class="input-underline" [(ngModel)]="mobileNumber">
+            </ion-input>
+          </ion-item> -->
+
+          <ion-item>
+            <ion-label color="primary" stacked>Username</ion-label>
+            <ion-input type="email" placeholder="Your registered username" class="input-underline">
+            </ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label color="primary" stacked>Password</ion-label>
+            <ion-input type="password" placeholder="Your password" class="input-underline" ></ion-input>
+          </ion-item>
+          <!-- <p style="text-align: right !important;" *ngIf='authenticationSent'>
+            <ion-item>
+              <ion-label color="primary" stacked>Verification Code</ion-label>
+              <ion-input type="tel" maxlength=6 placeholder="Enter verfication code" class="input-underline" [(ngModel)]="verificationCode"></ion-input>
+            </ion-item>            
+            <ion-spinner name="dots"
+              style="z-index: 10 !important; bottom: 32px !important;margin-right: 10px !important;"></ion-spinner>
+          </p> -->
+        
+    </ion-card-content>
+    <p style="text-align: right !important; margin-right: 20px !important;">
+      <button ion-button clear>Login</button>
+    </p>
+    <p style="font-size:10px !important">
+      <button ion-button clear >Forgot Password?</button>
+    </p>
+  </ion-card>
+ 
+
+  <p class="small-text mt-20">
+    <img src="../../assets/imgs/logo.png" style="width: 90px !important;" />
+  </p>
+</ion-content>

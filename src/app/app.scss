@@ -14,3 +14,88 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.input-underline{
+    border-bottom: 1px #ddd solid !important;
+}
+
+.input-underline:focus-within{
+    border-bottom: 1px #3880ff solid !important;
+}
+
+
+
+//Padding
+.nopadding{
+    padding: 0px !important;
+}
+.p-10{
+    padding: 10px !important;
+}
+
+
+
+
+//Margin
+.nomargin{
+    margin: 0px !important;
+}
+
+.mt-10{
+    margin-top:10px !important;
+}
+.mt-16{
+    margin-top:16px !important;
+}
+.mt-20{
+    margin-top:20px !important;
+}
+.mt-30{
+    margin-top:30px !important;
+}
+.mt-66{
+    margin-top: 66px !important;
+}
+.mb-66{
+    margin-bottom: 66px !important;
+}
+.ml-20{
+    margin-left: 20px !important;
+} 
+.mr-20{
+    margin-right: 20px !important;
+}
+
+
+//Size
+.w-50{
+    width: 50px !important;
+}
+
+
+
+.h-50{
+    height: 50px !important;
+}
+
+
+.badge-progress{
+    background-color: #fab801 !important;
+    color: white !important;
+}
+.badge-complete{
+    background-color: #20b602 !important;
+    color: white !important;
+}
+
+
+//Change the background colour
+ion-app.md{
+    background-color: #744f4f !important;
+}
+
+
+.no-underline{
+    border-bottom: 0px !important;
+}
+
+.camera-img-wrapper{height: 80px;width: 80px;background-color: #bbb;border-radius: 50%; display: inline-block;position: relative;}
