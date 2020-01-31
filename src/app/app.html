@@ -1,16 +1,47 @@
 <ion-menu [content]="content" type="overlay">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
+  <ion-header style="background-color : rgb(61, 192, 253) !important;">
+    <ion-row>
+      <ion-col style="text-align: center !important;">
+        <img src="../assets/imgs/logo.png" style="width: 90px !important;" />
+      </ion-col>
+    </ion-row>
   </ion-header>
 
-  <ion-content>
-    <ion-list>
+  <ion-content style="background-image: radial-gradient(rgb(246, 246, 246) ,rgb(230, 230, 230));">
+
+    <p style="text-align:  center !important;">
+    <ion-label>
+      Sales Management
+    </ion-label>
+  </p>
+
+    <ion-card>
+      <ion-card-header>Lead Management</ion-card-header>
+         <p> <button ion-button clear> <img src="../assets/imgs/create-lead.svg" style="width: 20px !important"/> &nbsp; Create Lead</button></p>
+        <p> <button ion-button clear> <img src="../assets/imgs/manage-lead.svg" style="width: 20px !important"/> &nbsp; Manage Lead</button></p>
+    </ion-card>
+
+
+    <ion-card>
+      <ion-card-header>Service Request</ion-card-header>
+         <p> <button ion-button clear> <img src="../assets/imgs/request.svg" style="width: 20px !important"/> &nbsp; Manage Service Request</button></p>
+    </ion-card>
+
+
+
+    <ion-card>
+        <ion-card-header>Settings</ion-card-header>  
+         <p> <button ion-button clear> <img src="../assets/imgs/user-edit.svg" style="width: 20px !important"/> &nbsp; Edit Profile</button></p>
+         <p> <button ion-button clear> <img src="../assets/imgs/contract.svg" style="width: 20px !important"/> &nbsp; Terms & Conditions</button></p>
+         <p> <button ion-button clear> <img src="../assets/imgs/logout.svg" style="width: 20px !important"/> &nbsp; Log out</button></p>
+         <p> <button ion-button clear> <img src="../assets/imgs/version.svg" style="width: 20px !important"/> &nbsp; App Version : 0.0.1</button></p>
+    </ion-card>
+
+    <!-- <ion-list>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
       </button>
-    </ion-list>
+    </ion-list> -->
   </ion-content>
 
 </ion-menu>
