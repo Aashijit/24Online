@@ -1,3 +1,7 @@
+import { Codes } from './../../Utils/Codes';
+import { HttpProvider } from './../../providers/data/data';
+import { MessageHelper } from './../../providers/message-helper';
+import { DataValidation } from './../../Utils/DataValidation';
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -10,7 +14,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  ipAddress : any = "123.201.20.60";
+  userName : any = "avijit.ghosh";
+  password : any = "avijit.ghosh";
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public dataValidation : DataValidation, public msgHelper : MessageHelper,
+    public http : HttpProvider,public codes : Codes) {
   }
 
   ionViewDidLoad() {
@@ -18,7 +28,28 @@ export class LoginPage {
   }
 
   login(){
-    this.navCtrl.setRoot(HomePage);
+
+    //Validate the ip address
+    if(!this.dataValidation.isValidIpAddress(this.ipAddress)){
+      this.msgHelper.showErrorDialog('Alert!','Invalid Ip Address');
+      return;
+    }
+
+    //Insert the request into the localstorage
+    localStorage.setItem(this.codes.LSK_USERNAME,this.userName);
+    localStorage.setItem(this.codes.LSK_PASSWORD,this.password);
+
+    //Create the request json
+    var loginRequestJson = {
+      "username":this.userName,
+      "Password":this.password
+    };
+    
+    this.http.callApi(loginRequestJson,this.ipAddress+this.codes.API_AUTHENTICATE_USER).then(responseJson => {
+      console.error(responseJson);
+    });
+
+    // this.navCtrl.setRoot(HomePage);
   }
 
 }

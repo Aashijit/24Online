@@ -21,20 +21,20 @@
 
       <ion-item>
         <ion-label color="primary" stacked>IP Address</ion-label>
-        <ion-input type="tel" placeholder="IP address" class="input-underline">
+        <ion-input type="tel" placeholder="IP address" class="input-underline" [(ngModel)]="ipAddress">
         </ion-input>
       </ion-item>
 
 
       <ion-item>
         <ion-label color="primary" stacked>Username</ion-label>
-        <ion-input type="email" placeholder="Your registered username" class="input-underline">
+        <ion-input type="email" placeholder="Your registered username" class="input-underline" [(ngModel)]="userName">
         </ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label color="primary" stacked>Password</ion-label>
-        <ion-input type="password" placeholder="Your password" class="input-underline"></ion-input>
+        <ion-input type="password" placeholder="Your password" class="input-underline" [(ngModel)]="password"></ion-input>
       </ion-item>
 
     </ion-card-content>
