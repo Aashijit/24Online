@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Service Management</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <p style="text-align: center !important; color: #919191;" *ngIf='dataValidation.isEmptyJson(serviceRequests)'>
+    <ion-spinner name="bubbles"></ion-spinner>
+  </p>
+  <p style="text-align: center !important; color: #919191;" *ngIf='dataValidation.isEmptyJson(serviceRequests)'>
+    Loading the service requests ...
+  </p>
+
+  <ion-list *ngIf='!dataValidation.isEmptyJson(serviceRequests)'>
+    <ion-item *ngFor='let sR of serviceRequests'>
+      <p style="font-size: 15px !important; color:rgb(31, 115, 250) !important; font-weight: 800 !important;">
+        {{sR['createdby']}}</p>
+      <p style="font-size: 12px !important; color: #919191 !important;">{{sR['assigneename']}}
+        <span style="float: right !important;" *ngIf="sR['status']=='CLOSE'">
+          <ion-badge color="light" style="font-size: 10px !important;">{{sR['status']}}</ion-badge>
+        </span>
+        <span style="float: right !important;" *ngIf="sR['status']=='OPEN'">
+          <ion-badge color="danger" style="font-size: 10px !important;">{{sR['status']}}</ion-badge>
+        </span>
+        <span style="float: right !important;" *ngIf="sR['status']=='PENDING'">
+          <ion-badge color="dark" style="font-size: 10px !important;">{{sR['status']}}</ion-badge>
+        </span>
+      </p>
+      <p style="font-size: 10px !important;">
+        <span style="font-size: 8px !important; color: #919191 !important;">{{sR['modifydate']}}</span>
+      </p>
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>
+
+<ion-footer>
+  <ion-row>
+    <ion-col col-6
+      style="text-align: center !important; background-color: #fff !important; border-right: 1px solid #ddd !important;">
+      <button ion-button clear>Sort</button>
+    </ion-col>
+    <ion-col col-6 style="text-align: center !important;">
+      <button ion-button clear>Filter</button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

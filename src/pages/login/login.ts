@@ -2,7 +2,6 @@ import { Codes } from './../../Utils/Codes';
 import { HttpProvider } from './../../providers/data/data';
 import { MessageHelper } from './../../providers/message-helper';
 import { DataValidation } from './../../Utils/DataValidation';
-import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -14,7 +13,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LoginPage {
 
-  ipAddress : any = "123.201.20.60";
+  //Set to default
+  ipAddress : any = "123.201.20.60"; 
   userName : any = "avijit.ghosh";
   password : any = "avijit.ghosh";
 
@@ -45,8 +45,29 @@ export class LoginPage {
       "Password":this.password
     };
     
-    this.http.callApi(loginRequestJson,this.ipAddress+this.codes.API_AUTHENTICATE_USER).then(responseJson => {
-      console.error(responseJson);
+    var loading = this.msgHelper.showWorkingDialog('Authenticating User');
+
+    localStorage.setItem(this.codes.LSK_IPADDRESS,this.ipAddress);
+
+    this.http.callApi(loginRequestJson,this.codes.API_AUTHENTICATE_USER).then(responseJson => {
+      
+      loading.dismiss();
+
+      if(this.dataValidation.isEmptyJson(responseJson)){
+        this.msgHelper.showErrorDialog('Server error','Empty response received from back end server.Please try after some time.');
+        return;
+      }
+
+      localStorage.setItem(this.codes.LSK_USER_INFO_PREFERENCES,JSON.stringify(responseJson));
+
+      this.msgHelper.showToast('Login Successfull !!!');
+      
+      this.navCtrl.setRoot('HomePage');
+      
+    },error => {
+        loading.dismiss();
+        console.error(error);
+        this.msgHelper.showErrorDialog('Server error',error);
     });
 
     // this.navCtrl.setRoot(HomePage);

@@ -12,14 +12,18 @@ export class Codes{
     public API_ERROR="500";
 
 
+    public LSK_IPADDRESS="ipaddress";
     public LSK_USERNAME="username";
     public LSK_PASSWORD="password";
     
     
+    public LSK_USER_INFO_PREFERENCES="user_info_preferences";
     
 
-    public  API_ENDPOINT="http://";
-    public  API_AUTHENTICATE_USER=":10080/24online/service/MobileApplicationService/authenticateUser";
+    public API_ENDPOINT="https://cors-anywhere.herokuapp.com/http://";
+    public API_AUTHENTICATE_USER=":10080/24online/service/MobileApplicationService/authenticateUser";
+    public API_SEARCH_LEAD=":10080/24online/service/SalesService/searchLead";
+    public API_SEARCH_SERVICE=":10080/24online/service/SalesService/searchService";
     
 
 

@@ -23,7 +23,8 @@ export class HttpProvider {
       headers.append('Content-Type', 'application/json');
       headers.append('Username','avijit.ghosh');
       headers.append('Password','avijit.ghosh');
-      this.http.post(this.codes.API_ENDPOINT+apiName, JSON.stringify(data)
+      var ipAddress = localStorage.getItem(this.codes.LSK_IPADDRESS);
+      this.http.post(this.codes.API_ENDPOINT+ipAddress+apiName, JSON.stringify(data)
         , {headers: headers}).map(res => res.json())
         .subscribe((data:any) => {
             console.log(data);

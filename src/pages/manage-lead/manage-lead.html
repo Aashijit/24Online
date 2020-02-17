@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar >
+    <ion-title>Lead Management</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+<p style="text-align: center !important; color: #919191;" *ngIf='dataValidation.isEmptyJson(leads)'>
+  <ion-spinner name="bubbles"></ion-spinner>
+</p>
+<p style="text-align: center !important; color: #919191;" *ngIf='dataValidation.isEmptyJson(leads)'>
+  Loading the leads ...
+</p>
+  
+
+<ion-list *ngIf='!dataValidation.isEmptyJson(leads)'>
+
+  <ion-item *ngFor='let lead of leads'>
+  <p style="font-size: 15px !important; color:rgb(31, 115, 250) !important; font-weight: 800 !important;">{{lead['firstname']}}</p>
+  <p style="font-size: 12px !important; color: #919191 !important;">{{lead['lastname']}}
+    <span style="float: right !important;"><ion-badge color="dark" style="font-size: 10px !important;">{{lead['source']}}</ion-badge></span>
+    <span style="float: right !important;margin-right: 4px !important"><ion-badge color="danger" style="font-size: 10px !important;">{{lead['status']}}</ion-badge></span>
+  </p>
+  <p style="font-size: 10px !important;">
+  <span><a href="tel:{{lead['contactno']}}" style="text-decoration: none !important;"> <ion-icon name="call"></ion-icon> {{lead['contactno']}}</a></span>
+  &nbsp;&nbsp;
+  <span><a href="tel:{{lead['emailid']}}" style="text-decoration: none !important;"> <ion-icon name="mail"></ion-icon> {{lead['emailid']}}</a></span>
+  </p>
+  <p style="text-align: justify !important; font-size: 12px !important; color: #777 !important;" text-wrap>
+       {{lead['comment']}}
+  </p>
+  </ion-item>
+</ion-list>
+
+</ion-content>
+
+<ion-footer>
+  <ion-row>
+    <ion-col col-6 style="text-align: center !important; background-color: #fff !important; border-right: 1px solid #ddd !important;"> 
+      <button ion-button clear>Sort</button>
+    </ion-col>
+    <ion-col col-6 style="text-align: center !important;"> 
+      <button ion-button clear>Filter</button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

@@ -1,1 +1,679 @@
-webpackJsonp([1],{112:function(l,n,t){"use strict";t.d(n,"a",function(){return u});var u=function(){return function(){this.EM_INVALID_MOBILE_NUMBER="Invalid mobile number",this.EM_INVALID_EMAILID="Invalid email id",this.EM_INVALID_PASSWORD="Invalid password",this.EM_INVALID_VERIFICATION_ID="Invalid verification id",this.API_ERROR="500",this.LSK_USERNAME="username",this.LSK_PASSWORD="password",this.API_ENDPOINT="http://",this.API_AUTHENTICATE_USER=":10080/24online/service/MobileApplicationService/authenticateUser"}}()},173:function(l,n,t){"use strict";t.d(n,"a",function(){return a});t(2);var u=t(193),e=(t.n(u),t(120)),a=function(){function l(l,n,t){this.http=l,this.codes=n,this.httpClient=t}return l.prototype.callApi=function(l,n){var t=this;return new Promise(function(u){var a=new e.d;a.append("Content-Type","application/json"),a.append("Username","avijit.ghosh"),a.append("Password","avijit.ghosh"),t.http.post(t.codes.API_ENDPOINT+n,JSON.stringify(l),{headers:a}).map(function(l){return l.json()}).subscribe(function(l){console.log(l),u(l)},function(l){console.log(l),u({status:t.codes.API_ERROR})})})},l.prototype.uploadFile=function(l,n){var t=this;return new Promise(function(u){t.httpClient.post(t.codes.API_ENDPOINT+n,l).subscribe(function(l){console.log("Success: "+JSON.stringify(l)),u(l)},function(l){console.log(l),u(l)})})},l.prototype.isNullOrEmpty=function(l){return void 0===l||null===l||"string"==typeof l&&l.length<=0},l.prototype.convertToArray=function(l){return this.isArray(l)?l:[l]},l.prototype.isArray=function(l){return void 0!==l&&"Array"===Object.prototype.toString.call(l).slice(8,-1)},l}()},174:function(l,n,t){"use strict";t.d(n,"a",function(){return u});t(2),t(56);var u=function(){function l(l,n,t){this.alertCtrl=l,this.loadingCtrl=n,this.toastCtrl=t}return l.prototype.showWorkingDialog=function(l){void 0===l&&(l="Please wait...");var n=this.loadingCtrl.create({content:l});return n.present(),n},l.prototype.showToast=function(l,n){void 0===n&&(n=!0),n?this.toastCtrl.create({message:l,duration:3e3}).present():this.toastCtrl.create({message:l,showCloseButton:!0,closeButtonText:"Ok"}).present()},l.prototype.showAlert=function(l,n,t){void 0===t&&(t="Close");var u=this.alertCtrl.create({title:l,subTitle:n,buttons:[t]});return u.present(),u},l.prototype.showConnectionErrorDialog=function(){this.alertCtrl.create({title:"Connection Error!",subTitle:"Failed to connect with server. Please try again.",buttons:["Close"]}).present()},l.prototype.showErrorDialog=function(l,n){this.alertCtrl.create({title:l,subTitle:n,buttons:["Close"]}).present()},l.prototype.showNoProductDialog=function(){this.alertCtrl.create({title:"Not Available!",subTitle:"No products found. Please try again.",buttons:["Close"]}).present()},l.prototype.showNoModelDialog=function(){this.alertCtrl.create({title:"Not Available!",subTitle:"No Car Model found. Please try again.",buttons:["Close"]}).present()},l.prototype.showNoOrderDialog=function(){this.alertCtrl.create({title:"Not Available!",subTitle:"No Order found.",buttons:["Close"]}).present()},l.prototype.showNoProductDialogPRODUCTOUTOFSTOCK=function(){this.alertCtrl.create({title:"Not Available!",subTitle:"PRODUCT OUT OF STOCK",buttons:["Close"]}).present()},l.prototype.showNoProductDialogINSUFFICIENTSTOCK=function(){this.alertCtrl.create({title:"Not Available!",subTitle:"INSUFFICIENT STOCK",buttons:["Close"]}).present()},l.prototype.showNoProductDialogINVALIDUSER=function(){this.alertCtrl.create({title:"Error!",subTitle:"INVALID USER",buttons:["Close"]}).present()},l.prototype.showNoProductDialogFAILURE=function(){this.alertCtrl.create({title:"Error!",subTitle:"FAILURE",buttons:["Close"]}).present()},l.prototype.showNoProductDialogSYSTEMERROR=function(){this.alertCtrl.create({title:"Error!",subTitle:"SYSTEM ERROR",buttons:["Close"]}).present()},l.prototype.showDialogChangePassword=function(){this.alertCtrl.create({title:"Error!",subTitle:"Your old password does not match.",buttons:["Close"]}).present()},l}()},176:function(l,n,t){"use strict";t.d(n,"a",function(){return u});var u=function(){function l(){}return l.prototype.isValidIpAddress=function(l){if(void 0==l||null==l||""==l)return!1;return!!new RegExp("[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}").test(l)},l.prototype.isValidMobileNumber=function(l){if(void 0==l||null==l||""==l)return!1;return!!new RegExp("^[0-9]{10}$").test(l)},l.prototype.isValidEmailId=function(l){if(void 0==l||null==l||""==l)return!1;if(void 0!=l&&null!=l&&""!=l){return!!new RegExp("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$").test(l)}return!0},l.prototype.stringToBoolean=function(l){if(null==l||void 0==l||""==l)return!1;switch(l){case"true":case"True":return!0;case"false":case"False":return!1}return l},l.prototype.commaSeperator=function(l){return this.isEmpty(l)?null:l.includes(",")?l:l.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g,"$1,")},l.prototype.isValidPinCode=function(l){if(void 0!=l&&null!=l&&""!=l){return!!new RegExp("^[0-9]{6}$").test(l)}},l.prototype.isValidAmount=function(l){return new RegExp("[0-9]{0,8}.[0-9]{0,2}").test(l)},l.prototype.isValidIfsc=function(l){return new RegExp("[A-Za-z]{4}[0-9]{7}$").test(l)},l.prototype.doValidateName=function(l){},l.prototype.isValidPassword=function(l){return new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})").test(l)},l.prototype.doCheckForUndefinedVariable=function(l,n,t){return void 0!=l&&""!=l||t+" not present !!!",l},l.prototype.isNull=function(l){return null==l},l.prototype.isEmptyJson=function(l){return void 0==l||(null==l||""==l)},l.prototype.isEmpty=function(l){return void 0==l||(null==l||""==l.trim())},l.prototype.isUndefined=function(l){if(void 0==l)return!0},l.prototype.isValidNumber=function(l){if(null!=l||void 0!=l||""!=l){return!!new RegExp("[0-9]+").test(l)}return!1},l.prototype.isValidName=function(l){if(void 0!=l&&null!=l&&""!=l){return!!new RegExp("^[a-zA-Z ]").test(l)}},l.prototype.addErrorMessage=function(l,n){var t=document.createElement("ion-note");t.setAttribute("class","validation-error"),t.setAttribute("id",l+"Err");var u=document.createTextNode(n);t.appendChild(u),document.getElementById(l).parentElement.appendChild(t)},l.prototype.removeErrorMessage=function(l){null!=document.getElementById(l+"Err")&&document.getElementById(l+"Err").remove()},l.prototype.removeErrorMessageForMultipleElement=function(l,n){null!=document.getElementsByClassName("validation-error "+l+"Err")[n]&&document.getElementsByClassName("validation-error "+l+"Err")[n].remove()},l.prototype.addErrorMessageForMultipleElement=function(l,n,t){var u=document.createElement("ion-note");u.setAttribute("class","validation-error "+l+"Err");var e=document.createTextNode(n);u.appendChild(e),document.getElementsByClassName(l)[t].parentElement.appendChild(u)},l}()},192:function(l,n){function t(l){return Promise.resolve().then(function(){throw new Error("Cannot find module '"+l+"'.")})}t.keys=function(){return[]},t.resolve=t,l.exports=t,t.id=192},315:function(l,n,t){function u(l){var n=e[l];return n?t.e(n[1]).then(function(){return t(n[0])}):Promise.reject(new Error("Cannot find module '"+l+"'."))}var e={"../pages/login/login.module.ngfactory":[640,0]};u.keys=function(){return Object.keys(e)},u.id=315,l.exports=u},351:function(l,n,t){"use strict";function u(l){return s._19(0,[s._16(402653184,1,{nav:0}),(l()(),s.Z(1,0,null,null,111,"ion-menu",[["role","navigation"],["type","overlay"]],null,null,null,z.b,z.a)),s._14(6144,null,R.a,null,[O.a]),s.Y(3,245760,null,2,O.a,[S.a,s.j,k.a,x.a,s.z,M.a,D.l,F.a,L.a],{content:[0,"content"],type:[1,"type"]},null),s._16(335544320,2,{menuContent:0}),s._16(335544320,3,{menuNav:0}),(l()(),s._18(-1,0,["\n  "])),(l()(),s.Z(7,0,null,0,12,"ion-header",[["style","background-color : rgb(61, 192, 253) !important;"]],null,null,null,null,null)),s.Y(8,16384,null,0,V.a,[k.a,s.j,s.z,[2,U.a]],null,null),(l()(),s._18(-1,null,["\n    "])),(l()(),s.Z(10,0,null,null,8,"ion-row",[["class","row"]],null,null,null,null,null)),s.Y(11,16384,null,0,B.a,[],null,null),(l()(),s._18(-1,null,["\n      "])),(l()(),s.Z(13,0,null,null,4,"ion-col",[["class","col"],["style","text-align: center !important;"]],null,null,null,null,null)),s.Y(14,16384,null,0,$.a,[],null,null),(l()(),s._18(-1,null,["\n        "])),(l()(),s.Z(16,0,null,null,0,"img",[["src","../assets/imgs/logo.png"],["style","width: 90px !important;"]],null,null,null,null,null)),(l()(),s._18(-1,null,["\n      "])),(l()(),s._18(-1,null,["\n    "])),(l()(),s._18(-1,null,["\n  "])),(l()(),s._18(-1,0,["\n\n  "])),(l()(),s.Z(21,0,null,0,90,"ion-content",[["style","background-image: radial-gradient(rgb(246, 246, 246) ,rgb(230, 230, 230));"]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,K.b,K.a)),s.Y(22,4374528,[[2,4]],0,q.a,[k.a,x.a,F.a,s.j,s.z,L.a,M.a,s.u,[2,U.a],[2,H.a]],null,null),(l()(),s._18(-1,1,["\n\n    "])),(l()(),s.Z(24,0,null,1,5,"p",[["style","text-align:  center !important;"]],null,null,null,null,null)),(l()(),s._18(-1,null,["\n    "])),(l()(),s.Z(26,0,null,null,2,"ion-label",[],null,null,null,null,null)),s.Y(27,16384,null,0,X.a,[k.a,s.j,s.z,[8,null],[8,null],[8,null],[8,null]],null,null),(l()(),s._18(-1,null,["\n      Sales Management\n    "])),(l()(),s._18(-1,null,["\n  "])),(l()(),s._18(-1,1,["\n\n    "])),(l()(),s.Z(31,0,null,1,22,"ion-card",[],null,null,null,null,null)),s.Y(32,16384,null,0,J.a,[k.a,s.j,s.z],null,null),(l()(),s._18(-1,null,["\n      "])),(l()(),s.Z(34,0,null,null,2,"ion-card-header",[],null,null,null,null,null)),s.Y(35,16384,null,0,W.a,[k.a,s.j,s.z],null,null),(l()(),s._18(-1,null,["Lead Management"])),(l()(),s._18(-1,null,["\n         "])),(l()(),s.Z(38,0,null,null,6,"p",[],null,null,null,null,null)),(l()(),s._18(-1,null,[" "])),(l()(),s.Z(40,0,null,null,4,"button",[["clear",""],["ion-button",""]],null,null,null,G.b,G.a)),s.Y(41,1097728,null,0,Q.a,[[8,""],k.a,s.j,s.z],{clear:[0,"clear"]},null),(l()(),s._18(-1,0,[" "])),(l()(),s.Z(43,0,null,0,0,"img",[["src","../assets/imgs/create-lead.svg"],["style","width: 20px !important"]],null,null,null,null,null)),(l()(),s._18(-1,0,["   Create Lead"])),(l()(),s._18(-1,null,["\n        "])),(l()(),s.Z(46,0,null,null,6,"p",[],null,null,null,null,null)),(l()(),s._18(-1,null,[" "])),(l()(),s.Z(48,0,null,null,4,"button",[["clear",""],["ion-button",""]],null,null,null,G.b,G.a)),s.Y(49,1097728,null,0,Q.a,[[8,""],k.a,s.j,s.z],{clear:[0,"clear"]},null),(l()(),s._18(-1,0,[" "])),(l()(),s.Z(51,0,null,0,0,"img",[["src","../assets/imgs/manage-lead.svg"],["style","width: 20px !important"]],null,null,null,null,null)),(l()(),s._18(-1,0,["   Manage Lead"])),(l()(),s._18(-1,null,["\n    "])),(l()(),s._18(-1,1,["\n\n\n    "])),(l()(),s.Z(55,0,null,1,14,"ion-card",[],null,null,null,null,null)),s.Y(56,16384,null,0,J.a,[k.a,s.j,s.z],null,null),(l()(),s._18(-1,null,["\n      "])),(l()(),s.Z(58,0,null,null,2,"ion-card-header",[],null,null,null,null,null)),s.Y(59,16384,null,0,W.a,[k.a,s.j,s.z],null,null),(l()(),s._18(-1,null,["Service Request"])),(l()(),s._18(-1,null,["\n         "])),(l()(),s.Z(62,0,null,null,6,"p",[],null,null,null,null,null)),(l()(),s._18(-1,null,[" "])),(l()(),s.Z(64,0,null,null,4,"button",[["clear",""],["ion-button",""]],null,null,null,G.b,G.a)),s.Y(65,1097728,null,0,Q.a,[[8,""],k.a,s.j,s.z],{clear:[0,"clear"]},null),(l()(),s._18(-1,0,[" "])),(l()(),s.Z(67,0,null,0,0,"img",[["src","../assets/imgs/request.svg"],["style","width: 20px !important"]],null,null,null,null,null)),(l()(),s._18(-1,0,["   Manage Service Request"])),(l()(),s._18(-1,null,["\n    "])),(l()(),s._18(-1,1,["\n\n\n\n    "])),(l()(),s.Z(71,0,null,1,38,"ion-card",[],null,null,null,null,null)),s.Y(72,16384,null,0,J.a,[k.a,s.j,s.z],null,null),(l()(),s._18(-1,null,["\n        "])),(l()(),s.Z(74,0,null,null,2,"ion-card-header",[],null,null,null,null,null)),s.Y(75,16384,null,0,W.a,[k.a,s.j,s.z],null,null),(l()(),s._18(-1,null,["Settings"])),(l()(),s._18(-1,null,["  \n         "])),(l()(),s.Z(78,0,null,null,6,"p",[],null,null,null,null,null)),(l()(),s._18(-1,null,[" "])),(l()(),s.Z(80,0,null,null,4,"button",[["clear",""],["ion-button",""]],null,null,null,G.b,G.a)),s.Y(81,1097728,null,0,Q.a,[[8,""],k.a,s.j,s.z],{clear:[0,"clear"]},null),(l()(),s._18(-1,0,[" "])),(l()(),s.Z(83,0,null,0,0,"img",[["src","../assets/imgs/user-edit.svg"],["style","width: 20px !important"]],null,null,null,null,null)),(l()(),s._18(-1,0,["   Edit Profile"])),(l()(),s._18(-1,null,["\n         "])),(l()(),s.Z(86,0,null,null,6,"p",[],null,null,null,null,null)),(l()(),s._18(-1,null,[" "])),(l()(),s.Z(88,0,null,null,4,"button",[["clear",""],["ion-button",""]],null,null,null,G.b,G.a)),s.Y(89,1097728,null,0,Q.a,[[8,""],k.a,s.j,s.z],{clear:[0,"clear"]},null),(l()(),s._18(-1,0,[" "])),(l()(),s.Z(91,0,null,0,0,"img",[["src","../assets/imgs/contract.svg"],["style","width: 20px !important"]],null,null,null,null,null)),(l()(),s._18(-1,0,["   Terms & Conditions"])),(l()(),s._18(-1,null,["\n         "])),(l()(),s.Z(94,0,null,null,6,"p",[],null,null,null,null,null)),(l()(),s._18(-1,null,[" "])),(l()(),s.Z(96,0,null,null,4,"button",[["clear",""],["ion-button",""]],null,null,null,G.b,G.a)),s.Y(97,1097728,null,0,Q.a,[[8,""],k.a,s.j,s.z],{clear:[0,"clear"]},null),(l()(),s._18(-1,0,[" "])),(l()(),s.Z(99,0,null,0,0,"img",[["src","../assets/imgs/logout.svg"],["style","width: 20px !important"]],null,null,null,null,null)),(l()(),s._18(-1,0,["   Log out"])),(l()(),s._18(-1,null,["\n         "])),(l()(),s.Z(102,0,null,null,6,"p",[],null,null,null,null,null)),(l()(),s._18(-1,null,[" "])),(l()(),s.Z(104,0,null,null,4,"button",[["clear",""],["ion-button",""]],null,null,null,G.b,G.a)),s.Y(105,1097728,null,0,Q.a,[[8,""],k.a,s.j,s.z],{clear:[0,"clear"]},null),(l()(),s._18(-1,0,[" "])),(l()(),s.Z(107,0,null,0,0,"img",[["src","../assets/imgs/version.svg"],["style","width: 20px !important"]],null,null,null,null,null)),(l()(),s._18(-1,0,["   App Version : 0.0.1"])),(l()(),s._18(-1,null,["\n    "])),(l()(),s._18(-1,1,["\n\n    "])),(l()(),s._18(-1,1,["\n  "])),(l()(),s._18(-1,0,["\n\n"])),(l()(),s._18(-1,null,["\n\n"])),(l()(),s._18(-1,null,["\n"])),(l()(),s.Z(115,0,null,null,2,"ion-nav",[["swipeBackEnabled","false"]],null,null,null,ll.b,ll.a)),s._14(6144,null,R.a,null,[nl.a]),s.Y(117,4374528,[[1,4],["content",4]],0,nl.a,[[2,U.a],[2,H.a],L.a,k.a,x.a,s.j,s.u,s.z,s.i,D.l,tl.a,[2,ul.a],F.a,s.k],{swipeBackEnabled:[0,"swipeBackEnabled"],root:[1,"root"]},null)],function(l,n){var t=n.component;l(n,3,0,s._11(n,117),"overlay");l(n,41,0,"");l(n,49,0,"");l(n,65,0,"");l(n,81,0,"");l(n,89,0,"");l(n,97,0,"");l(n,105,0,"");l(n,117,0,"false",t.rootPage)},function(l,n){l(n,21,0,s._11(n,22).statusbarPadding,s._11(n,22)._hasRefresher)})}function e(l){return s._19(0,[(l()(),s.Z(0,0,null,null,25,"ion-header",[],null,null,null,null,null)),s.Y(1,16384,null,0,V.a,[k.a,s.j,s.z,[2,U.a]],null,null),(l()(),s._18(-1,null,["\n  "])),(l()(),s.Z(3,0,null,null,21,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,ol.b,ol.a)),s.Y(4,49152,null,0,il.a,[L.a,[2,U.a],[2,H.a],k.a,s.j,s.z],null,null),(l()(),s._18(-1,3,["\n    "])),(l()(),s.Z(6,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,t){var u=!0;if("click"===n){u=!1!==s._11(l,8).toggle()&&u}return u},G.b,G.a)),s.Y(7,1097728,[[1,4]],0,Q.a,[[8,""],k.a,s.j,s.z],null,null),s.Y(8,1064960,null,0,rl.a,[S.a,[2,U.a],[2,Q.a],[2,il.a]],{menuToggle:[0,"menuToggle"]},null),s.Y(9,16384,null,1,sl.a,[k.a,s.j,s.z,[2,cl.a],[2,il.a]],null,null),s._16(603979776,1,{_buttons:1}),(l()(),s._18(-1,0,["\n      "])),(l()(),s.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),s.Y(13,147456,null,0,pl.a,[k.a,s.j,s.z],{name:[0,"name"]},null),(l()(),s._18(-1,0,["\n    "])),(l()(),s._18(-1,3,["\n    "])),(l()(),s.Z(16,0,null,3,3,"span",[["style","float: left !important;"]],null,null,null,null,null)),(l()(),s._18(-1,null,["\n      "])),(l()(),s.Z(18,0,null,null,0,"img",[["src","../../assets/imgs/logo.png"],["style","width: 30px !important; margin-top: 4px !important;"]],null,null,null,null,null)),(l()(),s._18(-1,null,["\n    "])),(l()(),s._18(-1,3,["\n    "])),(l()(),s.Z(21,0,null,3,2,"ion-title",[["style","color: #919191 !important;"]],null,null,null,_l.b,_l.a)),s.Y(22,49152,null,0,dl.a,[k.a,s.j,s.z,[2,cl.a],[2,il.a]],null,null),(l()(),s._18(-1,0,["Home"])),(l()(),s._18(-1,3,["\n  "])),(l()(),s._18(-1,null,["\n"])),(l()(),s._18(-1,null,["\n\n"])),(l()(),s.Z(27,0,null,null,2,"ion-content",[["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,K.b,K.a)),s.Y(28,4374528,null,0,q.a,[k.a,x.a,F.a,s.j,s.z,L.a,M.a,s.u,[2,U.a],[2,H.a]],null,null),(l()(),s._18(-1,1,["\n  \n"])),(l()(),s._18(-1,null,["\n"]))],function(l,n){l(n,8,0,"");l(n,13,0,"menu")},function(l,n){l(n,3,0,s._11(n,4)._hidden,s._11(n,4)._sbPadding);l(n,6,0,s._11(n,8).isHidden);l(n,12,0,s._11(n,13)._hidden);l(n,27,0,s._11(n,28).statusbarPadding,s._11(n,28)._hasRefresher)})}function a(l){return s._19(0,[(l()(),s.Z(0,0,null,null,12,"button",[["class","item item-block"],["ion-item",""]],null,[[null,"click"]],function(l,n,t){var u=!0;if("click"===n){u=!1!==l.component.itemTapped(t,l.context.$implicit)&&u}return u},ml.b,ml.a)),s.Y(1,1097728,null,3,hl.a,[bl.a,k.a,s.j,s.z,[2,yl.a]],null,null),s._16(335544320,2,{contentLabel:0}),s._16(603979776,3,{_buttons:1}),s._16(603979776,4,{_icons:1}),s.Y(5,16384,null,0,vl.a,[],null,null),(l()(),s._18(-1,2,["\n      "])),(l()(),s.Z(7,0,null,0,1,"ion-icon",[["item-start",""],["role","img"]],[[2,"hide",null]],null,null,null,null)),s.Y(8,147456,[[4,4]],0,pl.a,[k.a,s.j,s.z],{name:[0,"name"]},null),(l()(),s._18(9,2,["\n      ","\n      "])),(l()(),s.Z(10,0,null,4,1,"div",[["class","item-note"],["item-end",""]],null,null,null,null,null)),(l()(),s._18(11,null,["\n        ","\n      "])),(l()(),s._18(-1,2,["\n    "]))],function(l,n){l(n,8,0,n.context.$implicit.icon)},function(l,n){l(n,7,0,s._11(n,8)._hidden);l(n,9,0,n.context.$implicit.title);l(n,11,0,n.context.$implicit.note)})}function o(l){return s._19(0,[(l()(),s.Z(0,0,null,null,4,"div",[["padding",""]],null,null,null,null,null)),(l()(),s._18(-1,null,["\n    You navigated here from "])),(l()(),s.Z(2,0,null,null,1,"b",[],null,null,null,null,null)),(l()(),s._18(3,null,["",""])),(l()(),s._18(-1,null,["\n  "]))],null,function(l,n){l(n,3,0,n.component.selectedItem.title)})}function i(l){return s._19(0,[(l()(),s.Z(0,0,null,null,20,"ion-header",[],null,null,null,null,null)),s.Y(1,16384,null,0,V.a,[k.a,s.j,s.z,[2,U.a]],null,null),(l()(),s._18(-1,null,["\n  "])),(l()(),s.Z(3,0,null,null,16,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,ol.b,ol.a)),s.Y(4,49152,null,0,il.a,[L.a,[2,U.a],[2,H.a],k.a,s.j,s.z],null,null),(l()(),s._18(-1,3,["\n    "])),(l()(),s.Z(6,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,t){var u=!0;if("click"===n){u=!1!==s._11(l,8).toggle()&&u}return u},G.b,G.a)),s.Y(7,1097728,[[1,4]],0,Q.a,[[8,""],k.a,s.j,s.z],null,null),s.Y(8,1064960,null,0,rl.a,[S.a,[2,U.a],[2,Q.a],[2,il.a]],{menuToggle:[0,"menuToggle"]},null),s.Y(9,16384,null,1,sl.a,[k.a,s.j,s.z,[2,cl.a],[2,il.a]],null,null),s._16(603979776,1,{_buttons:1}),(l()(),s._18(-1,0,["\n      "])),(l()(),s.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),s.Y(13,147456,null,0,pl.a,[k.a,s.j,s.z],{name:[0,"name"]},null),(l()(),s._18(-1,0,["\n    "])),(l()(),s._18(-1,3,["\n    "])),(l()(),s.Z(16,0,null,3,2,"ion-title",[],null,null,null,_l.b,_l.a)),s.Y(17,49152,null,0,dl.a,[k.a,s.j,s.z,[2,cl.a],[2,il.a]],null,null),(l()(),s._18(-1,0,["List"])),(l()(),s._18(-1,3,["\n  "])),(l()(),s._18(-1,null,["\n"])),(l()(),s._18(-1,null,["\n\n"])),(l()(),s.Z(22,0,null,null,12,"ion-content",[],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,K.b,K.a)),s.Y(23,4374528,null,0,q.a,[k.a,x.a,F.a,s.j,s.z,L.a,M.a,s.u,[2,U.a],[2,H.a]],null,null),(l()(),s._18(-1,1,["\n  "])),(l()(),s.Z(25,0,null,1,5,"ion-list",[],null,null,null,null,null)),s.Y(26,16384,null,0,El.a,[k.a,s.j,s.z,x.a,D.l,F.a],null,null),(l()(),s._18(-1,null,["\n    "])),(l()(),s.U(16777216,null,null,1,null,a)),s.Y(29,802816,null,0,Cl.h,[s.I,s.F,s.p],{ngForOf:[0,"ngForOf"]},null),(l()(),s._18(-1,null,["\n  "])),(l()(),s._18(-1,1,["\n  "])),(l()(),s.U(16777216,null,1,1,null,o)),s.Y(33,16384,null,0,Cl.i,[s.I,s.F],{ngIf:[0,"ngIf"]},null),(l()(),s._18(-1,1,["\n"])),(l()(),s._18(-1,null,["\n"]))],function(l,n){var t=n.component;l(n,8,0,"");l(n,13,0,"menu");l(n,29,0,t.items);l(n,33,0,t.selectedItem)},function(l,n){l(n,3,0,s._11(n,4)._hidden,s._11(n,4)._sbPadding);l(n,6,0,s._11(n,8).isHidden);l(n,12,0,s._11(n,13)._hidden);l(n,22,0,s._11(n,23).statusbarPadding,s._11(n,23)._hasRefresher)})}Object.defineProperty(n,"__esModule",{value:!0});var r=t(40),s=t(1),c=(t(2),t(173)),p=t(174),_=t(112),d=t(176),f=(t(56),t(110)),g=t(111),m=function(){return function(l){this.navCtrl=l}}(),h=function(){function l(l,n){this.navCtrl=l,this.navParams=n,this.selectedItem=n.get("item"),this.icons=["flask","wifi","beer","football","basketball","paper-plane","american-football","boat","bluetooth","build"],this.items=[];for(var t=1;t<11;t++)this.items.push({title:"Item "+t,note:"This is item #"+t,icon:this.icons[Math.floor(Math.random()*this.icons.length)]})}return n=l,l.prototype.itemTapped=function(l,t){this.navCtrl.push(n,{item:t})},l;var n}(),b=function(){function l(l,n,t){this.platform=l,this.statusBar=n,this.splashScreen=t,this.rootPage="LoginPage",this.initializeApp(),this.pages=[{title:"Home",component:m},{title:"List",component:h}]}return l.prototype.initializeApp=function(){var l=this;this.platform.ready().then(function(){l.statusBar.styleDefault(),l.splashScreen.hide()})},l.prototype.openPage=function(l){this.nav.setRoot(l.component)},l}(),y=t(136),v=t(120),E=function(){return function(){}}(),C=t(69),Z=t(342),w=t(343),I=t(344),N=t(345),j=t(346),T=t(347),Y=t(348),A=t(349),P=t(350),z=t(638),R=t(48),O=t(101),S=t(31),k=t(3),x=t(6),M=t(32),D=t(10),F=t(13),L=t(12),V=t(57),U=t(7),B=t(146),$=t(145),K=t(114),q=t(30),H=t(27),X=t(52),J=t(113),W=t(143),G=t(36),Q=t(22),ll=t(639),nl=t(74),tl=t(45),ul=t(25),el=s.X({encapsulation:2,styles:[],data:{}}),al=s.V("ng-component",b,function(l){return s._19(0,[(l()(),s.Z(0,0,null,null,1,"ng-component",[],null,null,null,u,el)),s.Y(1,49152,null,0,b,[x.a,f.a,g.a],null,null)],null,null)},{},{},[]),ol=t(340),il=t(38),rl=t(102),sl=t(109),cl=t(51),pl=t(39),_l=t(341),dl=t(76),fl=s.X({encapsulation:2,styles:[],data:{}}),gl=s.V("page-home",m,function(l){return s._19(0,[(l()(),s.Z(0,0,null,null,1,"page-home",[],null,null,null,e,fl)),s.Y(1,49152,null,0,m,[H.a],null,null)],null,null)},{},{},[]),ml=t(179),hl=t(26),bl=t(23),yl=t(53),vl=t(77),El=t(73),Cl=t(18),Zl=t(15),wl=s.X({encapsulation:2,styles:[],data:{}}),Il=s.V("page-list",h,function(l){return s._19(0,[(l()(),s.Z(0,0,null,null,1,"page-list",[],null,null,null,i,wl)),s.Y(1,49152,null,0,h,[H.a,Zl.a],null,null)],null,null)},{},{},[]),Nl=t(153),jl=t(29),Tl=t(140),Yl=t(142),Al=t(152),Pl=t(47),zl=t(150),Rl=t(181),Ol=t(71),Sl=t(54),kl=t(157),xl=t(96),Ml=t(161),Dl=t(155),Fl=t(169),Ll=t(338),Vl=t(154),Ul=t(151),Bl=t(156),$l=s.W(E,[C.b],function(l){return s._7([s._8(512,s.i,s.S,[[8,[Z.a,w.a,I.a,N.a,j.a,T.a,Y.a,A.a,P.a,al,gl,Il]],[3,s.i],s.s]),s._8(5120,s.r,s._15,[[3,s.r]]),s._8(4608,Cl.k,Cl.j,[s.r,[2,Cl.s]]),s._8(5120,s.b,s._1,[]),s._8(5120,s.p,s._9,[]),s._8(5120,s.q,s._12,[]),s._8(4608,r.c,r.q,[Cl.c]),s._8(6144,s.D,null,[r.c]),s._8(4608,r.f,Nl.a,[]),s._8(5120,r.d,function(l,n,t,u,e){return[new r.k(l,n),new r.o(t),new r.n(u,e)]},[Cl.c,s.u,Cl.c,Cl.c,r.f]),s._8(4608,r.e,r.e,[r.d,s.u]),s._8(135680,r.m,r.m,[Cl.c]),s._8(4608,r.l,r.l,[r.e,r.m]),s._8(6144,s.B,null,[r.l]),s._8(6144,r.p,null,[r.m]),s._8(4608,s.G,s.G,[s.u]),s._8(4608,r.h,r.h,[Cl.c]),s._8(4608,r.i,r.i,[Cl.c]),s._8(4608,jl.k,jl.k,[]),s._8(4608,jl.c,jl.c,[]),s._8(4608,y.h,y.n,[Cl.c,s.w,y.l]),s._8(4608,y.o,y.o,[y.h,y.m]),s._8(5120,y.a,function(l){return[l]},[y.o]),s._8(4608,y.k,y.k,[]),s._8(6144,y.i,null,[y.k]),s._8(4608,y.g,y.g,[y.i]),s._8(6144,y.b,null,[y.g]),s._8(4608,y.f,y.j,[y.b,s.o]),s._8(4608,y.c,y.c,[y.f]),s._8(4608,v.c,v.c,[]),s._8(4608,v.h,v.b,[]),s._8(5120,v.j,v.k,[]),s._8(4608,v.i,v.i,[v.c,v.h,v.j]),s._8(4608,v.g,v.a,[]),s._8(5120,v.e,v.l,[v.i,v.g]),s._8(4608,Tl.a,Tl.a,[L.a,k.a]),s._8(4608,Yl.a,Yl.a,[L.a,k.a]),s._8(4608,Al.a,Al.a,[]),s._8(4608,bl.a,bl.a,[]),s._8(4608,Pl.a,Pl.a,[x.a]),s._8(4608,M.a,M.a,[k.a,x.a,s.u,F.a]),s._8(4608,zl.a,zl.a,[L.a,k.a]),s._8(5120,Cl.f,Rl.c,[Cl.q,[2,Cl.a],k.a]),s._8(4608,Cl.e,Cl.e,[Cl.f]),s._8(5120,Ol.b,Ol.d,[L.a,Ol.a]),s._8(5120,ul.a,ul.b,[L.a,Ol.b,Cl.e,Sl.b,s.i]),s._8(4608,kl.a,kl.a,[L.a,k.a,ul.a]),s._8(4608,xl.a,xl.a,[L.a,k.a]),s._8(4608,Ml.a,Ml.a,[L.a,k.a,ul.a]),s._8(4608,Dl.a,Dl.a,[k.a,x.a,F.a,L.a,D.l]),s._8(4608,Fl.a,Fl.a,[L.a,k.a]),s._8(4608,tl.a,tl.a,[x.a,k.a]),s._8(4608,f.a,f.a,[]),s._8(4608,g.a,g.a,[]),s._8(4608,d.a,d.a,[]),s._8(4608,_.a,_.a,[]),s._8(4608,p.a,p.a,[Yl.a,zl.a,Fl.a]),s._8(4608,c.a,c.a,[v.e,_.a,y.c]),s._8(512,Cl.b,Cl.b,[]),s._8(512,s.k,Ll.a,[]),s._8(256,k.b,{},[]),s._8(1024,Vl.a,Vl.b,[]),s._8(1024,x.a,x.b,[r.b,Vl.a,s.u]),s._8(1024,k.a,k.c,[k.b,x.a]),s._8(512,F.a,F.a,[x.a]),s._8(512,S.a,S.a,[]),s._8(512,L.a,L.a,[k.a,x.a,[2,S.a]]),s._8(512,D.l,D.l,[L.a]),s._8(256,Ol.a,{links:[{loadChildren:"../pages/login/login.module.ngfactory#LoginPageModuleNgFactory",name:"LoginPage",segment:"login",priority:"low",defaultHistory:[]}]},[]),s._8(512,s.h,s.h,[]),s._8(512,Ul.a,Ul.a,[s.h]),s._8(1024,Sl.b,Sl.c,[Ul.a,s.o]),s._8(1024,s.c,function(l,n,t,u,e,a,o,i,s,c,p,_,d){return[r.s(l),Bl.a(n),Al.b(t,u),Dl.b(e,a,o,i,s),Sl.d(c,p,_,d)]},[[2,s.t],k.a,x.a,F.a,k.a,x.a,F.a,L.a,D.l,k.a,Ol.a,Sl.b,s.u]),s._8(512,s.d,s.d,[[2,s.c]]),s._8(131584,s.f,s.f,[s.u,s.T,s.o,s.k,s.i,s.d]),s._8(512,s.e,s.e,[s.f]),s._8(512,r.a,r.a,[[3,r.a]]),s._8(512,jl.j,jl.j,[]),s._8(512,jl.d,jl.d,[]),s._8(512,jl.i,jl.i,[]),s._8(512,Rl.a,Rl.a,[]),s._8(512,y.e,y.e,[]),s._8(512,y.d,y.d,[]),s._8(512,v.f,v.f,[]),s._8(512,E,E,[]),s._8(256,y.l,"XSRF-TOKEN",[]),s._8(256,y.m,"X-XSRF-TOKEN",[]),s._8(256,C.a,b,[]),s._8(256,Cl.a,"/",[])])});Object(s.M)(),Object(r.j)().bootstrapModuleFactory($l)}},[351]);
+webpackJsonp([4],{
+
+/***/ 149:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Codes; });
+var Codes = /** @class */ (function () {
+    function Codes() {
+        this.EM_INVALID_MOBILE_NUMBER = "Invalid mobile number";
+        this.EM_INVALID_EMAILID = "Invalid email id";
+        this.EM_INVALID_PASSWORD = "Invalid password";
+        this.EM_INVALID_VERIFICATION_ID = "Invalid verification id";
+        this.API_ERROR = "500";
+        this.LSK_IPADDRESS = "ipaddress";
+        this.LSK_USERNAME = "username";
+        this.LSK_PASSWORD = "password";
+        this.LSK_USER_INFO_PREFERENCES = "user_info_preferences";
+        this.API_ENDPOINT = "https://cors-anywhere.herokuapp.com/http://";
+        this.API_AUTHENTICATE_USER = ":10080/24online/service/MobileApplicationService/authenticateUser";
+        this.API_SEARCH_LEAD = ":10080/24online/service/SalesService/searchLead";
+        this.API_SEARCH_SERVICE = ":10080/24online/service/SalesService/searchService";
+    }
+    return Codes;
+}());
+
+//# sourceMappingURL=Codes.js.map
+
+/***/ }),
+
+/***/ 150:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataValidation; });
+var DataValidation = /** @class */ (function () {
+    function DataValidation() {
+    }
+    DataValidation.prototype.isValidIpAddress = function (ipAddress) {
+        if (ipAddress == undefined || ipAddress == null || ipAddress == "")
+            return false;
+        var ipAddressRegex = new RegExp("[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}");
+        if (ipAddressRegex.test(ipAddress))
+            return true;
+        return false;
+    };
+    DataValidation.prototype.isValidMobileNumber = function (mobileNumber) {
+        if (mobileNumber == undefined || mobileNumber == null || mobileNumber == "")
+            return false;
+        var mobileNumberRegex = new RegExp("^[0-9]{10}$");
+        if (mobileNumberRegex.test(mobileNumber))
+            return true;
+        return false;
+    };
+    DataValidation.prototype.isValidEmailId = function (emailId) {
+        if (emailId == undefined || emailId == null || emailId == "")
+            return false;
+        if (emailId != undefined && emailId != null && emailId != "") {
+            var mobileNumberRegex = new RegExp("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$");
+            if (mobileNumberRegex.test(emailId))
+                return true;
+            return false;
+        }
+        return true;
+    };
+    DataValidation.prototype.stringToBoolean = function (string) {
+        if (string == null || string == undefined || string == '')
+            return false;
+        switch (string) {
+            case 'true':
+            case 'True':
+                return true;
+            case 'false':
+            case 'False':
+                return false;
+        }
+        return string;
+    };
+    DataValidation.prototype.commaSeperator = function (string) {
+        //Check if string is null
+        if (this.isEmpty(string))
+            return null;
+        //Check if commas are present
+        if (string.includes(","))
+            return string;
+        //Insert the commas
+        return string.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+    };
+    DataValidation.prototype.isValidPinCode = function (pinCode) {
+        if (pinCode != undefined && pinCode != null && pinCode != "") {
+            var pinCodeRegex = new RegExp("^[0-9]{6}$");
+            if (pinCodeRegex.test(pinCode))
+                return true;
+            return false;
+        }
+    };
+    DataValidation.prototype.isValidAmount = function (amount) {
+        var strongRegex = new RegExp("[0-9]{0,8}.[0-9]{0,2}");
+        return (strongRegex.test(amount));
+    };
+    DataValidation.prototype.isValidIfsc = function (code) {
+        var strongRegex = new RegExp("[A-Za-z]{4}[0-9]{7}$");
+        return (strongRegex.test(code));
+    };
+    DataValidation.prototype.doValidateName = function (name) {
+    };
+    DataValidation.prototype.isValidPassword = function (password) {
+        var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+        return (strongRegex.test(password));
+    };
+    DataValidation.prototype.doCheckForUndefinedVariable = function (fieldToCheck, returnMessageTab, fieldName) {
+        if (fieldToCheck == undefined || fieldToCheck == "")
+            returnMessageTab = fieldName + " not present !!!";
+        return fieldToCheck;
+    };
+    DataValidation.prototype.isNull = function (value) {
+        if (value == null)
+            return true;
+        return false;
+    };
+    DataValidation.prototype.isEmptyJson = function (value) {
+        if (value == undefined)
+            return true;
+        if (value == null)
+            return true;
+        if (value == "")
+            return true;
+        return false;
+    };
+    DataValidation.prototype.isEmpty = function (value) {
+        if (value == undefined)
+            return true;
+        if (value == null)
+            return true;
+        if (value.trim() == "")
+            return true;
+        return false;
+    };
+    DataValidation.prototype.isUndefined = function (value) {
+        if (value == undefined) {
+            return true;
+        }
+    };
+    DataValidation.prototype.isValidNumber = function (number) {
+        if (number != null || number != undefined || number != "") {
+            var nameRegex = new RegExp("[0-9]+");
+            if (nameRegex.test(number))
+                return true;
+            return false;
+        }
+        return false;
+    };
+    DataValidation.prototype.isValidName = function (name) {
+        if (name != undefined && name != null && name != "") {
+            var nameRegex = new RegExp("^[a-zA-Z ]");
+            if (nameRegex.test(name))
+                return true;
+            return false;
+        }
+    };
+    DataValidation.prototype.addErrorMessage = function (eid, errorMessage) {
+        /*STEP : 1  node variable for adding child element for error message*/
+        var node = document.createElement("ion-note");
+        /*STEP : 2 Add classes of this node */
+        node.setAttribute("class", "validation-error");
+        /*STEP : 2 Add id of this node */
+        node.setAttribute("id", eid + "Err");
+        /*STEP : 3 Add text content of this node */
+        var textnode = document.createTextNode(errorMessage);
+        node.appendChild(textnode);
+        /*STEP : 4 Add this node to under the text field */
+        document.getElementById(eid).parentElement.appendChild(node);
+    };
+    DataValidation.prototype.removeErrorMessage = function (eid) {
+        if (document.getElementById(eid + "Err") != null)
+            document.getElementById(eid + "Err").remove();
+    };
+    DataValidation.prototype.removeErrorMessageForMultipleElement = function (eClass, index) {
+        if (document.getElementsByClassName("validation-error" + " " + eClass + "Err")[index] != null)
+            document.getElementsByClassName("validation-error" + " " + eClass + "Err")[index].remove();
+    };
+    DataValidation.prototype.addErrorMessageForMultipleElement = function (eid, errorMessage, index) {
+        /*STEP : 1  node variable for adding child element for error message*/
+        var node = document.createElement("ion-note");
+        /*STEP : 2 Add classes of this node */
+        node.setAttribute("class", "validation-error" + " " + eid + "Err");
+        /*STEP : 3 Add text content of this node */
+        var textnode = document.createTextNode(errorMessage);
+        node.appendChild(textnode);
+        /*STEP : 4 Add this node to under the text field */
+        document.getElementsByClassName(eid)[index].parentElement.appendChild(node);
+    };
+    return DataValidation;
+}());
+
+//# sourceMappingURL=DataValidation.js.map
+
+/***/ }),
+
+/***/ 161:
+/***/ (function(module, exports) {
+
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncatched exception popping up in devtools
+	return Promise.resolve().then(function() {
+		throw new Error("Cannot find module '" + req + "'.");
+	});
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = 161;
+
+/***/ }),
+
+/***/ 302:
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"../pages/home/home.module": [
+		677,
+		3
+	],
+	"../pages/login/login.module": [
+		678,
+		2
+	],
+	"../pages/manage-lead/manage-lead.module": [
+		679,
+		1
+	],
+	"../pages/service-management/service-management.module": [
+		680,
+		0
+	]
+};
+function webpackAsyncContext(req) {
+	var ids = map[req];
+	if(!ids)
+		return Promise.reject(new Error("Cannot find module '" + req + "'."));
+	return __webpack_require__.e(ids[1]).then(function() {
+		return __webpack_require__(ids[0]);
+	});
+};
+webpackAsyncContext.keys = function webpackAsyncContextKeys() {
+	return Object.keys(map);
+};
+webpackAsyncContext.id = 302;
+module.exports = webpackAsyncContext;
+
+/***/ }),
+
+/***/ 346:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HttpProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Utils_Codes__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common_http__ = __webpack_require__(262);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var HttpProvider = /** @class */ (function () {
+    function HttpProvider(http, codes, httpClient) {
+        this.http = http;
+        this.codes = codes;
+        this.httpClient = httpClient;
+    }
+    /**
+     *
+     * @param data  the json data
+     * @param apiName the api name
+     */
+    HttpProvider.prototype.callApi = function (data, apiName) {
+        var _this = this;
+        return new Promise(function (resolve) {
+            var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Headers */]();
+            headers.append('Content-Type', 'application/json');
+            headers.append('Username', 'avijit.ghosh');
+            headers.append('Password', 'avijit.ghosh');
+            var ipAddress = localStorage.getItem(_this.codes.LSK_IPADDRESS);
+            _this.http.post(_this.codes.API_ENDPOINT + ipAddress + apiName, JSON.stringify(data), { headers: headers }).map(function (res) { return res.json(); })
+                .subscribe(function (data) {
+                console.log(data);
+                resolve(data);
+            }, function (err) {
+                console.log(err);
+                resolve({ status: _this.codes.API_ERROR });
+            });
+        });
+    };
+    HttpProvider.prototype.uploadFile = function (data, apiName) {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this.httpClient.post(_this.codes.API_ENDPOINT + apiName, data).subscribe(function (res) {
+                console.log("Success: " + JSON.stringify(res));
+                resolve(res);
+            }, function (err) {
+                console.log(err);
+                resolve(err);
+            });
+        });
+    };
+    HttpProvider.prototype.isNullOrEmpty = function (str) {
+        return typeof str === 'undefined' || str === null || (typeof str === 'string' && str.length <= 0);
+    };
+    HttpProvider.prototype.convertToArray = function (object) {
+        if (this.isArray(object))
+            return object;
+        else
+            return [object];
+    };
+    HttpProvider.prototype.isArray = function (object) {
+        if (typeof object === 'undefined')
+            return false;
+        return Object.prototype.toString.call(object).slice(8, -1) === 'Array';
+    };
+    HttpProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_0__Utils_Codes__["a" /* Codes */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["a" /* HttpClient */]])
+    ], HttpProvider);
+    return HttpProvider;
+}());
+
+//# sourceMappingURL=data.js.map
+
+/***/ }),
+
+/***/ 347:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MessageHelper; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var MessageHelper = /** @class */ (function () {
+    function MessageHelper(alertCtrl, loadingCtrl, toastCtrl) {
+        this.alertCtrl = alertCtrl;
+        this.loadingCtrl = loadingCtrl;
+        this.toastCtrl = toastCtrl;
+    }
+    MessageHelper.prototype.showWorkingDialog = function (message) {
+        if (message === void 0) { message = "Please wait..."; }
+        //Working, please wait...
+        var l = this.loadingCtrl.create({
+            content: message
+        });
+        l.present();
+        return l;
+    };
+    MessageHelper.prototype.showToast = function (message, autoClose) {
+        if (autoClose === void 0) { autoClose = true; }
+        if (autoClose) {
+            this.toastCtrl.create({
+                message: message,
+                duration: 3000
+            }).present();
+        }
+        else {
+            this.toastCtrl.create({
+                message: message,
+                showCloseButton: true,
+                closeButtonText: 'Ok'
+            }).present();
+        }
+    };
+    MessageHelper.prototype.showAlert = function (title, msg, button) {
+        if (button === void 0) { button = 'Close'; }
+        var alert = this.alertCtrl.create({
+            title: title,
+            subTitle: msg,
+            buttons: [button]
+        });
+        alert.present();
+        return alert;
+    };
+    MessageHelper.prototype.showConnectionErrorDialog = function () {
+        this.alertCtrl.create({
+            title: "Connection Error!",
+            subTitle: "Failed to connect with server. Please try again.",
+            buttons: ['Close']
+        }).present();
+    };
+    MessageHelper.prototype.showErrorDialog = function (title, message) {
+        this.alertCtrl.create({
+            title: title,
+            subTitle: message,
+            buttons: ['Close']
+        }).present();
+    };
+    MessageHelper.prototype.showNoProductDialog = function () {
+        this.alertCtrl.create({
+            title: "Not Available!",
+            subTitle: "No products found. Please try again.",
+            buttons: ['Close']
+        }).present();
+    };
+    MessageHelper.prototype.showNoModelDialog = function () {
+        this.alertCtrl.create({
+            title: "Not Available!",
+            subTitle: "No Car Model found. Please try again.",
+            buttons: ['Close']
+        }).present();
+    };
+    MessageHelper.prototype.showNoOrderDialog = function () {
+        this.alertCtrl.create({
+            title: "Not Available!",
+            subTitle: "No Order found.",
+            buttons: ['Close']
+        }).present();
+    };
+    MessageHelper.prototype.showNoProductDialogPRODUCTOUTOFSTOCK = function () {
+        this.alertCtrl.create({
+            title: "Not Available!",
+            subTitle: "PRODUCT OUT OF STOCK",
+            buttons: ['Close']
+        }).present();
+    };
+    MessageHelper.prototype.showNoProductDialogINSUFFICIENTSTOCK = function () {
+        this.alertCtrl.create({
+            title: "Not Available!",
+            subTitle: "INSUFFICIENT STOCK",
+            buttons: ['Close']
+        }).present();
+    };
+    MessageHelper.prototype.showNoProductDialogINVALIDUSER = function () {
+        this.alertCtrl.create({
+            title: "Error!",
+            subTitle: "INVALID USER",
+            buttons: ['Close']
+        }).present();
+    };
+    MessageHelper.prototype.showNoProductDialogFAILURE = function () {
+        this.alertCtrl.create({
+            title: "Error!",
+            subTitle: "FAILURE",
+            buttons: ['Close']
+        }).present();
+    };
+    MessageHelper.prototype.showNoProductDialogSYSTEMERROR = function () {
+        this.alertCtrl.create({
+            title: "Error!",
+            subTitle: "SYSTEM ERROR",
+            buttons: ['Close']
+        }).present();
+    };
+    MessageHelper.prototype.showDialogChangePassword = function () {
+        this.alertCtrl.create({
+            title: "Error!",
+            subTitle: "Your old password does not match.",
+            buttons: ['Close']
+        }).present();
+    };
+    MessageHelper = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["k" /* ToastController */]])
+    ], MessageHelper);
+    return MessageHelper;
+}());
+
+//# sourceMappingURL=message-helper.js.map
+
+/***/ }),
+
+/***/ 348:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StringUtils; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__DataValidation__ = __webpack_require__(150);
+
+var StringUtils = /** @class */ (function () {
+    function StringUtils() {
+    }
+    /**
+     *
+     * @param string
+     */
+    StringUtils.prototype.splitStringInCamelCase = function (string) {
+        var dataValidation = new __WEBPACK_IMPORTED_MODULE_0__DataValidation__["a" /* DataValidation */]();
+        if (dataValidation.isEmptyJson(string))
+            return string;
+        var strArr = string.split(".");
+        if (strArr.length > 1)
+            return strArr[0].substr(0, 1).toUpperCase() + strArr[0].substr(1, strArr[0].length - 1).toLowerCase() + " " + strArr[1].substr(0, 1).toUpperCase() + strArr[1].substr(1, strArr[1].length - 1).toLowerCase();
+        return strArr[0].substr(0, 1).toUpperCase() + strArr[0].substr(1, strArr[0].length - 1).toLowerCase();
+    };
+    return StringUtils;
+}());
+
+//# sourceMappingURL=StringUtils.js.map
+
+/***/ }),
+
+/***/ 349:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(350);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(354);
+
+
+Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
+//# sourceMappingURL=main.js.map
+
+/***/ }),
+
+/***/ 354:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_data_data__ = __webpack_require__(346);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_message_helper__ = __webpack_require__(347);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Utils_Codes__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Utils_DataValidation__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_angular__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(673);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_status_bar__ = __webpack_require__(342);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__ = __webpack_require__(345);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_common_http__ = __webpack_require__(262);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_http__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__Utils_StringUtils__ = __webpack_require__(348);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+var AppModule = /** @class */ (function () {
+    function AppModule() {
+    }
+    AppModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_5__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* MyApp */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__["a" /* BrowserModule */],
+                __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* MyApp */], {}, {
+                    links: [
+                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/manage-lead/manage-lead.module#ManageLeadPageModule', name: 'ManageLeadPage', segment: 'manage-lead', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/service-management/service-management.module#ServiceManagementPageModule', name: 'ServiceManagementPage', segment: 'service-management', priority: 'low', defaultHistory: [] }
+                    ]
+                }),
+                __WEBPACK_IMPORTED_MODULE_10__angular_common_http__["b" /* HttpClientModule */],
+                __WEBPACK_IMPORTED_MODULE_11__angular_http__["c" /* HttpModule */]
+            ],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_6_ionic_angular__["b" /* IonicApp */]],
+            entryComponents: [
+                __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* MyApp */],
+            ],
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_8__ionic_native_status_bar__["a" /* StatusBar */],
+                __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__["a" /* SplashScreen */],
+                __WEBPACK_IMPORTED_MODULE_3__Utils_DataValidation__["a" /* DataValidation */],
+                __WEBPACK_IMPORTED_MODULE_2__Utils_Codes__["a" /* Codes */],
+                __WEBPACK_IMPORTED_MODULE_1__providers_message_helper__["a" /* MessageHelper */],
+                __WEBPACK_IMPORTED_MODULE_0__providers_data_data__["a" /* HttpProvider */],
+                __WEBPACK_IMPORTED_MODULE_12__Utils_StringUtils__["a" /* StringUtils */],
+                { provide: __WEBPACK_IMPORTED_MODULE_5__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["c" /* IonicErrorHandler */] }
+            ]
+        })
+    ], AppModule);
+    return AppModule;
+}());
+
+//# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ 673:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(342);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(345);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var MyApp = /** @class */ (function () {
+    function MyApp(platform, statusBar, splashScreen) {
+        this.platform = platform;
+        this.statusBar = statusBar;
+        this.splashScreen = splashScreen;
+        this.rootPage = "LoginPage";
+        this.initializeApp();
+    }
+    MyApp.prototype.initializeApp = function () {
+        var _this = this;
+        this.platform.ready().then(function () {
+            // Okay, so the platform is ready and our plugins are available.
+            // Here you can do any higher level native things you might need.
+            _this.statusBar.styleDefault();
+            _this.splashScreen.hide();
+        });
+    };
+    MyApp.prototype.openPage = function (page) {
+        // Reset the content nav to have just this page
+        // we wouldn't want the back button to show in this scenario
+        this.nav.setRoot(page.component);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Nav */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Nav */])
+    ], MyApp.prototype, "nav", void 0);
+    MyApp = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/aashijit/24Online/src/app/app.html"*/'<ion-menu [content]="content" type="overlay">\n  <ion-header style="background-color : rgb(61, 192, 253) !important;">\n    <ion-row>\n      <ion-col style="text-align: center !important;">\n        <img src="../assets/imgs/logo.png" style="width: 90px !important;" />\n      </ion-col>\n    </ion-row>\n  </ion-header>\n\n  <ion-content style="background-image: radial-gradient(rgb(246, 246, 246) ,rgb(230, 230, 230));">\n\n    <p style="text-align:  center !important;">\n    <ion-label>\n      Sales Management\n    </ion-label>\n  </p>\n\n    <ion-card>\n      <ion-card-header>Lead Management</ion-card-header>\n         <p> <button ion-button clear> <img src="../assets/imgs/create-lead.svg" style="width: 20px !important"/> &nbsp; Create Lead</button></p>\n        <p> <button ion-button clear (click)="nav.push(\'ManageLeadPage\')" menuClose><img src="../assets/imgs/manage-lead.svg" style="width: 20px !important"/> &nbsp; Manage Lead</button></p>\n    </ion-card>\n\n\n    <ion-card>\n      <ion-card-header>Service Request</ion-card-header>\n         <p> <button ion-button clear (click)="nav.push(\'ServiceManagementPage\')" menuClose> <img src="../assets/imgs/request.svg" style="width: 20px !important"/> &nbsp; Manage Service Request</button></p>\n    </ion-card>\n\n\n\n    <ion-card>\n        <ion-card-header>Settings</ion-card-header>  \n         <p> <button ion-button clear> <img src="../assets/imgs/user-edit.svg" style="width: 20px !important"/> &nbsp; Edit Profile</button></p>\n         <p> <button ion-button clear> <img src="../assets/imgs/contract.svg" style="width: 20px !important"/> &nbsp; Terms & Conditions</button></p>\n         <p> <button ion-button clear> <img src="../assets/imgs/logout.svg" style="width: 20px !important"/> &nbsp; Log out</button></p>\n         <p> <button ion-button clear> <img src="../assets/imgs/version.svg" style="width: 20px !important"/> &nbsp; App Version : 0.0.1</button></p>\n    </ion-card>\n\n    <!-- <ion-list>\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list> -->\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/home/aashijit/24Online/src/app/app.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+    ], MyApp);
+    return MyApp;
+}());
+
+//# sourceMappingURL=app.component.js.map
+
+/***/ })
+
+},[349]);
+//# sourceMappingURL=main.js.map

@@ -4,22 +4,20 @@ import { Codes } from './../Utils/Codes';
 import { DataValidation } from './../Utils/DataValidation';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule, NavController } from 'ionic-angular';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpClientModule } from '@angular/common/http';
 import { Http, ConnectionBackend, HttpModule } from '@angular/http';
+import { StringUtils } from '../Utils/StringUtils';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    ListPage
+    
   ],
   imports: [
     BrowserModule,
@@ -30,8 +28,6 @@ import { Http, ConnectionBackend, HttpModule } from '@angular/http';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    ListPage
   ],
   providers: [
     StatusBar,
@@ -40,6 +36,7 @@ import { Http, ConnectionBackend, HttpModule } from '@angular/http';
     Codes,
     MessageHelper,
     HttpProvider,
+    StringUtils,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
