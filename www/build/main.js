@@ -1,4 +1,4 @@
-webpackJsonp([4],{
+webpackJsonp([6],{
 
 /***/ 149:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -218,20 +218,28 @@ webpackEmptyAsyncContext.id = 161;
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"../pages/home/home.module": [
+	"../pages/filter-lead-management/filter-lead-management.module": [
 		677,
+		5
+	],
+	"../pages/filter-service-management/filter-service-management.module": [
+		682,
+		4
+	],
+	"../pages/home/home.module": [
+		678,
 		3
 	],
 	"../pages/login/login.module": [
-		678,
+		679,
 		2
 	],
 	"../pages/manage-lead/manage-lead.module": [
-		679,
+		680,
 		1
 	],
 	"../pages/service-management/service-management.module": [
-		680,
+		681,
 		0
 	]
 };
@@ -583,10 +591,12 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* MyApp */], {}, {
                     links: [
+                        { loadChildren: '../pages/filter-lead-management/filter-lead-management.module#FilterLeadManagementPageModule', name: 'FilterLeadManagementPage', segment: 'filter-lead-management', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/manage-lead/manage-lead.module#ManageLeadPageModule', name: 'ManageLeadPage', segment: 'manage-lead', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/service-management/service-management.module#ServiceManagementPageModule', name: 'ServiceManagementPage', segment: 'service-management', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/service-management/service-management.module#ServiceManagementPageModule', name: 'ServiceManagementPage', segment: 'service-management', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/filter-service-management/filter-service-management.module#FilterServiceManagementPageModule', name: 'FilterServiceManagementPage', segment: 'filter-service-management', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_10__angular_common_http__["b" /* HttpClientModule */],
