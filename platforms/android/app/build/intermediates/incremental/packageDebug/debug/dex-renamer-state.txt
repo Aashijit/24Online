@@ -1,4 +1,4 @@
-#Fri Feb 14 21:35:20 IST 2020
-base.0=/home/aashijit/Platica-Polinesia/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0
+#Wed Feb 19 17:37:49 IST 2020
+base.0=C\:\\24Online\\24Online\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex

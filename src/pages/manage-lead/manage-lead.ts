@@ -2,7 +2,7 @@ import { Codes } from './../../Utils/Codes';
 import { HttpProvider } from './../../providers/data/data';
 import { MessageHelper } from './../../providers/message-helper';
 import { DataValidation } from './../../Utils/DataValidation';
-import { Component } from '@angular/core';
+import { Component, KeyValueDiffers } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 
@@ -14,6 +14,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class ManageLeadPage {
 
   leads : any = null;
+  emptyLead : any = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public dataValidation : DataValidation, public msgHelper : MessageHelper,
@@ -28,10 +29,20 @@ export class ManageLeadPage {
       //Empty request json
     };
 
+    if(this.navParams.get('requestJson'))
+    {
+      requestJson = this.navParams.get('requestJson');
+    }
+
     this.http.callApi(requestJson,this.codes.API_SEARCH_LEAD).then(responseJson => {
 
       if(this.dataValidation.isEmptyJson(responseJson)){
         this.msgHelper.showErrorDialog('Server error','Empty response received from back end server.Please try after some time.');
+        return;
+      }
+
+      if(responseJson['responsemsg'] ==' No Record Found '){
+        this.emptyLead = true;
         return;
       }
 
@@ -44,4 +55,8 @@ export class ManageLeadPage {
       this.msgHelper.showErrorDialog('Server error',error);
     });
   }
+
+
+  
+
 }

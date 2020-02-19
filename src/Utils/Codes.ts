@@ -16,7 +16,6 @@ export class Codes{
     public LSK_USERNAME="username";
     public LSK_PASSWORD="password";
     
-    
     public LSK_USER_INFO_PREFERENCES="user_info_preferences";
     
 

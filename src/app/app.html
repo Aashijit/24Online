@@ -18,13 +18,13 @@
     <ion-card>
       <ion-card-header>Lead Management</ion-card-header>
          <p> <button ion-button clear> <img src="../assets/imgs/create-lead.svg" style="width: 20px !important"/> &nbsp; Create Lead</button></p>
-        <p> <button ion-button clear (click)="nav.push('ManageLeadPage')" menuClose><img src="../assets/imgs/manage-lead.svg" style="width: 20px !important"/> &nbsp; Manage Lead</button></p>
+        <p> <button ion-button clear (click)="nav.setRoot('ManageLeadPage')" menuClose><img src="../assets/imgs/manage-lead.svg" style="width: 20px !important"/> &nbsp; Manage Lead</button></p>
     </ion-card>
 
 
     <ion-card>
       <ion-card-header>Service Request</ion-card-header>
-         <p> <button ion-button clear (click)="nav.push('ServiceManagementPage')" menuClose> <img src="../assets/imgs/request.svg" style="width: 20px !important"/> &nbsp; Manage Service Request</button></p>
+         <p> <button ion-button clear (click)="nav.setRoot('ServiceManagementPage')" menuClose> <img src="../assets/imgs/request.svg" style="width: 20px !important"/> &nbsp; Manage Service Request</button></p>
     </ion-card>
 
 
