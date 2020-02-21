@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-navbar >
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Create Lead</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list style="text-align: center !important;">
+
+    <ion-item>
+      <ion-label floating>First name</ion-label>
+      <ion-input [(ngModel)]="firstName"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label floating>Last name</ion-label>
+      <ion-input [(ngModel)]="lastName"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label floating>Email id</ion-label>
+      <ion-input [(ngModel)]="emailId" type="email"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label floating>Contact number</ion-label>
+      <ion-input [(ngModel)]="contactNo" type="tel" maxlength=10></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label floating>Address Line 1</ion-label>
+      <ion-input [(ngModel)]="address1" ></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label floating>Group name</ion-label>
+      <ion-input [(ngModel)]="groupname" ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Zone name</ion-label>
+      <ion-input [(ngModel)]="zonename" ></ion-input>
+    </ion-item>
+   
+    <ion-item>
+      <ion-label floating>Payment Amount</ion-label>
+      <ion-input [(ngModel)]="paymentamount"  type="tel"></ion-input>
+    </ion-item>
+
+    
+    <ion-item>
+      <ion-label floating>Source of lead</ion-label>
+      <ion-input [(ngModel)]="source" ></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label floating>Preferred call time</ion-label>
+      <ion-datetime displayFormat="D, MMM YYYY H:mm a" pickerFormat="DD/MM/YYYY HH:mm" [(ngModel)]="preferredCallTime"></ion-datetime>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label floating>Closure time</ion-label>
+      <ion-datetime displayFormat="D, MMM YYYY H:mm a" pickerFormat="DD/MM/YYYY HH:mm" [(ngModel)]="closureTime"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Comment</ion-label>
+      <ion-textarea [(ngModel)]="comment"  rows="8" cols="20"></ion-textarea>
+    </ion-item>
+
+  <p style="text-align: center !important;">
+    <button ion-button round outline (click)="createLead()">Create Lead</button>
+  </p>
+
+  </ion-list>
+
+</ion-content>

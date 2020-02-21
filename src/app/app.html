@@ -17,7 +17,7 @@
 
     <ion-card>
       <ion-card-header>Lead Management</ion-card-header>
-         <p> <button ion-button clear> <img src="../assets/imgs/create-lead.svg" style="width: 20px !important"/> &nbsp; Create Lead</button></p>
+         <p> <button ion-button clear (click)="nav.setRoot('CreateLeadPage')" menuClose> <img src="../assets/imgs/create-lead.svg" style="width: 20px !important"/> &nbsp; Create Lead</button></p>
         <p> <button ion-button clear (click)="nav.setRoot('ManageLeadPage')" menuClose><img src="../assets/imgs/manage-lead.svg" style="width: 20px !important"/> &nbsp; Manage Lead</button></p>
     </ion-card>
 
