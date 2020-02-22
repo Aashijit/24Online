@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(688);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(689);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var LoginPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 688:
+/***/ 689:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -117,7 +117,7 @@ var LoginPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["m" /* Component */])({
             selector: 'page-login',template:/*ion-inline-start:"C:\24Online\24Online\src\pages\login\login.html"*/'<ion-header>\n\n  <p class="small-text pl-20 pr-20">\n\n    <img src="../../assets/imgs/logo.png" style="width: 70px !important;" />\n\n\n\n    <span style="float: right !important;">\n\n      <ion-icon name="notifications" style="margin-top: 10px !important; color: #eee !important;"></ion-icon>\n\n    </span>\n\n  </p>\n\n</ion-header>\n\n\n\n<ion-content padding class="background">\n\n\n\n  <p class="image-middle-card nomargin">\n\n\n\n  </p>\n\n  <ion-card id="content">\n\n    <ion-avatar id="user-info">\n\n      <img id="user-image" src="../../assets/imgs/user.png" />\n\n    </ion-avatar>\n\n    <ion-card-content>\n\n\n\n      <ion-item>\n\n        <ion-label color="primary" stacked>IP Address</ion-label>\n\n        <ion-input type="tel" placeholder="IP address" class="input-underline" [(ngModel)]="ipAddress">\n\n        </ion-input>\n\n      </ion-item>\n\n\n\n\n\n      <ion-item>\n\n        <ion-label color="primary" stacked>Username</ion-label>\n\n        <ion-input type="email" placeholder="Your registered username" class="input-underline" [(ngModel)]="userName">\n\n        </ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label color="primary" stacked>Password</ion-label>\n\n        <ion-input type="password" placeholder="Your password" class="input-underline" [(ngModel)]="password"></ion-input>\n\n      </ion-item>\n\n\n\n    </ion-card-content>\n\n    <p style="text-align: right !important; margin-right: 20px !important;">\n\n      <button ion-button clear (click)="login()">Login</button>\n\n    </p>\n\n    <p style="font-size:10px !important">\n\n      <button ion-button clear>Forgot Password?</button>\n\n    </p>\n\n  </ion-card>\n\n\n\n\n\n\n\n</ion-content>\n\n\n\n<ion-footer>\n\n\n\n  <p class="pl-20 pr-20 nomargin">\n\n    <span style="float: left !important;"><button ion-button clear>Terms and Conditions</button></span>\n\n    <span\n\n      style="float: right !important; font-size: 10px !important; color: rgb(0, 0, 0) !important; margin-top: 18px !important;">Copyright\n\n      &copy;2020 24 Online Info </span>\n\n  </p>\n\n\n\n</ion-footer>'/*ion-inline-end:"C:\24Online\24Online\src\pages\login\login.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["i" /* NavParams */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["j" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_3__Utils_DataValidation__["a" /* DataValidation */], __WEBPACK_IMPORTED_MODULE_2__providers_message_helper__["a" /* MessageHelper */],
             __WEBPACK_IMPORTED_MODULE_1__providers_data_data__["a" /* HttpProvider */], __WEBPACK_IMPORTED_MODULE_0__Utils_Codes__["a" /* Codes */]])
     ], LoginPage);

@@ -25803,6 +25803,10 @@ ion-app.md {
   position: relative;
 }
 
+.popup {
+  background: rgba(0, 0, 0, 0.9);
+}
+
 page-filter-lead-management .filter-sub-header {
   margin: 0px !important;
   padding: 8px !important;

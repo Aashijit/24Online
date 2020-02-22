@@ -24,7 +24,7 @@ export class Codes{
     public API_SEARCH_LEAD=":10080/24online/service/SalesService/searchLead";
     public API_SEARCH_SERVICE=":10080/24online/service/SalesService/searchService";
     public API_CREATE_LEAD=":10080/24online/service/SalesService/createLead";
-    
+    public API_GET_LEAD_DETAILS=":10080/24online/service/SalesService/searchLeadTicketwithDetail";
 
 
 }

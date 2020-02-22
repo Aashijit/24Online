@@ -1,4 +1,4 @@
-webpackJsonp([7],{
+webpackJsonp([8],{
 
 /***/ 149:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -190,6 +190,7 @@ var Codes = /** @class */ (function () {
         this.API_SEARCH_LEAD = ":10080/24online/service/SalesService/searchLead";
         this.API_SEARCH_SERVICE = ":10080/24online/service/SalesService/searchService";
         this.API_CREATE_LEAD = ":10080/24online/service/SalesService/createLead";
+        this.API_GET_LEAD_DETAILS = ":10080/24online/service/SalesService/searchLeadTicketwithDetail";
     }
     return Codes;
 }());
@@ -221,18 +222,22 @@ webpackEmptyAsyncContext.id = 161;
 var map = {
 	"../pages/create-lead/create-lead.module": [
 		677,
-		6
+		7
 	],
 	"../pages/filter-lead-management/filter-lead-management.module": [
 		678,
-		5
+		6
 	],
 	"../pages/filter-service-management/filter-service-management.module": [
 		679,
-		4
+		5
 	],
 	"../pages/home/home.module": [
 		680,
+		4
+	],
+	"../pages/lead-detail/lead-detail.module": [
+		682,
 		3
 	],
 	"../pages/login/login.module": [
@@ -240,11 +245,11 @@ var map = {
 		2
 	],
 	"../pages/manage-lead/manage-lead.module": [
-		682,
+		683,
 		1
 	],
 	"../pages/service-management/service-management.module": [
-		683,
+		684,
 		0
 	]
 };
@@ -402,7 +407,7 @@ var MessageHelper = /** @class */ (function () {
     };
     MessageHelper = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["k" /* ToastController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["l" /* ToastController */]])
     ], MessageHelper);
     return MessageHelper;
 }());
@@ -601,6 +606,7 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/filter-service-management/filter-service-management.module#FilterServiceManagementPageModule', name: 'FilterServiceManagementPage', segment: 'filter-service-management', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/lead-detail/lead-detail.module#LeadDetailPageModule', name: 'LeadDetailPage', segment: 'lead-detail', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/manage-lead/manage-lead.module#ManageLeadPageModule', name: 'ManageLeadPage', segment: 'manage-lead', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/service-management/service-management.module#ServiceManagementPageModule', name: 'ServiceManagementPage', segment: 'service-management', priority: 'low', defaultHistory: [] }
                     ]
@@ -676,13 +682,13 @@ var MyApp = /** @class */ (function () {
         this.nav.setRoot(page.component);
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Nav */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Nav */])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\24Online\24Online\src\app\app.html"*/'<ion-menu [content]="content" type="overlay">\n\n  <ion-header style="background-color : rgb(61, 192, 253) !important;">\n\n    <ion-row>\n\n      <ion-col style="text-align: center !important;">\n\n        <img src="../assets/imgs/logo.png" style="width: 90px !important;" />\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-header>\n\n\n\n  <ion-content style="background-image: radial-gradient(rgb(246, 246, 246) ,rgb(230, 230, 230));">\n\n\n\n    <p style="text-align:  center !important;">\n\n    <ion-label>\n\n      Sales Management\n\n    </ion-label>\n\n  </p>\n\n\n\n    <ion-card>\n\n      <ion-card-header>Lead Management</ion-card-header>\n\n         <p> <button ion-button clear (click)="nav.setRoot(\'CreateLeadPage\')" menuClose> <img src="../assets/imgs/create-lead.svg" style="width: 20px !important"/> &nbsp; Create Lead</button></p>\n\n        <p> <button ion-button clear (click)="nav.setRoot(\'ManageLeadPage\')" menuClose><img src="../assets/imgs/manage-lead.svg" style="width: 20px !important"/> &nbsp; Manage Lead</button></p>\n\n    </ion-card>\n\n\n\n\n\n    <ion-card>\n\n      <ion-card-header>Service Request</ion-card-header>\n\n         <p> <button ion-button clear (click)="nav.setRoot(\'ServiceManagementPage\')" menuClose> <img src="../assets/imgs/request.svg" style="width: 20px !important"/> &nbsp; Manage Service Request</button></p>\n\n    </ion-card>\n\n\n\n\n\n\n\n    <ion-card>\n\n        <ion-card-header>Settings</ion-card-header>  \n\n         <p> <button ion-button clear> <img src="../assets/imgs/user-edit.svg" style="width: 20px !important"/> &nbsp; Edit Profile</button></p>\n\n         <p> <button ion-button clear> <img src="../assets/imgs/contract.svg" style="width: 20px !important"/> &nbsp; Terms & Conditions</button></p>\n\n         <p> <button ion-button clear> <img src="../assets/imgs/logout.svg" style="width: 20px !important"/> &nbsp; Log out</button></p>\n\n         <p> <button ion-button clear> <img src="../assets/imgs/version.svg" style="width: 20px !important"/> &nbsp; App Version : 0.0.1</button></p>\n\n    </ion-card>\n\n\n\n    <!-- <ion-list>\n\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n\n        {{p.title}}\n\n      </button>\n\n    </ion-list> -->\n\n  </ion-content>\n\n\n\n</ion-menu>\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"C:\24Online\24Online\src\app\app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
     return MyApp;
 }());

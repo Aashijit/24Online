@@ -3,7 +3,7 @@ import { HttpProvider } from './../../providers/data/data';
 import { MessageHelper } from './../../providers/message-helper';
 import { DataValidation } from './../../Utils/DataValidation';
 import { Component, KeyValueDiffers } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 
 
 @IonicPage()
@@ -18,7 +18,7 @@ export class ManageLeadPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public dataValidation : DataValidation, public msgHelper : MessageHelper,
-    public http : HttpProvider,public codes : Codes) {
+    public http : HttpProvider,public codes : Codes,public modalCtrl: ModalController) {
   }
 
   ionViewDidLoad() {
@@ -59,14 +59,9 @@ export class ManageLeadPage {
 
 
   //Go to details page
-  getDetails(leadId : any){
-
+  getDetails(lead : any){
     //Call the modal page using the lead Id
-    
-
+    let leadModal = this.modalCtrl.create('LeadDetailPage',{'leadTicketDate':lead});
+    leadModal.present();
   }
-
-
-  
-
 }

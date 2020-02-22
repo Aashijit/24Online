@@ -1,12 +1,6 @@
+import { DataValidation } from './../../Utils/DataValidation';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the LeadDetailPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -15,11 +9,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LeadDetailPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  leadDetail : any = null;
+  leadTicketData : any = null;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,public dataValidation : DataValidation) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LeadDetailPage');
+
+    //Loading the ticket details from the previous page
+    this.leadTicketData = this.navParams.get('leadTicketDate');
+
+
+
   }
 
 }
