@@ -1,14 +1,14 @@
 webpackJsonp([2],{
 
-/***/ 681:
+/***/ 683:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ManageLeadPageModule", function() { return ManageLeadPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(689);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__manage_lead__ = __webpack_require__(692);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,31 +18,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var LoginPageModule = /** @class */ (function () {
-    function LoginPageModule() {
+var ManageLeadPageModule = /** @class */ (function () {
+    function ManageLeadPageModule() {
     }
-    LoginPageModule = __decorate([
+    ManageLeadPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_2__manage_lead__["a" /* ManageLeadPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__manage_lead__["a" /* ManageLeadPage */]),
             ],
         })
-    ], LoginPageModule);
-    return LoginPageModule;
+    ], ManageLeadPageModule);
+    return ManageLeadPageModule;
 }());
 
-//# sourceMappingURL=login.module.js.map
+//# sourceMappingURL=manage-lead.module.js.map
 
 /***/ }),
 
-/***/ 689:
+/***/ 692:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ManageLeadPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Utils_Codes__ = __webpack_require__(150);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_data_data__ = __webpack_require__(347);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_message_helper__ = __webpack_require__(346);
@@ -64,67 +64,60 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var LoginPage = /** @class */ (function () {
-    function LoginPage(navCtrl, navParams, dataValidation, msgHelper, http, codes) {
+var ManageLeadPage = /** @class */ (function () {
+    function ManageLeadPage(navCtrl, navParams, dataValidation, msgHelper, http, codes, modalCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.dataValidation = dataValidation;
         this.msgHelper = msgHelper;
         this.http = http;
         this.codes = codes;
-        //Set to default
-        this.ipAddress = "123.201.20.60";
-        this.userName = "avijit.ghosh";
-        this.password = "avijit.ghosh";
+        this.modalCtrl = modalCtrl;
+        this.leads = null;
+        this.emptyLead = false;
     }
-    LoginPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad LoginPage');
-    };
-    LoginPage.prototype.login = function () {
+    ManageLeadPage.prototype.ionViewDidLoad = function () {
         var _this = this;
-        //Validate the ip address
-        if (!this.dataValidation.isValidIpAddress(this.ipAddress)) {
-            this.msgHelper.showErrorDialog('Alert!', 'Invalid Ip Address');
-            return;
+        console.log('ionViewDidLoad ManageLeadPage');
+        //Step 1 : Load all the leads
+        var requestJson = {};
+        if (this.navParams.get('requestJson')) {
+            requestJson = this.navParams.get('requestJson');
         }
-        //Insert the request into the localstorage
-        localStorage.setItem(this.codes.LSK_USERNAME, this.userName);
-        localStorage.setItem(this.codes.LSK_PASSWORD, this.password);
-        //Create the request json
-        var loginRequestJson = {
-            "username": this.userName,
-            "Password": this.password
-        };
-        var loading = this.msgHelper.showWorkingDialog('Authenticating User');
-        localStorage.setItem(this.codes.LSK_IPADDRESS, this.ipAddress);
-        this.http.callApi(loginRequestJson, this.codes.API_AUTHENTICATE_USER).then(function (responseJson) {
-            loading.dismiss();
+        this.http.callApi(requestJson, this.codes.API_SEARCH_LEAD).then(function (responseJson) {
             if (_this.dataValidation.isEmptyJson(responseJson)) {
                 _this.msgHelper.showErrorDialog('Server error', 'Empty response received from back end server.Please try after some time.');
                 return;
             }
-            localStorage.setItem(_this.codes.LSK_USER_INFO_PREFERENCES, JSON.stringify(responseJson));
-            _this.msgHelper.showToast('Login Successfull !!!');
-            _this.navCtrl.setRoot('HomePage');
+            if (responseJson['responsemsg'] == ' No Record Found ') {
+                _this.emptyLead = true;
+                return;
+            }
+            _this.leads = responseJson['responsemsg'];
+            console.error(_this.leads);
         }, function (error) {
-            loading.dismiss();
             console.error(error);
             _this.msgHelper.showErrorDialog('Server error', error);
         });
-        // this.navCtrl.setRoot(HomePage);
     };
-    LoginPage = __decorate([
+    //Go to details page
+    ManageLeadPage.prototype.getDetails = function (lead) {
+        //Call the modal page using the lead Id
+        var leadModal = this.modalCtrl.create('LeadDetailPage', { 'leadTicketDate': lead });
+        leadModal.present();
+    };
+    ManageLeadPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"C:\24Online\24Online\src\pages\login\login.html"*/'<ion-header>\n\n  <p class="small-text pl-20 pr-20">\n\n    <img src="../../assets/imgs/logo.png" style="width: 70px !important;" />\n\n\n\n    <span style="float: right !important;">\n\n      <ion-icon name="notifications" style="margin-top: 10px !important; color: #eee !important;"></ion-icon>\n\n    </span>\n\n  </p>\n\n</ion-header>\n\n\n\n<ion-content padding class="background">\n\n\n\n  <p class="image-middle-card nomargin">\n\n\n\n  </p>\n\n  <ion-card id="content">\n\n    <ion-avatar id="user-info">\n\n      <img id="user-image" src="../../assets/imgs/user.png" />\n\n    </ion-avatar>\n\n    <ion-card-content>\n\n\n\n      <ion-item>\n\n        <ion-label color="primary" stacked>IP Address</ion-label>\n\n        <ion-input type="tel" placeholder="IP address" class="input-underline" [(ngModel)]="ipAddress">\n\n        </ion-input>\n\n      </ion-item>\n\n\n\n\n\n      <ion-item>\n\n        <ion-label color="primary" stacked>Username</ion-label>\n\n        <ion-input type="email" placeholder="Your registered username" class="input-underline" [(ngModel)]="userName">\n\n        </ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label color="primary" stacked>Password</ion-label>\n\n        <ion-input type="password" placeholder="Your password" class="input-underline" [(ngModel)]="password"></ion-input>\n\n      </ion-item>\n\n\n\n    </ion-card-content>\n\n    <p style="text-align: right !important; margin-right: 20px !important;">\n\n      <button ion-button clear (click)="login()">Login</button>\n\n    </p>\n\n    <p style="font-size:10px !important">\n\n      <button ion-button clear>Forgot Password?</button>\n\n    </p>\n\n  </ion-card>\n\n\n\n\n\n\n\n</ion-content>\n\n\n\n<ion-footer>\n\n\n\n  <p class="pl-20 pr-20 nomargin">\n\n    <span style="float: left !important;"><button ion-button clear>Terms and Conditions</button></span>\n\n    <span\n\n      style="float: right !important; font-size: 10px !important; color: rgb(0, 0, 0) !important; margin-top: 18px !important;">Copyright\n\n      &copy;2020 24 Online Info </span>\n\n  </p>\n\n\n\n</ion-footer>'/*ion-inline-end:"C:\24Online\24Online\src\pages\login\login.html"*/,
+            selector: 'page-manage-lead',template:/*ion-inline-start:"/home/aashijit/24Online/src/pages/manage-lead/manage-lead.html"*/'<ion-header>\n  <ion-navbar >\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Lead Management</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n<p style="text-align: center !important; color: #919191;" *ngIf=\'dataValidation.isEmptyJson(leads) && !emptyLead\'>\n  <ion-spinner name="bubbles"></ion-spinner>\n</p>\n<p style="text-align: center !important; color: #919191;" *ngIf=\'dataValidation.isEmptyJson(leads) && !emptyLead\'>\n  Loading the leads ...\n</p>\n\n<p style="text-align: center !important; margin-top:30% !important" *ngIf="emptyLead">\n  <img src="../../assets/imgs/empty.svg" style="width:  45px !important; height: 45px !important;" />\n  <br/>\n  <span style="color: #aaa !important; font-weight: 500 !important; margin-top: 10px !important"> No records found !!!</span>\n</p>\n  \n\n<ion-list *ngIf=\'!dataValidation.isEmptyJson(leads)\'>\n\n  <ion-item *ngFor=\'let lead of leads\'>\n  <p style="font-size: 15px !important; color:rgb(31, 115, 250) !important; font-weight: 800 !important;"><span style="margin-top:12px !important;">{{lead[\'firstname\']}}</span>\n    <span style="float: right !important; color: #aaa !important; margin-right: 5px !important;" (click)="getDetails(lead)"><ion-icon name="information-circle"></ion-icon></span>\n  </p>\n  <p style="font-size: 12px !important; color: #919191 !important;">{{lead[\'lastname\']}}\n    <span style="float: right !important;"><ion-badge color="dark" style="font-size: 10px !important;">{{lead[\'source\']}}</ion-badge></span>\n    <span style="float: right !important;margin-right: 4px !important"><ion-badge color="danger" style="font-size: 10px !important;">{{lead[\'status\']}}</ion-badge></span>\n  </p>\n  <p style="font-size: 10px !important;">\n  <span><a href="tel:{{lead[\'contactno\']}}" style="text-decoration: none !important;"> <ion-icon name="call"></ion-icon> {{lead[\'contactno\']}}</a></span>\n  &nbsp;&nbsp;\n  <span><a href="tel:{{lead[\'emailid\']}}" style="text-decoration: none !important;"> <ion-icon name="mail"></ion-icon> {{lead[\'emailid\']}}</a></span>\n  </p>\n  <p style="text-align: justify !important; font-size: 12px !important; color: #777 !important;" text-wrap>\n       {{lead[\'comment\']}}\n  </p>\n  </ion-item>\n</ion-list>\n\n</ion-content>\n\n<ion-footer>\n  <ion-row>\n    <ion-col col-6 style="text-align: center !important; background-color: #fff !important; border-right: 1px solid #ddd !important;"> \n      <button ion-button clear disabled=true>Sort</button>\n    </ion-col>\n    <ion-col col-6 style="text-align: center !important;"> \n      <button ion-button clear (click)="navCtrl.push(\'FilterLeadManagementPage\')">Filter</button>\n    </ion-col>\n  </ion-row>\n</ion-footer>\n'/*ion-inline-end:"/home/aashijit/24Online/src/pages/manage-lead/manage-lead.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["j" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_3__Utils_DataValidation__["a" /* DataValidation */], __WEBPACK_IMPORTED_MODULE_2__providers_message_helper__["a" /* MessageHelper */],
-            __WEBPACK_IMPORTED_MODULE_1__providers_data_data__["a" /* HttpProvider */], __WEBPACK_IMPORTED_MODULE_0__Utils_Codes__["a" /* Codes */]])
-    ], LoginPage);
-    return LoginPage;
+            __WEBPACK_IMPORTED_MODULE_1__providers_data_data__["a" /* HttpProvider */], __WEBPACK_IMPORTED_MODULE_0__Utils_Codes__["a" /* Codes */], __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["g" /* ModalController */]])
+    ], ManageLeadPage);
+    return ManageLeadPage;
 }());
 
-//# sourceMappingURL=login.js.map
+//# sourceMappingURL=manage-lead.js.map
 
 /***/ })
 

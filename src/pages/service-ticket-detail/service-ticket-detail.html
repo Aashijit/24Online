@@ -1,15 +1,102 @@
-<!--
-  Generated template for the ServiceTicketDetailPage page.
+<ion-content class="popup">
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-  <ion-navbar>
-    <ion-title>service-ticket-detail</ion-title>
-  </ion-navbar>
-</ion-header>
+    <p style="margin-top:35% !important;text-align: center !important; color: #eee;"
+        *ngIf='dataValidation.isEmptyJson(serviceTicketDetail)'>
+        <ion-spinner name="bubbles" color="light"></ion-spinner>
+    </p>
+    <p style="text-align: center !important; color: #eee;" *ngIf='dataValidation.isEmptyJson(serviceTicketDetail)'>
+        Loading the service details ...
+    </p>
 
-<ion-content padding>
+
+    <ion-grid *ngIf="!dataValidation.isEmptyJson(serviceTicketDetail)">
+        <ion-row nopadding>
+          <ion-col style="margin-top: 12px !important; font-size: 18px !important; color:rgb(31, 115, 250) !important;">Service Id : {{serviceTicketDetail['serviceid']}}</ion-col>
+          <ion-col style="margin-top: 12px !important; font-size: 18px !important; color:rgb(31, 115, 250) !important;">Lead Id : {{serviceTicketDetail['leadid']}}</ion-col>
+          <ion-col style="text-align: right !important;"><button ion-button clear (click)="navCtrl.pop()"><ion-icon name="close-circle"></ion-icon></button></ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+
+      <ion-grid *ngIf="!dataValidation.isEmptyJson(serviceTicketLog)">
+
+        <ion-item *ngFor="let sTL of serviceTicketLog" style="border-bottom: 1px #ddd !important; margin-bottom: 5px !important; background-color: rgba(0,0,0,0.4) !important;">
+            
+            <ion-row>
+                <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Service detail id</ion-col>
+                <ion-col col-7 style="color: #919191 !important;">{{sTL['servicedetailid']}}</ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Comment</ion-col>
+                <ion-col col-7 style="color: #919191 !important;"><p style="white-space: normal !important;">{{sTL['comment']}}</p></ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Status</ion-col>
+                <ion-col col-7 style="color: #919191 !important;"><ion-badge>{{sTL['status']}}</ion-badge></ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Modify date</ion-col>
+                <ion-col col-7 style="color: #919191 !important;">{{sTL['modifydate']}}</ion-col>
+            </ion-row>
+        </ion-item>
+      </ion-grid>
+     
+      <p style="text-align: center !important; color: #eee !important; font-size: 20px !important;" *ngIf="!dataValidation.isEmptyJson(serviceTicketLog)">
+          Service Ticket Detail
+      </p>
+
+      <ion-grid *ngIf="!dataValidation.isEmptyJson(serviceTicketDetail)">
+
+
+        <ion-row>
+            <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Created by</ion-col>
+            <ion-col col-7 style="color: #919191 !important;">{{serviceTicketDetail['createdby']}}</ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Create date</ion-col>
+            <ion-col col-7 style="color: #919191 !important;">{{serviceTicketDetail['createdate']}}</ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Assignee id</ion-col>
+            <ion-col col-7 style="color: #919191 !important;">{{serviceTicketDetail['assigneeid']}}</ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Assignee name</ion-col>
+            <ion-col col-7 style="color: #919191 !important;">{{serviceTicketDetail['assigneename']}}</ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Zone id</ion-col>
+            <ion-col col-7 style="color: #919191 !important;">{{serviceTicketDetail['zoneid']}}</ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">User id</ion-col>
+            <ion-col col-7 style="color: #919191 !important;">{{serviceTicketDetail['userid']}}</ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Amount</ion-col>
+            <ion-col col-7 style="color: #919191 !important;">{{serviceTicketDetail['amount']}}</ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Comment</ion-col>
+            <ion-col col-7 style="color: #919191 !important;">{{serviceTicketDetail['comment']}}</ion-col>
+        </ion-row>
+
+
+      </ion-grid>
+
+
+
+
 
 </ion-content>

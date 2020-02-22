@@ -3,7 +3,7 @@ import { HttpProvider } from './../../providers/data/data';
 import { MessageHelper } from './../../providers/message-helper';
 import { DataValidation } from './../../Utils/DataValidation';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { StringUtils } from '../../Utils/StringUtils';
 
 
@@ -19,7 +19,8 @@ export class ServiceManagementPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public dataValidation : DataValidation, public msgHelper : MessageHelper,
-    public http : HttpProvider,public codes : Codes, public stringUtils : StringUtils) {
+    public http : HttpProvider,public codes : Codes, public stringUtils : StringUtils,
+    public modalCtrl : ModalController ) {
   }
 
   ionViewDidLoad() {
@@ -50,5 +51,11 @@ export class ServiceManagementPage {
         console.error(error);
         this.msgHelper.showErrorDialog('Server error',error);
       });
+  }
+
+  getDetails(serviceId){
+        //Call the modal page using the service id
+        let serviceModal = this.modalCtrl.create('ServiceTicketDetailPage',{'serviceId':serviceId});
+        serviceModal.present();
   }
 }

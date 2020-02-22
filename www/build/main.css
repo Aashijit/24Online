@@ -25915,3 +25915,7 @@ page-login .button-md {
   font-size: 10px !important;
   font-weight: 0 !important;
 }
+
+page-service-ticket-detail .item-md {
+  padding-left: 0px !important;
+}

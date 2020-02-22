@@ -1,14 +1,14 @@
 webpackJsonp([0],{
 
-/***/ 684:
+/***/ 685:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ServiceManagementPageModule", function() { return ServiceManagementPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ServiceTicketDetailPageModule", function() { return ServiceTicketDetailPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_management__ = __webpack_require__(692);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_ticket_detail__ = __webpack_require__(694);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,31 +18,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ServiceManagementPageModule = /** @class */ (function () {
-    function ServiceManagementPageModule() {
+var ServiceTicketDetailPageModule = /** @class */ (function () {
+    function ServiceTicketDetailPageModule() {
     }
-    ServiceManagementPageModule = __decorate([
+    ServiceTicketDetailPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__service_management__["a" /* ServiceManagementPage */],
+                __WEBPACK_IMPORTED_MODULE_2__service_ticket_detail__["a" /* ServiceTicketDetailPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__service_management__["a" /* ServiceManagementPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__service_ticket_detail__["a" /* ServiceTicketDetailPage */]),
             ],
         })
-    ], ServiceManagementPageModule);
-    return ServiceManagementPageModule;
+    ], ServiceTicketDetailPageModule);
+    return ServiceTicketDetailPageModule;
 }());
 
-//# sourceMappingURL=service-management.module.js.map
+//# sourceMappingURL=service-ticket-detail.module.js.map
 
 /***/ }),
 
-/***/ 692:
+/***/ 694:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ServiceManagementPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ServiceTicketDetailPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Utils_Codes__ = __webpack_require__(150);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_data_data__ = __webpack_require__(347);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_message_helper__ = __webpack_require__(346);
@@ -66,8 +66,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var ServiceManagementPage = /** @class */ (function () {
-    function ServiceManagementPage(navCtrl, navParams, dataValidation, msgHelper, http, codes, stringUtils) {
+var ServiceTicketDetailPage = /** @class */ (function () {
+    function ServiceTicketDetailPage(navCtrl, navParams, dataValidation, msgHelper, http, codes, stringUtils, modalCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.dataValidation = dataValidation;
@@ -75,41 +75,45 @@ var ServiceManagementPage = /** @class */ (function () {
         this.http = http;
         this.codes = codes;
         this.stringUtils = stringUtils;
-        this.serviceRequests = null;
+        this.modalCtrl = modalCtrl;
+        this.serviceTicketDetail = null;
+        this.serviceTicketLog = null;
     }
-    ServiceManagementPage.prototype.ionViewDidLoad = function () {
+    ServiceTicketDetailPage.prototype.ionViewDidLoad = function () {
         var _this = this;
-        console.log('ionViewDidLoad ServiceManagementPage');
-        //Step 1 : Load all the leads
-        var requestJson = {};
-        this.http.callApi(requestJson, this.codes.API_SEARCH_SERVICE).then(function (responseJson) {
+        console.log('ionViewDidLoad ServiceTicketDetailPage');
+        //Fetch the service id from the navigation parameters
+        var serviceId = this.navParams.get('serviceId');
+        if (this.dataValidation.isEmptyJson(serviceId)) {
+            this.msgHelper.showErrorDialog('Error !!!', 'Could not get service id !!! Please go back to the previous page');
+            return;
+        }
+        var requestJson = {
+            "serviceid": serviceId
+        };
+        //Fetch the details from the detail API
+        this.http.callApi(requestJson, this.codes.API_GET_SERVICE_DETAILS).then(function (responseJson) {
             if (_this.dataValidation.isEmptyJson(responseJson)) {
-                _this.msgHelper.showErrorDialog('Server error', 'Empty response received from back end server.Please try after some time.');
+                _this.msgHelper.showErrorDialog('Error !!!', 'Empty response received from service detail API');
                 return;
             }
-            _this.serviceRequests = responseJson['responsemsg'];
-            for (var i = 0; i < _this.serviceRequests.length; i++) {
-                _this.serviceRequests[i]['createdby'] = _this.stringUtils.splitStringInCamelCase(_this.serviceRequests[i]['createdby']);
-                _this.serviceRequests[i]['assigneename'] = _this.stringUtils.splitStringInCamelCase(_this.serviceRequests[i]['assigneename']);
-            }
-            console.error(_this.serviceRequests);
-        }, function (error) {
-            console.error(error);
-            _this.msgHelper.showErrorDialog('Server error', error);
+            _this.serviceTicketDetail = responseJson['responsemsg']['tblServiceTicket'];
+            _this.serviceTicketLog = responseJson['responsemsg']['serviceTicketDetails'];
         });
     };
-    ServiceManagementPage = __decorate([
+    ServiceTicketDetailPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["m" /* Component */])({
-            selector: 'page-service-management',template:/*ion-inline-start:"C:\24Online\24Online\src\pages\service-management\service-management.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Service Management</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n  <p style="text-align: center !important; color: #919191;" *ngIf=\'dataValidation.isEmptyJson(serviceRequests)\'>\n\n    <ion-spinner name="bubbles"></ion-spinner>\n\n  </p>\n\n  <p style="text-align: center !important; color: #919191;" *ngIf=\'dataValidation.isEmptyJson(serviceRequests)\'>\n\n    Loading the service requests ...\n\n  </p>\n\n\n\n  <ion-list *ngIf=\'!dataValidation.isEmptyJson(serviceRequests)\'>\n\n    <ion-item *ngFor=\'let sR of serviceRequests\'>\n\n      <p style="font-size: 15px !important; color:rgb(31, 115, 250) !important; font-weight: 800 !important;">\n\n        {{sR[\'createdby\']}}</p>\n\n      <p style="font-size: 12px !important; color: #919191 !important;">{{sR[\'assigneename\']}}\n\n        <span style="float: right !important;" *ngIf="sR[\'status\']==\'CLOSE\'">\n\n          <ion-badge color="light" style="font-size: 10px !important;">{{sR[\'status\']}}</ion-badge>\n\n        </span>\n\n        <span style="float: right !important;" *ngIf="sR[\'status\']==\'OPEN\'">\n\n          <ion-badge color="danger" style="font-size: 10px !important;">{{sR[\'status\']}}</ion-badge>\n\n        </span>\n\n        <span style="float: right !important;" *ngIf="sR[\'status\']==\'PENDING\'">\n\n          <ion-badge color="dark" style="font-size: 10px !important;">{{sR[\'status\']}}</ion-badge>\n\n        </span>\n\n      </p>\n\n      <p style="font-size: 10px !important;">\n\n        <span style="font-size: 8px !important; color: #919191 !important;">{{sR[\'modifydate\']}}</span>\n\n      </p>\n\n    </ion-item>\n\n  </ion-list>\n\n\n\n\n\n</ion-content>\n\n\n\n<ion-footer>\n\n  <ion-row>\n\n    <ion-col col-6\n\n      style="text-align: center !important; background-color: #fff !important; border-right: 1px solid #ddd !important;">\n\n      <button ion-button clear>Sort</button>\n\n    </ion-col>\n\n    <ion-col col-6 style="text-align: center !important;">\n\n      <button ion-button clear>Filter</button>\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-footer>'/*ion-inline-end:"C:\24Online\24Online\src\pages\service-management\service-management.html"*/,
+            selector: 'page-service-ticket-detail',template:/*ion-inline-start:"/home/aashijit/24Online/src/pages/service-ticket-detail/service-ticket-detail.html"*/'<ion-content class="popup">\n\n    <p style="margin-top:35% !important;text-align: center !important; color: #eee;"\n        *ngIf=\'dataValidation.isEmptyJson(serviceTicketDetail)\'>\n        <ion-spinner name="bubbles" color="light"></ion-spinner>\n    </p>\n    <p style="text-align: center !important; color: #eee;" *ngIf=\'dataValidation.isEmptyJson(serviceTicketDetail)\'>\n        Loading the service details ...\n    </p>\n\n\n    <ion-grid *ngIf="!dataValidation.isEmptyJson(serviceTicketDetail)">\n        <ion-row nopadding>\n          <ion-col style="margin-top: 12px !important; font-size: 18px !important; color:rgb(31, 115, 250) !important;">Service Id : {{serviceTicketDetail[\'serviceid\']}}</ion-col>\n          <ion-col style="margin-top: 12px !important; font-size: 18px !important; color:rgb(31, 115, 250) !important;">Lead Id : {{serviceTicketDetail[\'leadid\']}}</ion-col>\n          <ion-col style="text-align: right !important;"><button ion-button clear (click)="navCtrl.pop()"><ion-icon name="close-circle"></ion-icon></button></ion-col>\n        </ion-row>\n      </ion-grid>\n\n\n\n      <ion-grid *ngIf="!dataValidation.isEmptyJson(serviceTicketLog)">\n\n        <ion-item *ngFor="let sTL of serviceTicketLog" style="border-bottom: 1px #ddd !important; margin-bottom: 5px !important; background-color: rgba(0,0,0,0.4) !important;">\n            \n            <ion-row>\n                <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Service detail id</ion-col>\n                <ion-col col-7 style="color: #919191 !important;">{{sTL[\'servicedetailid\']}}</ion-col>\n            </ion-row>\n\n            <ion-row>\n                <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Comment</ion-col>\n                <ion-col col-7 style="color: #919191 !important;"><p style="white-space: normal !important;">{{sTL[\'comment\']}}</p></ion-col>\n            </ion-row>\n\n            <ion-row>\n                <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Status</ion-col>\n                <ion-col col-7 style="color: #919191 !important;"><ion-badge>{{sTL[\'status\']}}</ion-badge></ion-col>\n            </ion-row>\n\n            <ion-row>\n                <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Modify date</ion-col>\n                <ion-col col-7 style="color: #919191 !important;">{{sTL[\'modifydate\']}}</ion-col>\n            </ion-row>\n        </ion-item>\n      </ion-grid>\n     \n      <p style="text-align: center !important; color: #eee !important; font-size: 20px !important;" *ngIf="!dataValidation.isEmptyJson(serviceTicketLog)">\n          Service Ticket Detail\n      </p>\n\n      <ion-grid *ngIf="!dataValidation.isEmptyJson(serviceTicketDetail)">\n\n\n        <ion-row>\n            <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Created by</ion-col>\n            <ion-col col-7 style="color: #919191 !important;">{{serviceTicketDetail[\'createdby\']}}</ion-col>\n        </ion-row>\n\n        <ion-row>\n            <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Create date</ion-col>\n            <ion-col col-7 style="color: #919191 !important;">{{serviceTicketDetail[\'createdate\']}}</ion-col>\n        </ion-row>\n\n        <ion-row>\n            <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Assignee id</ion-col>\n            <ion-col col-7 style="color: #919191 !important;">{{serviceTicketDetail[\'assigneeid\']}}</ion-col>\n        </ion-row>\n\n        <ion-row>\n            <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Assignee name</ion-col>\n            <ion-col col-7 style="color: #919191 !important;">{{serviceTicketDetail[\'assigneename\']}}</ion-col>\n        </ion-row>\n\n        <ion-row>\n            <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Zone id</ion-col>\n            <ion-col col-7 style="color: #919191 !important;">{{serviceTicketDetail[\'zoneid\']}}</ion-col>\n        </ion-row>\n\n        <ion-row>\n            <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">User id</ion-col>\n            <ion-col col-7 style="color: #919191 !important;">{{serviceTicketDetail[\'userid\']}}</ion-col>\n        </ion-row>\n\n        <ion-row>\n            <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Amount</ion-col>\n            <ion-col col-7 style="color: #919191 !important;">{{serviceTicketDetail[\'amount\']}}</ion-col>\n        </ion-row>\n\n        <ion-row>\n            <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Comment</ion-col>\n            <ion-col col-7 style="color: #919191 !important;">{{serviceTicketDetail[\'comment\']}}</ion-col>\n        </ion-row>\n\n\n      </ion-grid>\n\n\n\n\n\n</ion-content>'/*ion-inline-end:"/home/aashijit/24Online/src/pages/service-ticket-detail/service-ticket-detail.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["j" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_3__Utils_DataValidation__["a" /* DataValidation */], __WEBPACK_IMPORTED_MODULE_2__providers_message_helper__["a" /* MessageHelper */],
-            __WEBPACK_IMPORTED_MODULE_1__providers_data_data__["a" /* HttpProvider */], __WEBPACK_IMPORTED_MODULE_0__Utils_Codes__["a" /* Codes */], __WEBPACK_IMPORTED_MODULE_6__Utils_StringUtils__["a" /* StringUtils */]])
-    ], ServiceManagementPage);
-    return ServiceManagementPage;
+            __WEBPACK_IMPORTED_MODULE_1__providers_data_data__["a" /* HttpProvider */], __WEBPACK_IMPORTED_MODULE_0__Utils_Codes__["a" /* Codes */], __WEBPACK_IMPORTED_MODULE_6__Utils_StringUtils__["a" /* StringUtils */],
+            __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["g" /* ModalController */]])
+    ], ServiceTicketDetailPage);
+    return ServiceTicketDetailPage;
 }());
 
-//# sourceMappingURL=service-management.js.map
+//# sourceMappingURL=service-ticket-detail.js.map
 
 /***/ })
 

@@ -1,14 +1,14 @@
 webpackJsonp([5],{
 
-/***/ 679:
+/***/ 680:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FilterServiceManagementPageModule", function() { return FilterServiceManagementPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePageModule", function() { return HomePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__filter_service_management__ = __webpack_require__(687);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(689);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,31 +18,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var FilterServiceManagementPageModule = /** @class */ (function () {
-    function FilterServiceManagementPageModule() {
+var HomePageModule = /** @class */ (function () {
+    function HomePageModule() {
     }
-    FilterServiceManagementPageModule = __decorate([
+    HomePageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__filter_service_management__["a" /* FilterServiceManagementPage */],
+                __WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__filter_service_management__["a" /* FilterServiceManagementPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */]),
             ],
         })
-    ], FilterServiceManagementPageModule);
-    return FilterServiceManagementPageModule;
+    ], HomePageModule);
+    return HomePageModule;
 }());
 
-//# sourceMappingURL=filter-service-management.module.js.map
+//# sourceMappingURL=home.module.js.map
 
 /***/ }),
 
-/***/ 687:
+/***/ 689:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FilterServiceManagementPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(84);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -56,30 +56,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-/**
- * Generated class for the FilterServiceManagementPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var FilterServiceManagementPage = /** @class */ (function () {
-    function FilterServiceManagementPage(navCtrl, navParams) {
+var HomePage = /** @class */ (function () {
+    function HomePage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
     }
-    FilterServiceManagementPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad FilterServiceManagementPage');
+    HomePage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad HomePage');
     };
-    FilterServiceManagementPage = __decorate([
+    HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-filter-service-management',template:/*ion-inline-start:"C:\24Online\24Online\src\pages\filter-service-management\filter-service-management.html"*/'<!--\n\n  Generated template for the FilterServiceManagementPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>filter-service-management</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\24Online\24Online\src\pages\filter-service-management\filter-service-management.html"*/,
+            selector: 'page-home',template:/*ion-inline-start:"/home/aashijit/24Online/src/pages/home/home.html"*/'<ion-header>\n<ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <img src="../../assets/imgs/logo.png" style="width: 70px !important;" />\n  \n\n  <span style="float: right !important;">\n    <ion-icon name="notifications" style="margin-top: 15px !important; color: rgb(31, 115, 250) !important; margin-right: 15px !important;"></ion-icon>\n  </span>\n  \n  \n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n\n  <p style="text-align: center !important; margin-top: 55% !important;">\n  <img src="../../assets/imgs/logo.png" style="width: 100px !important;" />\n</p>\n</ion-content>\n'/*ion-inline-end:"/home/aashijit/24Online/src/pages/home/home.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
-    ], FilterServiceManagementPage);
-    return FilterServiceManagementPage;
+    ], HomePage);
+    return HomePage;
 }());
 
-//# sourceMappingURL=filter-service-management.js.map
+//# sourceMappingURL=home.js.map
 
 /***/ })
 
