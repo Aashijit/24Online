@@ -57,6 +57,16 @@ export class ManageLeadPage {
   }
 
 
+
+  //Go to details page
+  getDetails(leadId : any){
+
+    //Call the modal page using the lead Id
+    
+
+  }
+
+
   
 
 }
