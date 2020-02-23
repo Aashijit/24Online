@@ -192,6 +192,7 @@ var Codes = /** @class */ (function () {
         this.API_CREATE_LEAD = ":10080/24online/service/SalesService/createLead";
         this.API_GET_LEAD_DETAILS = ":10080/24online/service/SalesService/searchLeadTicketwithDetail";
         this.API_GET_SERVICE_DETAILS = ":10080/24online/service/SalesService/searchServiceTicketwithDetail";
+        this.API_UPDATE_SERVICE_REQUEST = ":10080/24online/service/SalesService/updateServiceTicket";
     }
     return Codes;
 }());
@@ -222,40 +223,44 @@ webpackEmptyAsyncContext.id = 161;
 
 var map = {
 	"../pages/create-lead/create-lead.module": [
-		677,
-		8
+		678,
+		20
+	],
+	"../pages/edit-service-request/edit-service-request.module": [
+		695,
+		19
 	],
 	"../pages/filter-lead-management/filter-lead-management.module": [
-		678,
-		7
+		677,
+		18
 	],
 	"../pages/filter-service-management/filter-service-management.module": [
 		679,
-		6
+		17
 	],
 	"../pages/home/home.module": [
-		680,
-		5
+		685,
+		16
 	],
 	"../pages/lead-detail/lead-detail.module": [
-		681,
-		4
+		680,
+		15
 	],
 	"../pages/login/login.module": [
-		682,
-		3
+		681,
+		14
 	],
 	"../pages/manage-lead/manage-lead.module": [
-		683,
-		2
+		682,
+		13
 	],
 	"../pages/service-management/service-management.module": [
-		684,
-		1
+		683,
+		12
 	],
 	"../pages/service-ticket-detail/service-ticket-detail.module": [
-		685,
-		0
+		684,
+		11
 	]
 };
 function webpackAsyncContext(req) {
@@ -606,15 +611,16 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/create-lead/create-lead.module#CreateLeadPageModule', name: 'CreateLeadPage', segment: 'create-lead', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/filter-lead-management/filter-lead-management.module#FilterLeadManagementPageModule', name: 'FilterLeadManagementPage', segment: 'filter-lead-management', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/create-lead/create-lead.module#CreateLeadPageModule', name: 'CreateLeadPage', segment: 'create-lead', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/filter-service-management/filter-service-management.module#FilterServiceManagementPageModule', name: 'FilterServiceManagementPage', segment: 'filter-service-management', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/lead-detail/lead-detail.module#LeadDetailPageModule', name: 'LeadDetailPage', segment: 'lead-detail', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/manage-lead/manage-lead.module#ManageLeadPageModule', name: 'ManageLeadPage', segment: 'manage-lead', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/service-management/service-management.module#ServiceManagementPageModule', name: 'ServiceManagementPage', segment: 'service-management', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/service-ticket-detail/service-ticket-detail.module#ServiceTicketDetailPageModule', name: 'ServiceTicketDetailPage', segment: 'service-ticket-detail', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/service-ticket-detail/service-ticket-detail.module#ServiceTicketDetailPageModule', name: 'ServiceTicketDetailPage', segment: 'service-ticket-detail', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/edit-service-request/edit-service-request.module#EditServiceRequestPageModule', name: 'EditServiceRequestPage', segment: 'edit-service-request', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_10__angular_common_http__["b" /* HttpClientModule */],

@@ -1,15 +1,88 @@
-<!--
-  Generated template for the FilterServiceManagementPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar>
-    <ion-title>filter-service-management</ion-title>
+    <ion-title>Filter Services</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+
+<ion-content>
+  <p class="filter-sub-header">
+    <ion-row>
+      <ion-col>Search by service id</ion-col>
+      <ion-col style="text-align: right !important;" class="nopadding"><ion-checkbox mode="ios" [(ngModel)]="filterOptions['SearchByServiceId']"></ion-checkbox></ion-col>
+    </ion-row>
+  </p>
+  <p class="nomargin" *ngIf="filterOptions['SearchByServiceId']">
+    <ion-item>
+      <ion-label>Service Id</ion-label>
+      <ion-input [(ngModel)]="serviceId"></ion-input>
+    </ion-item>
+  </p>
+
+
+
+  <p class="filter-sub-header">
+    <ion-row>
+      <ion-col>Search by status</ion-col>
+      <ion-col style="text-align: right !important;" class="nopadding"><ion-checkbox mode="ios" [(ngModel)]="filterOptions['SearchByStatus']" ></ion-checkbox></ion-col>
+    </ion-row>
+  </p>
+  <p class="nomargin" *ngIf="filterOptions['SearchByStatus']">  
+    <ion-item>
+      <ion-label>Status</ion-label>
+      <ion-select interface="popover" [(ngModel)]="status">
+        <ion-option value="CLOSE">Close</ion-option>
+        <ion-option value="OPEN">Open</ion-option>
+      </ion-select>
+    </ion-item>
+  </p>
+
+
+  <p class="filter-sub-header">
+    <ion-row>
+      <ion-col>Search by pop/zone name</ion-col>
+      <ion-col style="text-align: right !important;" class="nopadding"><ion-checkbox mode="ios" [(ngModel)]="filterOptions['SearchByPopZoneName']"></ion-checkbox></ion-col>
+    </ion-row>
+  </p>
+  <p class="nomargin" *ngIf="filterOptions['SearchByPopZoneName']">
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>Zonename</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Popname</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </p>
+
+
+  <p class="filter-sub-header">
+    <ion-row>
+      <ion-col>Search by username</ion-col>
+      <ion-col style="text-align: right !important;" class="nopadding"><ion-checkbox mode="ios" [(ngModel)]="filterOptions['SearchByUsername']"></ion-checkbox></ion-col>
+    </ion-row>
+  </p>
+  <p class="nomargin" *ngIf="filterOptions['SearchByUsername']">
+    <ion-item>
+      <ion-label>Username</ion-label>
+      <ion-input [(ngModel)]="userName"></ion-input>
+    </ion-item>
+  </p>
 
 </ion-content>
+
+
+<ion-footer>
+  <ion-row>
+    <ion-col col-6 style="text-align: center !important; background-color: #fff !important; border-right: 1px solid #ddd !important;"> 
+      <button ion-button clear disabled=true>Reset</button>
+    </ion-col>
+    <ion-col col-6 style="text-align: center !important;"> 
+      <button ion-button clear (click)="searchUsingFilter()">Apply</button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

@@ -1,0 +1,19 @@
+<ion-content class="popup">
+
+  <ion-card *ngIf="!dataValidation.isEmptyJson(serviceId)">
+    <ion-card-header>Update Service Ticket : {{serviceId}}
+      <span style="float: right !important;" (click)="close()"><ion-icon name="close-circle"></ion-icon></span>
+    </ion-card-header>
+
+   
+
+    <ion-item style="border: 1px solid #ddd !important">
+      <ion-label floating>New Comment</ion-label>
+      <ion-textarea [(ngModel)]="comment" rows="10" columns="20"></ion-textarea>
+    </ion-item>
+
+    <p style="text-align:center !important;">
+      <button ion-button clear (click)="updateService()">Update Service</button>
+    </p>
+  </ion-card>
+</ion-content>

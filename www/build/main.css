@@ -25807,6 +25807,15 @@ ion-app.md {
   background: rgba(0, 0, 0, 0.9);
 }
 
+page-edit-service-request .popup {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+page-edit-service-request .item-md {
+  padding-left: 0px !important;
+  padding: 5px !important;
+}
+
 page-filter-lead-management .filter-sub-header {
   margin: 0px !important;
   padding: 8px !important;
@@ -25844,6 +25853,48 @@ page-filter-lead-management .checkbox-ios .checkbox-icon {
 }
 
 page-filter-lead-management .checkbox-ios .checkbox-checked {
+  border-color: #488aff;
+  color: #fff !important;
+  background-color: #444;
+}
+
+page-filter-service-management .filter-sub-header {
+  margin: 0px !important;
+  padding: 8px !important;
+  background-color: #ddd !important;
+  color: #919191 !important;
+  font-weight: 600 !important;
+  font-size: 12px !important;
+  margin: 1px !important;
+}
+
+page-filter-service-management .item-md {
+  padding: 0px !important;
+}
+
+page-filter-service-management .item-input .label-md, page-filter-service-management .item-select .label-md, page-filter-service-management .item-datetime .label-md {
+  padding-left: 10px !important;
+}
+
+page-filter-service-management .item.item-md .checkbox-md {
+  margin: 0px !important;
+}
+
+page-filter-service-management .checkbox-ios {
+  padding-left: 5px !important;
+}
+
+page-filter-service-management .checkbox-ios .checkbox-icon {
+  border-radius: 50%;
+  /* position: relative; */
+  width: 21px;
+  height: 21px;
+  /* border-width: 1px; */
+  border-style: solid;
+  border-color: #c8c7cc;
+}
+
+page-filter-service-management .checkbox-ios .checkbox-checked {
   border-color: #488aff;
   color: #fff !important;
   background-color: #444;

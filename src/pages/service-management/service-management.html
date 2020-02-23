@@ -20,6 +20,7 @@
     <ion-item *ngFor='let sR of serviceRequests'>
       <p style="font-size: 15px !important; color:rgb(31, 115, 250) !important; font-weight: 800 !important;">
         {{sR['createdby']}}      
+        <span (click)="editServiceRequest(sR)"><ion-icon name="create"></ion-icon></span>
         <span style="float: right !important; color: #aaa !important; margin-right: 5px !important;" (click)="getDetails(sR['serviceid'])"><ion-icon name="information-circle"></ion-icon></span>
       </p>
       <p style="font-size: 12px !important; color: #919191 !important;">{{sR['assigneename']}}
@@ -48,7 +49,7 @@
       <button ion-button clear disabled=true>Sort</button>
     </ion-col>
     <ion-col col-6 style="text-align: center !important;">
-      <button ion-button clear>Filter</button>
+      <button ion-button clear (click)="navCtrl.push('FilterServiceManagementPage')">Filter</button>
     </ion-col>
   </ion-row>
 </ion-footer>

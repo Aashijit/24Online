@@ -30,6 +30,12 @@ export class ServiceManagementPage {
       var requestJson={
         //Empty request json
       };
+
+      //Fetch the request json from the nav params
+      if(this.navParams.get('requestJson'))
+      {
+        requestJson = this.navParams.get('requestJson');
+      }
   
       this.http.callApi(requestJson,this.codes.API_SEARCH_SERVICE).then(responseJson => {
   
@@ -54,8 +60,15 @@ export class ServiceManagementPage {
   }
 
   getDetails(serviceId){
-        //Call the modal page using the service id
-        let serviceModal = this.modalCtrl.create('ServiceTicketDetailPage',{'serviceId':serviceId});
-        serviceModal.present();
+    //Call the modal page using the service id
+    let serviceModal = this.modalCtrl.create('ServiceTicketDetailPage',{'serviceId':serviceId});
+    serviceModal.present();
+  }
+
+
+  editServiceRequest(serviceRequest){
+    //Call the edit modal page using the service id
+    let serviceEditModal = this.modalCtrl.create('EditServiceRequestPage',{'serviceId':serviceRequest['serviceid']});
+    serviceEditModal.present();
   }
 }
