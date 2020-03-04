@@ -1,3 +1,5 @@
+import { DataValidation } from './../Utils/DataValidation';
+import { Codes } from './../Utils/Codes';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform, NavController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -10,19 +12,30 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = "LoginPage";
+  rootPage: any = null;
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public codes : Codes, public dataValidation : DataValidation) {
     this.initializeApp();
 
-
+    //Check if the user is already logged in
+    if(this.dataValidation.isEmptyJson(localStorage.getItem(this.codes.LSK_USERNAME))){
+        //Go to Login Page
+        this.rootPage = "LoginPage";
+    } else {
+      //Go to Login Page
+      this.rootPage = "DashboardTabPage";
+    }
 
   }
 
 
   logOut(){
+    localStorage.removeItem(this.codes.LSK_USERNAME);
+    localStorage.removeItem(this.codes.LSK_PASSWORD);
+    localStorage.removeItem(this.codes.LSK_IPADDRESS);
+    localStorage.removeItem(this.codes.LSK_USER_INFO_PREFERENCES);
     this.nav.setRoot('LoginPage');
   }
 
