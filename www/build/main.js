@@ -1,1 +1,728 @@
-webpackJsonp([10],{107:function(l,e,n){"use strict";n.d(e,"a",function(){return t});var t=function(){function l(){}return l.prototype.isValidIpAddress=function(l){if(void 0==l||null==l||""==l)return!1;return!!new RegExp("[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}").test(l)},l.prototype.isValidMobileNumber=function(l){if(void 0==l||null==l||""==l)return!1;return!!new RegExp("^[0-9]{10}$").test(l)},l.prototype.isValidEmailId=function(l){if(void 0==l||null==l||""==l)return!1;if(void 0!=l&&null!=l&&""!=l){return!!new RegExp("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$").test(l)}return!0},l.prototype.stringToBoolean=function(l){if(null==l||void 0==l||""==l)return!1;switch(l){case"true":case"True":return!0;case"false":case"False":return!1}return l},l.prototype.commaSeperator=function(l){return this.isEmpty(l)?null:l.includes(",")?l:l.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g,"$1,")},l.prototype.isValidPinCode=function(l){if(void 0!=l&&null!=l&&""!=l){return!!new RegExp("^[0-9]{6}$").test(l)}},l.prototype.isValidAmount=function(l){return new RegExp("[0-9]{0,8}.[0-9]{0,2}").test(l)},l.prototype.isValidIfsc=function(l){return new RegExp("[A-Za-z]{4}[0-9]{7}$").test(l)},l.prototype.doValidateName=function(l){},l.prototype.isValidPassword=function(l){return new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})").test(l)},l.prototype.doCheckForUndefinedVariable=function(l,e,n){return void 0!=l&&""!=l||n+" not present !!!",l},l.prototype.isNull=function(l){return null==l},l.prototype.isEmptyJson=function(l){return void 0==l||(null==l||""==l)},l.prototype.isEmpty=function(l){return void 0==l||(null==l||""==l.trim())},l.prototype.isUndefined=function(l){if(void 0==l)return!0},l.prototype.isValidNumber=function(l){if(null!=l||void 0!=l||""!=l){return!!new RegExp("[0-9]+").test(l)}return!1},l.prototype.isValidName=function(l){if(void 0!=l&&null!=l&&""!=l){return!!new RegExp("^[a-zA-Z ]").test(l)}},l.prototype.addErrorMessage=function(l,e){var n=document.createElement("ion-note");n.setAttribute("class","validation-error"),n.setAttribute("id",l+"Err");var t=document.createTextNode(e);n.appendChild(t),document.getElementById(l).parentElement.appendChild(n)},l.prototype.removeErrorMessage=function(l){null!=document.getElementById(l+"Err")&&document.getElementById(l+"Err").remove()},l.prototype.removeErrorMessageForMultipleElement=function(l,e){null!=document.getElementsByClassName("validation-error "+l+"Err")[e]&&document.getElementsByClassName("validation-error "+l+"Err")[e].remove()},l.prototype.addErrorMessageForMultipleElement=function(l,e,n){var t=document.createElement("ion-note");t.setAttribute("class","validation-error "+l+"Err");var a=document.createTextNode(e);t.appendChild(a),document.getElementsByClassName(l)[n].parentElement.appendChild(t)},l}()},108:function(l,e,n){"use strict";n.d(e,"a",function(){return t});var t=function(){return function(){this.EM_INVALID_MOBILE_NUMBER="Invalid mobile number",this.EM_INVALID_EMAILID="Invalid email id",this.EM_INVALID_PASSWORD="Invalid password",this.EM_INVALID_VERIFICATION_ID="Invalid verification id",this.API_ERROR="500",this.LSK_IPADDRESS="ipaddress",this.LSK_USERNAME="username",this.LSK_PASSWORD="password",this.LSK_USER_INFO_PREFERENCES="user_info_preferences",this.API_ENDPOINT="https://cors-anywhere.herokuapp.com/http://",this.API_AUTHENTICATE_USER=":10080/24online/service/MobileApplicationService/authenticateUser",this.API_SEARCH_LEAD=":10080/24online/service/SalesService/searchLead",this.API_SEARCH_SERVICE=":10080/24online/service/SalesService/searchService",this.API_CREATE_LEAD=":10080/24online/service/SalesService/createLead",this.API_GET_LEAD_DETAILS=":10080/24online/service/SalesService/searchLeadTicketwithDetail",this.API_GET_SERVICE_DETAILS=":10080/24online/service/SalesService/searchServiceTicketwithDetail",this.API_UPDATE_SERVICE_REQUEST=":10080/24online/service/SalesService/updateServiceTicket"}}()},171:function(l,e,n){"use strict";n.d(e,"a",function(){return t});n(2),n(106);var t=function(){function l(l,e,n){this.alertCtrl=l,this.loadingCtrl=e,this.toastCtrl=n}return l.prototype.showWorkingDialog=function(l){void 0===l&&(l="Please wait...");var e=this.loadingCtrl.create({content:l});return e.present(),e},l.prototype.showToast=function(l,e){void 0===e&&(e=!0),e?this.toastCtrl.create({message:l,duration:3e3}).present():this.toastCtrl.create({message:l,showCloseButton:!0,closeButtonText:"Ok"}).present()},l.prototype.showAlert=function(l,e,n){void 0===n&&(n="Close");var t=this.alertCtrl.create({title:l,subTitle:e,buttons:[n]});return t.present(),t},l.prototype.showConnectionErrorDialog=function(){this.alertCtrl.create({title:"Connection Error!",subTitle:"Failed to connect with server. Please try again.",buttons:["Close"]}).present()},l.prototype.showErrorDialog=function(l,e){this.alertCtrl.create({title:l,subTitle:e,buttons:["Close"]}).present()},l.prototype.showNoProductDialog=function(){this.alertCtrl.create({title:"Not Available!",subTitle:"No products found. Please try again.",buttons:["Close"]}).present()},l.prototype.showNoModelDialog=function(){this.alertCtrl.create({title:"Not Available!",subTitle:"No Car Model found. Please try again.",buttons:["Close"]}).present()},l.prototype.showNoOrderDialog=function(){this.alertCtrl.create({title:"Not Available!",subTitle:"No Order found.",buttons:["Close"]}).present()},l.prototype.showNoProductDialogPRODUCTOUTOFSTOCK=function(){this.alertCtrl.create({title:"Not Available!",subTitle:"PRODUCT OUT OF STOCK",buttons:["Close"]}).present()},l.prototype.showNoProductDialogINSUFFICIENTSTOCK=function(){this.alertCtrl.create({title:"Not Available!",subTitle:"INSUFFICIENT STOCK",buttons:["Close"]}).present()},l.prototype.showNoProductDialogINVALIDUSER=function(){this.alertCtrl.create({title:"Error!",subTitle:"INVALID USER",buttons:["Close"]}).present()},l.prototype.showNoProductDialogFAILURE=function(){this.alertCtrl.create({title:"Error!",subTitle:"FAILURE",buttons:["Close"]}).present()},l.prototype.showNoProductDialogSYSTEMERROR=function(){this.alertCtrl.create({title:"Error!",subTitle:"SYSTEM ERROR",buttons:["Close"]}).present()},l.prototype.showDialogChangePassword=function(){this.alertCtrl.create({title:"Error!",subTitle:"Your old password does not match.",buttons:["Close"]}).present()},l}()},172:function(l,e,n){"use strict";n.d(e,"a",function(){return o});n(2);var t=n(198),a=(n.n(t),n(122)),o=function(){function l(l,e,n){this.http=l,this.codes=e,this.httpClient=n}return l.prototype.callApi=function(l,e){var n=this;return new Promise(function(t){var o=new a.d;o.append("Content-Type","application/json"),o.append("Username","avijit.ghosh"),o.append("Password","avijit.ghosh");var u=localStorage.getItem(n.codes.LSK_IPADDRESS);n.http.post(n.codes.API_ENDPOINT+u+e,JSON.stringify(l),{headers:o}).map(function(l){return l.json()}).subscribe(function(l){console.log(l),t(l)},function(l){console.log(l),t({status:n.codes.API_ERROR})})})},l.prototype.uploadFile=function(l,e){var n=this;return new Promise(function(t){n.httpClient.post(n.codes.API_ENDPOINT+e,l).subscribe(function(l){console.log("Success: "+JSON.stringify(l)),t(l)},function(l){console.log(l),t(l)})})},l.prototype.isNullOrEmpty=function(l){return void 0===l||null===l||"string"==typeof l&&l.length<=0},l.prototype.convertToArray=function(l){return this.isArray(l)?l:[l]},l.prototype.isArray=function(l){return void 0!==l&&"Array"===Object.prototype.toString.call(l).slice(8,-1)},l}()},176:function(l,e,n){"use strict";n.d(e,"a",function(){return a});var t=n(107),a=function(){function l(){}return l.prototype.splitStringInCamelCase=function(l){if((new t.a).isEmptyJson(l))return l;var e=l.split(".");return e.length>1?e[0].substr(0,1).toUpperCase()+e[0].substr(1,e[0].length-1).toLowerCase()+" "+e[1].substr(0,1).toUpperCase()+e[1].substr(1,e[1].length-1).toLowerCase():e[0].substr(0,1).toUpperCase()+e[0].substr(1,e[0].length-1).toLowerCase()},l}()},197:function(l,e){function n(l){return Promise.resolve().then(function(){throw new Error("Cannot find module '"+l+"'.")})}n.keys=function(){return[]},n.resolve=n,l.exports=n,n.id=197},315:function(l,e,n){function t(l){var e=a[l];return e?n.e(e[1]).then(function(){return n(e[0])}):Promise.reject(new Error("Cannot find module '"+l+"'."))}var a={"../pages/create-lead/create-lead.module.ngfactory":[640,2],"../pages/edit-service-request/edit-service-request.module.ngfactory":[641,7],"../pages/filter-lead-management/filter-lead-management.module.ngfactory":[642,0],"../pages/filter-service-management/filter-service-management.module.ngfactory":[643,1],"../pages/home/home.module.ngfactory":[644,5],"../pages/lead-detail/lead-detail.module.ngfactory":[645,9],"../pages/login/login.module.ngfactory":[646,6],"../pages/manage-lead/manage-lead.module.ngfactory":[647,4],"../pages/service-management/service-management.module.ngfactory":[648,3],"../pages/service-ticket-detail/service-ticket-detail.module.ngfactory":[649,8]};t.keys=function(){return Object.keys(a)},t.id=315,l.exports=t},351:function(l,e,n){"use strict";function t(l){return o._19(0,[o._16(402653184,1,{nav:0}),(l()(),o.Z(1,0,null,null,113,"ion-menu",[["role","navigation"],["type","overlay"]],null,null,null,N.b,N.a)),o._14(6144,null,I.a,null,[R.a]),o.Y(3,245760,null,2,R.a,[T.a,o.j,M.a,D.a,o.z,k.a,L.l,Z.a,O.a],{content:[0,"content"],type:[1,"type"]},null),o._16(335544320,2,{menuContent:0}),o._16(335544320,3,{menuNav:0}),(l()(),o._18(-1,0,["\n  "])),(l()(),o.Z(7,0,null,0,12,"ion-header",[["style","background-color : rgb(61, 192, 253) !important;"]],null,null,null,null,null)),o.Y(8,16384,null,0,F.a,[M.a,o.j,o.z,[2,j.a]],null,null),(l()(),o._18(-1,null,["\n    "])),(l()(),o.Z(10,0,null,null,8,"ion-row",[["class","row"]],null,null,null,null,null)),o.Y(11,16384,null,0,Y.a,[],null,null),(l()(),o._18(-1,null,["\n      "])),(l()(),o.Z(13,0,null,null,4,"ion-col",[["class","col"],["style","text-align: center !important;"]],null,null,null,null,null)),o.Y(14,16384,null,0,z.a,[],null,null),(l()(),o._18(-1,null,["\n        "])),(l()(),o.Z(16,0,null,null,0,"img",[["src","../assets/imgs/logo.png"],["style","width: 90px !important;"]],null,null,null,null,null)),(l()(),o._18(-1,null,["\n      "])),(l()(),o._18(-1,null,["\n    "])),(l()(),o._18(-1,null,["\n  "])),(l()(),o._18(-1,0,["\n\n  "])),(l()(),o.Z(21,0,null,0,92,"ion-content",[["style","background-image: radial-gradient(rgb(246, 246, 246) ,rgb(230, 230, 230));"]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,x.b,x.a)),o.Y(22,4374528,[[2,4]],0,U.a,[M.a,D.a,Z.a,o.j,o.z,O.a,k.a,o.u,[2,j.a],[2,V.a]],null,null),(l()(),o._18(-1,1,["\n\n    "])),(l()(),o.Z(24,0,null,1,5,"p",[["style","text-align:  center !important;"]],null,null,null,null,null)),(l()(),o._18(-1,null,["\n    "])),(l()(),o.Z(26,0,null,null,2,"ion-label",[],null,null,null,null,null)),o.Y(27,16384,null,0,B.a,[M.a,o.j,o.z,[8,null],[8,null],[8,null],[8,null]],null,null),(l()(),o._18(-1,null,["\n      Sales Management\n    "])),(l()(),o._18(-1,null,["\n  "])),(l()(),o._18(-1,1,["\n\n    "])),(l()(),o.Z(31,0,null,1,23,"ion-card",[],null,null,null,null,null)),o.Y(32,16384,null,0,H.a,[M.a,o.j,o.z],null,null),(l()(),o._18(-1,null,["\n      "])),(l()(),o.Z(34,0,null,null,2,"ion-card-header",[],null,null,null,null,null)),o.Y(35,16384,null,0,q.a,[M.a,o.j,o.z],null,null),(l()(),o._18(-1,null,["Lead Management"])),(l()(),o._18(-1,null,["\n         "])),(l()(),o.Z(38,0,null,null,7,"p",[],null,null,null,null,null)),(l()(),o._18(-1,null,[" "])),(l()(),o.Z(40,0,null,null,5,"button",[["clear",""],["ion-button",""],["menuClose",""]],null,[[null,"click"]],function(l,e,n){var t=!0,a=l.component;if("click"===e){t=!1!==o._11(l,42).close()&&t}if("click"===e){t=!1!==a.nav.setRoot("CreateLeadPage")&&t}return t},K.b,K.a)),o.Y(41,1097728,null,0,$.a,[[8,""],M.a,o.j,o.z],{clear:[0,"clear"]},null),o.Y(42,16384,null,0,J.a,[T.a],{menuClose:[0,"menuClose"]},null),(l()(),o._18(-1,0,[" "])),(l()(),o.Z(44,0,null,0,0,"img",[["src","../assets/imgs/create-lead.svg"],["style","width: 20px !important"]],null,null,null,null,null)),(l()(),o._18(-1,0,["   Create Lead"])),(l()(),o._18(-1,null,["\n        "])),(l()(),o.Z(47,0,null,null,6,"p",[],null,null,null,null,null)),(l()(),o._18(-1,null,[" "])),(l()(),o.Z(49,0,null,null,4,"button",[["clear",""],["ion-button",""],["menuClose",""]],null,[[null,"click"]],function(l,e,n){var t=!0,a=l.component;if("click"===e){t=!1!==o._11(l,51).close()&&t}if("click"===e){t=!1!==a.nav.setRoot("ManageLeadPage")&&t}return t},K.b,K.a)),o.Y(50,1097728,null,0,$.a,[[8,""],M.a,o.j,o.z],{clear:[0,"clear"]},null),o.Y(51,16384,null,0,J.a,[T.a],{menuClose:[0,"menuClose"]},null),(l()(),o.Z(52,0,null,0,0,"img",[["src","../assets/imgs/manage-lead.svg"],["style","width: 20px !important"]],null,null,null,null,null)),(l()(),o._18(-1,0,["   Manage Lead"])),(l()(),o._18(-1,null,["\n    "])),(l()(),o._18(-1,1,["\n\n\n    "])),(l()(),o.Z(56,0,null,1,15,"ion-card",[],null,null,null,null,null)),o.Y(57,16384,null,0,H.a,[M.a,o.j,o.z],null,null),(l()(),o._18(-1,null,["\n      "])),(l()(),o.Z(59,0,null,null,2,"ion-card-header",[],null,null,null,null,null)),o.Y(60,16384,null,0,q.a,[M.a,o.j,o.z],null,null),(l()(),o._18(-1,null,["Service Request"])),(l()(),o._18(-1,null,["\n         "])),(l()(),o.Z(63,0,null,null,7,"p",[],null,null,null,null,null)),(l()(),o._18(-1,null,[" "])),(l()(),o.Z(65,0,null,null,5,"button",[["clear",""],["ion-button",""],["menuClose",""]],null,[[null,"click"]],function(l,e,n){var t=!0,a=l.component;if("click"===e){t=!1!==o._11(l,67).close()&&t}if("click"===e){t=!1!==a.nav.setRoot("ServiceManagementPage")&&t}return t},K.b,K.a)),o.Y(66,1097728,null,0,$.a,[[8,""],M.a,o.j,o.z],{clear:[0,"clear"]},null),o.Y(67,16384,null,0,J.a,[T.a],{menuClose:[0,"menuClose"]},null),(l()(),o._18(-1,0,[" "])),(l()(),o.Z(69,0,null,0,0,"img",[["src","../assets/imgs/request.svg"],["style","width: 20px !important"]],null,null,null,null,null)),(l()(),o._18(-1,0,["   Manage Service Request"])),(l()(),o._18(-1,null,["\n    "])),(l()(),o._18(-1,1,["\n\n\n\n    "])),(l()(),o.Z(73,0,null,1,38,"ion-card",[],null,null,null,null,null)),o.Y(74,16384,null,0,H.a,[M.a,o.j,o.z],null,null),(l()(),o._18(-1,null,["\n        "])),(l()(),o.Z(76,0,null,null,2,"ion-card-header",[],null,null,null,null,null)),o.Y(77,16384,null,0,q.a,[M.a,o.j,o.z],null,null),(l()(),o._18(-1,null,["Settings"])),(l()(),o._18(-1,null,["  \n         "])),(l()(),o.Z(80,0,null,null,6,"p",[],null,null,null,null,null)),(l()(),o._18(-1,null,[" "])),(l()(),o.Z(82,0,null,null,4,"button",[["clear",""],["ion-button",""]],null,null,null,K.b,K.a)),o.Y(83,1097728,null,0,$.a,[[8,""],M.a,o.j,o.z],{clear:[0,"clear"]},null),(l()(),o._18(-1,0,[" "])),(l()(),o.Z(85,0,null,0,0,"img",[["src","../assets/imgs/user-edit.svg"],["style","width: 20px !important"]],null,null,null,null,null)),(l()(),o._18(-1,0,["   Edit Profile"])),(l()(),o._18(-1,null,["\n         "])),(l()(),o.Z(88,0,null,null,6,"p",[],null,null,null,null,null)),(l()(),o._18(-1,null,[" "])),(l()(),o.Z(90,0,null,null,4,"button",[["clear",""],["ion-button",""]],null,null,null,K.b,K.a)),o.Y(91,1097728,null,0,$.a,[[8,""],M.a,o.j,o.z],{clear:[0,"clear"]},null),(l()(),o._18(-1,0,[" "])),(l()(),o.Z(93,0,null,0,0,"img",[["src","../assets/imgs/contract.svg"],["style","width: 20px !important"]],null,null,null,null,null)),(l()(),o._18(-1,0,["   Terms & Conditions"])),(l()(),o._18(-1,null,["\n         "])),(l()(),o.Z(96,0,null,null,6,"p",[],null,null,null,null,null)),(l()(),o._18(-1,null,[" "])),(l()(),o.Z(98,0,null,null,4,"button",[["clear",""],["ion-button",""]],null,null,null,K.b,K.a)),o.Y(99,1097728,null,0,$.a,[[8,""],M.a,o.j,o.z],{clear:[0,"clear"]},null),(l()(),o._18(-1,0,[" "])),(l()(),o.Z(101,0,null,0,0,"img",[["src","../assets/imgs/logout.svg"],["style","width: 20px !important"]],null,null,null,null,null)),(l()(),o._18(-1,0,["   Log out"])),(l()(),o._18(-1,null,["\n         "])),(l()(),o.Z(104,0,null,null,6,"p",[],null,null,null,null,null)),(l()(),o._18(-1,null,[" "])),(l()(),o.Z(106,0,null,null,4,"button",[["clear",""],["ion-button",""]],null,null,null,K.b,K.a)),o.Y(107,1097728,null,0,$.a,[[8,""],M.a,o.j,o.z],{clear:[0,"clear"]},null),(l()(),o._18(-1,0,[" "])),(l()(),o.Z(109,0,null,0,0,"img",[["src","../assets/imgs/version.svg"],["style","width: 20px !important"]],null,null,null,null,null)),(l()(),o._18(-1,0,["   App Version : 0.0.1"])),(l()(),o._18(-1,null,["\n    "])),(l()(),o._18(-1,1,["\n\n    "])),(l()(),o._18(-1,1,["\n  "])),(l()(),o._18(-1,0,["\n\n"])),(l()(),o._18(-1,null,["\n\n"])),(l()(),o._18(-1,null,["\n"])),(l()(),o.Z(117,0,null,null,2,"ion-nav",[["swipeBackEnabled","false"]],null,null,null,G.b,G.a)),o._14(6144,null,I.a,null,[W.a]),o.Y(119,4374528,[[1,4],["content",4]],0,W.a,[[2,j.a],[2,V.a],O.a,M.a,D.a,o.j,o.u,o.z,o.i,L.l,X.a,[2,Q.a],Z.a,o.k],{swipeBackEnabled:[0,"swipeBackEnabled"],root:[1,"root"]},null)],function(l,e){var n=e.component;l(e,3,0,o._11(e,119),"overlay");l(e,41,0,"");l(e,42,0,"");l(e,50,0,"");l(e,51,0,"");l(e,66,0,"");l(e,67,0,"");l(e,83,0,"");l(e,91,0,"");l(e,99,0,"");l(e,107,0,"");l(e,119,0,"false",n.rootPage)},function(l,e){l(e,21,0,o._11(e,22).statusbarPadding,o._11(e,22)._hasRefresher)})}Object.defineProperty(e,"__esModule",{value:!0});var a=n(37),o=n(1),u=(n(2),n(172)),r=n(171),i=n(108),s=n(107),c=(n(106),n(104)),d=n(105),p=function(){function l(l,e,n){this.platform=l,this.statusBar=e,this.splashScreen=n,this.rootPage="LoginPage",this.initializeApp()}return l.prototype.initializeApp=function(){var l=this;this.platform.ready().then(function(){l.statusBar.styleDefault(),l.splashScreen.hide()})},l.prototype.openPage=function(l){this.nav.setRoot(l.component)},l}(),g=n(138),m=n(122),_=n(176),f=function(){return function(){}}(),h=n(66),y=n(339),v=n(340),b=n(341),E=n(342),C=n(343),S=n(344),w=n(345),P=n(346),A=n(347),N=n(638),I=n(45),R=n(98),T=n(32),M=n(3),D=n(6),k=n(35),L=n(10),Z=n(13),O=n(12),F=n(110),j=n(7),Y=n(112),z=n(111),x=n(348),U=n(30),V=n(29),B=n(50),H=n(114),q=n(116),K=n(48),$=n(28),J=n(150),G=n(639),W=n(70),X=n(42),Q=n(21),ll=o.X({encapsulation:2,styles:[],data:{}}),el=o.V("ng-component",p,function(l){return o._19(0,[(l()(),o.Z(0,0,null,null,1,"ng-component",[],null,null,null,t,ll)),o.Y(1,49152,null,0,p,[D.a,c.a,d.a],null,null)],null,null)},{},{},[]),nl=n(23),tl=n(153),al=n(26),ol=n(142),ul=n(144),rl=n(152),il=n(24),sl=n(44),cl=n(149),dl=n(175),pl=n(68),gl=n(49),ml=n(113),_l=n(73),fl=n(159),hl=n(155),yl=n(167),vl=n(337),bl=n(154),El=n(151),Cl=n(156),Sl=o.W(f,[h.b],function(l){return o._7([o._8(512,o.i,o.S,[[8,[y.a,v.a,b.a,E.a,C.a,S.a,w.a,P.a,A.a,el]],[3,o.i],o.s]),o._8(5120,o.r,o._15,[[3,o.r]]),o._8(4608,nl.k,nl.j,[o.r,[2,nl.s]]),o._8(5120,o.b,o._1,[]),o._8(5120,o.p,o._9,[]),o._8(5120,o.q,o._12,[]),o._8(4608,a.c,a.q,[nl.c]),o._8(6144,o.D,null,[a.c]),o._8(4608,a.f,tl.a,[]),o._8(5120,a.d,function(l,e,n,t,o){return[new a.k(l,e),new a.o(n),new a.n(t,o)]},[nl.c,o.u,nl.c,nl.c,a.f]),o._8(4608,a.e,a.e,[a.d,o.u]),o._8(135680,a.m,a.m,[nl.c]),o._8(4608,a.l,a.l,[a.e,a.m]),o._8(6144,o.B,null,[a.l]),o._8(6144,a.p,null,[a.m]),o._8(4608,o.G,o.G,[o.u]),o._8(4608,a.h,a.h,[nl.c]),o._8(4608,a.i,a.i,[nl.c]),o._8(4608,al.m,al.m,[]),o._8(4608,al.c,al.c,[]),o._8(4608,g.h,g.n,[nl.c,o.w,g.l]),o._8(4608,g.o,g.o,[g.h,g.m]),o._8(5120,g.a,function(l){return[l]},[g.o]),o._8(4608,g.k,g.k,[]),o._8(6144,g.i,null,[g.k]),o._8(4608,g.g,g.g,[g.i]),o._8(6144,g.b,null,[g.g]),o._8(4608,g.f,g.j,[g.b,o.o]),o._8(4608,g.c,g.c,[g.f]),o._8(4608,m.c,m.c,[]),o._8(4608,m.h,m.b,[]),o._8(5120,m.j,m.k,[]),o._8(4608,m.i,m.i,[m.c,m.h,m.j]),o._8(4608,m.g,m.a,[]),o._8(5120,m.e,m.l,[m.i,m.g]),o._8(4608,ol.a,ol.a,[O.a,M.a]),o._8(4608,ul.a,ul.a,[O.a,M.a]),o._8(4608,rl.a,rl.a,[]),o._8(4608,il.a,il.a,[]),o._8(4608,sl.a,sl.a,[D.a]),o._8(4608,k.a,k.a,[M.a,D.a,o.u,Z.a]),o._8(4608,cl.a,cl.a,[O.a,M.a]),o._8(5120,nl.f,dl.c,[nl.q,[2,nl.a],M.a]),o._8(4608,nl.e,nl.e,[nl.f]),o._8(5120,pl.b,pl.d,[O.a,pl.a]),o._8(5120,Q.a,Q.b,[O.a,pl.b,nl.e,gl.b,o.i]),o._8(4608,ml.a,ml.a,[O.a,M.a,Q.a]),o._8(4608,_l.a,_l.a,[O.a,M.a]),o._8(4608,fl.a,fl.a,[O.a,M.a,Q.a]),o._8(4608,hl.a,hl.a,[M.a,D.a,Z.a,O.a,L.l]),o._8(4608,yl.a,yl.a,[O.a,M.a]),o._8(4608,X.a,X.a,[D.a,M.a]),o._8(4608,c.a,c.a,[]),o._8(4608,d.a,d.a,[]),o._8(4608,s.a,s.a,[]),o._8(4608,i.a,i.a,[]),o._8(4608,r.a,r.a,[ul.a,cl.a,yl.a]),o._8(4608,u.a,u.a,[m.e,i.a,g.c]),o._8(4608,_.a,_.a,[]),o._8(512,nl.b,nl.b,[]),o._8(512,o.k,vl.a,[]),o._8(256,M.b,{},[]),o._8(1024,bl.a,bl.b,[]),o._8(1024,D.a,D.b,[a.b,bl.a,o.u]),o._8(1024,M.a,M.c,[M.b,D.a]),o._8(512,Z.a,Z.a,[D.a]),o._8(512,T.a,T.a,[]),o._8(512,O.a,O.a,[M.a,D.a,[2,T.a]]),o._8(512,L.l,L.l,[O.a]),o._8(256,pl.a,{links:[{loadChildren:"../pages/create-lead/create-lead.module.ngfactory#CreateLeadPageModuleNgFactory",name:"CreateLeadPage",segment:"create-lead",priority:"low",defaultHistory:[]},{loadChildren:"../pages/edit-service-request/edit-service-request.module.ngfactory#EditServiceRequestPageModuleNgFactory",name:"EditServiceRequestPage",segment:"edit-service-request",priority:"low",defaultHistory:[]},{loadChildren:"../pages/filter-lead-management/filter-lead-management.module.ngfactory#FilterLeadManagementPageModuleNgFactory",name:"FilterLeadManagementPage",segment:"filter-lead-management",priority:"low",defaultHistory:[]},{loadChildren:"../pages/filter-service-management/filter-service-management.module.ngfactory#FilterServiceManagementPageModuleNgFactory",name:"FilterServiceManagementPage",segment:"filter-service-management",priority:"low",defaultHistory:[]},{loadChildren:"../pages/home/home.module.ngfactory#HomePageModuleNgFactory",name:"HomePage",segment:"home",priority:"low",defaultHistory:[]},{loadChildren:"../pages/lead-detail/lead-detail.module.ngfactory#LeadDetailPageModuleNgFactory",name:"LeadDetailPage",segment:"lead-detail",priority:"low",defaultHistory:[]},{loadChildren:"../pages/login/login.module.ngfactory#LoginPageModuleNgFactory",name:"LoginPage",segment:"login",priority:"low",defaultHistory:[]},{loadChildren:"../pages/manage-lead/manage-lead.module.ngfactory#ManageLeadPageModuleNgFactory",name:"ManageLeadPage",segment:"manage-lead",priority:"low",defaultHistory:[]},{loadChildren:"../pages/service-management/service-management.module.ngfactory#ServiceManagementPageModuleNgFactory",name:"ServiceManagementPage",segment:"service-management",priority:"low",defaultHistory:[]},{loadChildren:"../pages/service-ticket-detail/service-ticket-detail.module.ngfactory#ServiceTicketDetailPageModuleNgFactory",name:"ServiceTicketDetailPage",segment:"service-ticket-detail",priority:"low",defaultHistory:[]}]},[]),o._8(512,o.h,o.h,[]),o._8(512,El.a,El.a,[o.h]),o._8(1024,gl.b,gl.c,[El.a,o.o]),o._8(1024,o.c,function(l,e,n,t,o,u,r,i,s,c,d,p,g){return[a.s(l),Cl.a(e),rl.b(n,t),hl.b(o,u,r,i,s),gl.d(c,d,p,g)]},[[2,o.t],M.a,D.a,Z.a,M.a,D.a,Z.a,O.a,L.l,M.a,pl.a,gl.b,o.u]),o._8(512,o.d,o.d,[[2,o.c]]),o._8(131584,o.f,o.f,[o.u,o.T,o.o,o.k,o.i,o.d]),o._8(512,o.e,o.e,[o.f]),o._8(512,a.a,a.a,[[3,a.a]]),o._8(512,al.l,al.l,[]),o._8(512,al.d,al.d,[]),o._8(512,al.k,al.k,[]),o._8(512,dl.a,dl.a,[]),o._8(512,g.e,g.e,[]),o._8(512,g.d,g.d,[]),o._8(512,m.f,m.f,[]),o._8(512,f,f,[]),o._8(256,g.l,"XSRF-TOKEN",[]),o._8(256,g.m,"X-XSRF-TOKEN",[]),o._8(256,h.a,p,[]),o._8(256,nl.a,"/",[])])});Object(o.M)(),Object(a.j)().bootstrapModuleFactory(Sl)}},[351]);
+webpackJsonp([13],{
+
+/***/ 149:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataValidation; });
+var DataValidation = /** @class */ (function () {
+    function DataValidation() {
+    }
+    DataValidation.prototype.isValidIpAddress = function (ipAddress) {
+        if (ipAddress == undefined || ipAddress == null || ipAddress == "")
+            return false;
+        var ipAddressRegex = new RegExp("[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}");
+        if (ipAddressRegex.test(ipAddress))
+            return true;
+        return false;
+    };
+    DataValidation.prototype.isValidMobileNumber = function (mobileNumber) {
+        if (mobileNumber == undefined || mobileNumber == null || mobileNumber == "")
+            return false;
+        var mobileNumberRegex = new RegExp("^[0-9]{10}$");
+        if (mobileNumberRegex.test(mobileNumber))
+            return true;
+        return false;
+    };
+    DataValidation.prototype.isValidEmailId = function (emailId) {
+        if (emailId == undefined || emailId == null || emailId == "")
+            return false;
+        if (emailId != undefined && emailId != null && emailId != "") {
+            var mobileNumberRegex = new RegExp("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$");
+            if (mobileNumberRegex.test(emailId))
+                return true;
+            return false;
+        }
+        return true;
+    };
+    DataValidation.prototype.stringToBoolean = function (string) {
+        if (string == null || string == undefined || string == '')
+            return false;
+        switch (string) {
+            case 'true':
+            case 'True':
+                return true;
+            case 'false':
+            case 'False':
+                return false;
+        }
+        return string;
+    };
+    DataValidation.prototype.commaSeperator = function (string) {
+        //Check if string is null
+        if (this.isEmpty(string))
+            return null;
+        //Check if commas are present
+        if (string.includes(","))
+            return string;
+        //Insert the commas
+        return string.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+    };
+    DataValidation.prototype.isValidPinCode = function (pinCode) {
+        if (pinCode != undefined && pinCode != null && pinCode != "") {
+            var pinCodeRegex = new RegExp("^[0-9]{6}$");
+            if (pinCodeRegex.test(pinCode))
+                return true;
+            return false;
+        }
+    };
+    DataValidation.prototype.isValidAmount = function (amount) {
+        var strongRegex = new RegExp("[0-9]{0,8}.[0-9]{0,2}");
+        return (strongRegex.test(amount));
+    };
+    DataValidation.prototype.isValidIfsc = function (code) {
+        var strongRegex = new RegExp("[A-Za-z]{4}[0-9]{7}$");
+        return (strongRegex.test(code));
+    };
+    DataValidation.prototype.doValidateName = function (name) {
+    };
+    DataValidation.prototype.isValidPassword = function (password) {
+        var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+        return (strongRegex.test(password));
+    };
+    DataValidation.prototype.doCheckForUndefinedVariable = function (fieldToCheck, returnMessageTab, fieldName) {
+        if (fieldToCheck == undefined || fieldToCheck == "")
+            returnMessageTab = fieldName + " not present !!!";
+        return fieldToCheck;
+    };
+    DataValidation.prototype.isNull = function (value) {
+        if (value == null)
+            return true;
+        return false;
+    };
+    DataValidation.prototype.isEmptyJson = function (value) {
+        if (value == undefined)
+            return true;
+        if (value == null)
+            return true;
+        if (value == "")
+            return true;
+        return false;
+    };
+    DataValidation.prototype.isEmpty = function (value) {
+        if (value == undefined)
+            return true;
+        if (value == null)
+            return true;
+        if (value.trim() == "")
+            return true;
+        return false;
+    };
+    DataValidation.prototype.isUndefined = function (value) {
+        if (value == undefined) {
+            return true;
+        }
+    };
+    DataValidation.prototype.isValidNumber = function (number) {
+        if (number != null || number != undefined || number != "") {
+            var nameRegex = new RegExp("[0-9]+");
+            if (nameRegex.test(number))
+                return true;
+            return false;
+        }
+        return false;
+    };
+    DataValidation.prototype.isValidName = function (name) {
+        if (name != undefined && name != null && name != "") {
+            var nameRegex = new RegExp("^[a-zA-Z ]");
+            if (nameRegex.test(name))
+                return true;
+            return false;
+        }
+    };
+    DataValidation.prototype.addErrorMessage = function (eid, errorMessage) {
+        /*STEP : 1  node variable for adding child element for error message*/
+        var node = document.createElement("ion-note");
+        /*STEP : 2 Add classes of this node */
+        node.setAttribute("class", "validation-error");
+        /*STEP : 2 Add id of this node */
+        node.setAttribute("id", eid + "Err");
+        /*STEP : 3 Add text content of this node */
+        var textnode = document.createTextNode(errorMessage);
+        node.appendChild(textnode);
+        /*STEP : 4 Add this node to under the text field */
+        document.getElementById(eid).parentElement.appendChild(node);
+    };
+    DataValidation.prototype.removeErrorMessage = function (eid) {
+        if (document.getElementById(eid + "Err") != null)
+            document.getElementById(eid + "Err").remove();
+    };
+    DataValidation.prototype.removeErrorMessageForMultipleElement = function (eClass, index) {
+        if (document.getElementsByClassName("validation-error" + " " + eClass + "Err")[index] != null)
+            document.getElementsByClassName("validation-error" + " " + eClass + "Err")[index].remove();
+    };
+    DataValidation.prototype.addErrorMessageForMultipleElement = function (eid, errorMessage, index) {
+        /*STEP : 1  node variable for adding child element for error message*/
+        var node = document.createElement("ion-note");
+        /*STEP : 2 Add classes of this node */
+        node.setAttribute("class", "validation-error" + " " + eid + "Err");
+        /*STEP : 3 Add text content of this node */
+        var textnode = document.createTextNode(errorMessage);
+        node.appendChild(textnode);
+        /*STEP : 4 Add this node to under the text field */
+        document.getElementsByClassName(eid)[index].parentElement.appendChild(node);
+    };
+    return DataValidation;
+}());
+
+//# sourceMappingURL=DataValidation.js.map
+
+/***/ }),
+
+/***/ 150:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Codes; });
+var Codes = /** @class */ (function () {
+    function Codes() {
+        this.EM_INVALID_MOBILE_NUMBER = "Invalid mobile number";
+        this.EM_INVALID_EMAILID = "Invalid email id";
+        this.EM_INVALID_PASSWORD = "Invalid password";
+        this.EM_INVALID_VERIFICATION_ID = "Invalid verification id";
+        this.API_ERROR = "500";
+        this.LSK_IPADDRESS = "ipaddress";
+        this.LSK_USERNAME = "username";
+        this.LSK_PASSWORD = "password";
+        this.LSK_USER_INFO_PREFERENCES = "user_info_preferences";
+        this.API_ENDPOINT = "https://cors-anywhere.herokuapp.com/http://";
+        this.API_AUTHENTICATE_USER = ":10080/24online/service/MobileApplicationService/authenticateUser";
+        this.API_SEARCH_LEAD = ":10080/24online/service/SalesService/searchLead";
+        this.API_SEARCH_SERVICE = ":10080/24online/service/SalesService/searchService";
+        this.API_CREATE_LEAD = ":10080/24online/service/SalesService/createLead";
+        this.API_GET_LEAD_DETAILS = ":10080/24online/service/SalesService/searchLeadTicketwithDetail";
+        this.API_GET_SERVICE_DETAILS = ":10080/24online/service/SalesService/searchServiceTicketwithDetail";
+        this.API_UPDATE_SERVICE_REQUEST = ":10080/24online/service/SalesService/updateServiceTicket";
+    }
+    return Codes;
+}());
+
+//# sourceMappingURL=Codes.js.map
+
+/***/ }),
+
+/***/ 161:
+/***/ (function(module, exports) {
+
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncatched exception popping up in devtools
+	return Promise.resolve().then(function() {
+		throw new Error("Cannot find module '" + req + "'.");
+	});
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = 161;
+
+/***/ }),
+
+/***/ 302:
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"../pages/create-lead/create-lead.module": [
+		677,
+		12
+	],
+	"../pages/dashboard-tab/dashboard-tab.module": [
+		678,
+		11
+	],
+	"../pages/edit-service-request/edit-service-request.module": [
+		679,
+		10
+	],
+	"../pages/filter-lead-management/filter-lead-management.module": [
+		680,
+		9
+	],
+	"../pages/filter-service-management/filter-service-management.module": [
+		681,
+		8
+	],
+	"../pages/home/home.module": [
+		682,
+		7
+	],
+	"../pages/lead-detail/lead-detail.module": [
+		683,
+		6
+	],
+	"../pages/leads/leads.module": [
+		684,
+		5
+	],
+	"../pages/login/login.module": [
+		687,
+		4
+	],
+	"../pages/manage-lead/manage-lead.module": [
+		685,
+		3
+	],
+	"../pages/service-management/service-management.module": [
+		686,
+		2
+	],
+	"../pages/service-ticket-detail/service-ticket-detail.module": [
+		688,
+		1
+	],
+	"../pages/ticket/ticket.module": [
+		689,
+		0
+	]
+};
+function webpackAsyncContext(req) {
+	var ids = map[req];
+	if(!ids)
+		return Promise.reject(new Error("Cannot find module '" + req + "'."));
+	return __webpack_require__.e(ids[1]).then(function() {
+		return __webpack_require__(ids[0]);
+	});
+};
+webpackAsyncContext.keys = function webpackAsyncContextKeys() {
+	return Object.keys(map);
+};
+webpackAsyncContext.id = 302;
+module.exports = webpackAsyncContext;
+
+/***/ }),
+
+/***/ 346:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MessageHelper; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var MessageHelper = /** @class */ (function () {
+    function MessageHelper(alertCtrl, loadingCtrl, toastCtrl) {
+        this.alertCtrl = alertCtrl;
+        this.loadingCtrl = loadingCtrl;
+        this.toastCtrl = toastCtrl;
+    }
+    MessageHelper.prototype.showWorkingDialog = function (message) {
+        if (message === void 0) { message = "Please wait..."; }
+        //Working, please wait...
+        var l = this.loadingCtrl.create({
+            content: message
+        });
+        l.present();
+        return l;
+    };
+    MessageHelper.prototype.showToast = function (message, autoClose) {
+        if (autoClose === void 0) { autoClose = true; }
+        if (autoClose) {
+            this.toastCtrl.create({
+                message: message,
+                duration: 3000
+            }).present();
+        }
+        else {
+            this.toastCtrl.create({
+                message: message,
+                showCloseButton: true,
+                closeButtonText: 'Ok'
+            }).present();
+        }
+    };
+    MessageHelper.prototype.showAlert = function (title, msg, button) {
+        if (button === void 0) { button = 'Close'; }
+        var alert = this.alertCtrl.create({
+            title: title,
+            subTitle: msg,
+            buttons: [button]
+        });
+        alert.present();
+        return alert;
+    };
+    MessageHelper.prototype.showConnectionErrorDialog = function () {
+        this.alertCtrl.create({
+            title: "Connection Error!",
+            subTitle: "Failed to connect with server. Please try again.",
+            buttons: ['Close']
+        }).present();
+    };
+    MessageHelper.prototype.showErrorDialog = function (title, message) {
+        this.alertCtrl.create({
+            title: title,
+            subTitle: message,
+            buttons: ['Close']
+        }).present();
+    };
+    MessageHelper.prototype.showNoProductDialog = function () {
+        this.alertCtrl.create({
+            title: "Not Available!",
+            subTitle: "No products found. Please try again.",
+            buttons: ['Close']
+        }).present();
+    };
+    MessageHelper.prototype.showNoModelDialog = function () {
+        this.alertCtrl.create({
+            title: "Not Available!",
+            subTitle: "No Car Model found. Please try again.",
+            buttons: ['Close']
+        }).present();
+    };
+    MessageHelper.prototype.showNoOrderDialog = function () {
+        this.alertCtrl.create({
+            title: "Not Available!",
+            subTitle: "No Order found.",
+            buttons: ['Close']
+        }).present();
+    };
+    MessageHelper.prototype.showNoProductDialogPRODUCTOUTOFSTOCK = function () {
+        this.alertCtrl.create({
+            title: "Not Available!",
+            subTitle: "PRODUCT OUT OF STOCK",
+            buttons: ['Close']
+        }).present();
+    };
+    MessageHelper.prototype.showNoProductDialogINSUFFICIENTSTOCK = function () {
+        this.alertCtrl.create({
+            title: "Not Available!",
+            subTitle: "INSUFFICIENT STOCK",
+            buttons: ['Close']
+        }).present();
+    };
+    MessageHelper.prototype.showNoProductDialogINVALIDUSER = function () {
+        this.alertCtrl.create({
+            title: "Error!",
+            subTitle: "INVALID USER",
+            buttons: ['Close']
+        }).present();
+    };
+    MessageHelper.prototype.showNoProductDialogFAILURE = function () {
+        this.alertCtrl.create({
+            title: "Error!",
+            subTitle: "FAILURE",
+            buttons: ['Close']
+        }).present();
+    };
+    MessageHelper.prototype.showNoProductDialogSYSTEMERROR = function () {
+        this.alertCtrl.create({
+            title: "Error!",
+            subTitle: "SYSTEM ERROR",
+            buttons: ['Close']
+        }).present();
+    };
+    MessageHelper.prototype.showDialogChangePassword = function () {
+        this.alertCtrl.create({
+            title: "Error!",
+            subTitle: "Your old password does not match.",
+            buttons: ['Close']
+        }).present();
+    };
+    MessageHelper = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["l" /* ToastController */]])
+    ], MessageHelper);
+    return MessageHelper;
+}());
+
+//# sourceMappingURL=message-helper.js.map
+
+/***/ }),
+
+/***/ 347:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HttpProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Utils_Codes__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common_http__ = __webpack_require__(262);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var HttpProvider = /** @class */ (function () {
+    function HttpProvider(http, codes, httpClient) {
+        this.http = http;
+        this.codes = codes;
+        this.httpClient = httpClient;
+    }
+    /**
+     *
+     * @param data  the json data
+     * @param apiName the api name
+     */
+    HttpProvider.prototype.callApi = function (data, apiName) {
+        var _this = this;
+        return new Promise(function (resolve) {
+            var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Headers */]();
+            headers.append('Content-Type', 'application/json');
+            headers.append('Username', 'avijit.ghosh');
+            headers.append('Password', 'avijit.ghosh');
+            var ipAddress = localStorage.getItem(_this.codes.LSK_IPADDRESS);
+            _this.http.post(_this.codes.API_ENDPOINT + ipAddress + apiName, JSON.stringify(data), { headers: headers }).map(function (res) { return res.json(); })
+                .subscribe(function (data) {
+                console.log(data);
+                resolve(data);
+            }, function (err) {
+                console.log(err);
+                resolve({ status: _this.codes.API_ERROR });
+            });
+        });
+    };
+    HttpProvider.prototype.uploadFile = function (data, apiName) {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this.httpClient.post(_this.codes.API_ENDPOINT + apiName, data).subscribe(function (res) {
+                console.log("Success: " + JSON.stringify(res));
+                resolve(res);
+            }, function (err) {
+                console.log(err);
+                resolve(err);
+            });
+        });
+    };
+    HttpProvider.prototype.isNullOrEmpty = function (str) {
+        return typeof str === 'undefined' || str === null || (typeof str === 'string' && str.length <= 0);
+    };
+    HttpProvider.prototype.convertToArray = function (object) {
+        if (this.isArray(object))
+            return object;
+        else
+            return [object];
+    };
+    HttpProvider.prototype.isArray = function (object) {
+        if (typeof object === 'undefined')
+            return false;
+        return Object.prototype.toString.call(object).slice(8, -1) === 'Array';
+    };
+    HttpProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_0__Utils_Codes__["a" /* Codes */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["a" /* HttpClient */]])
+    ], HttpProvider);
+    return HttpProvider;
+}());
+
+//# sourceMappingURL=data.js.map
+
+/***/ }),
+
+/***/ 348:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StringUtils; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__DataValidation__ = __webpack_require__(149);
+
+var StringUtils = /** @class */ (function () {
+    function StringUtils() {
+    }
+    /**
+     *
+     * @param string
+     */
+    StringUtils.prototype.splitStringInCamelCase = function (string) {
+        var dataValidation = new __WEBPACK_IMPORTED_MODULE_0__DataValidation__["a" /* DataValidation */]();
+        if (dataValidation.isEmptyJson(string))
+            return string;
+        var strArr = string.split(".");
+        if (strArr.length > 1)
+            return strArr[0].substr(0, 1).toUpperCase() + strArr[0].substr(1, strArr[0].length - 1).toLowerCase() + " " + strArr[1].substr(0, 1).toUpperCase() + strArr[1].substr(1, strArr[1].length - 1).toLowerCase();
+        return strArr[0].substr(0, 1).toUpperCase() + strArr[0].substr(1, strArr[0].length - 1).toLowerCase();
+    };
+    return StringUtils;
+}());
+
+//# sourceMappingURL=StringUtils.js.map
+
+/***/ }),
+
+/***/ 349:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(350);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(354);
+
+
+Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
+//# sourceMappingURL=main.js.map
+
+/***/ }),
+
+/***/ 354:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_data_data__ = __webpack_require__(347);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_message_helper__ = __webpack_require__(346);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Utils_Codes__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Utils_DataValidation__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_angular__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(673);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_status_bar__ = __webpack_require__(342);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__ = __webpack_require__(345);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_common_http__ = __webpack_require__(262);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_http__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__Utils_StringUtils__ = __webpack_require__(348);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+var AppModule = /** @class */ (function () {
+    function AppModule() {
+    }
+    AppModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_5__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* MyApp */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__["a" /* BrowserModule */],
+                __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* MyApp */], {}, {
+                    links: [
+                        { loadChildren: '../pages/create-lead/create-lead.module#CreateLeadPageModule', name: 'CreateLeadPage', segment: 'create-lead', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/dashboard-tab/dashboard-tab.module#DashboardTabPageModule', name: 'DashboardTabPage', segment: 'dashboard-tab', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/edit-service-request/edit-service-request.module#EditServiceRequestPageModule', name: 'EditServiceRequestPage', segment: 'edit-service-request', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/filter-lead-management/filter-lead-management.module#FilterLeadManagementPageModule', name: 'FilterLeadManagementPage', segment: 'filter-lead-management', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/filter-service-management/filter-service-management.module#FilterServiceManagementPageModule', name: 'FilterServiceManagementPage', segment: 'filter-service-management', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/lead-detail/lead-detail.module#LeadDetailPageModule', name: 'LeadDetailPage', segment: 'lead-detail', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/leads/leads.module#LeadsPageModule', name: 'LeadsPage', segment: 'leads', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/manage-lead/manage-lead.module#ManageLeadPageModule', name: 'ManageLeadPage', segment: 'manage-lead', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/service-management/service-management.module#ServiceManagementPageModule', name: 'ServiceManagementPage', segment: 'service-management', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/service-ticket-detail/service-ticket-detail.module#ServiceTicketDetailPageModule', name: 'ServiceTicketDetailPage', segment: 'service-ticket-detail', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/ticket/ticket.module#TicketPageModule', name: 'TicketPage', segment: 'ticket', priority: 'low', defaultHistory: [] }
+                    ]
+                }),
+                __WEBPACK_IMPORTED_MODULE_10__angular_common_http__["b" /* HttpClientModule */],
+                __WEBPACK_IMPORTED_MODULE_11__angular_http__["c" /* HttpModule */]
+            ],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_6_ionic_angular__["b" /* IonicApp */]],
+            entryComponents: [
+                __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* MyApp */],
+            ],
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_8__ionic_native_status_bar__["a" /* StatusBar */],
+                __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__["a" /* SplashScreen */],
+                __WEBPACK_IMPORTED_MODULE_3__Utils_DataValidation__["a" /* DataValidation */],
+                __WEBPACK_IMPORTED_MODULE_2__Utils_Codes__["a" /* Codes */],
+                __WEBPACK_IMPORTED_MODULE_1__providers_message_helper__["a" /* MessageHelper */],
+                __WEBPACK_IMPORTED_MODULE_0__providers_data_data__["a" /* HttpProvider */],
+                __WEBPACK_IMPORTED_MODULE_12__Utils_StringUtils__["a" /* StringUtils */],
+                { provide: __WEBPACK_IMPORTED_MODULE_5__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["c" /* IonicErrorHandler */] }
+            ]
+        })
+    ], AppModule);
+    return AppModule;
+}());
+
+//# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ 673:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(342);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(345);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var MyApp = /** @class */ (function () {
+    function MyApp(platform, statusBar, splashScreen) {
+        this.platform = platform;
+        this.statusBar = statusBar;
+        this.splashScreen = splashScreen;
+        this.rootPage = "LoginPage";
+        this.initializeApp();
+    }
+    MyApp.prototype.initializeApp = function () {
+        var _this = this;
+        this.platform.ready().then(function () {
+            // Okay, so the platform is ready and our plugins are available.
+            // Here you can do any higher level native things you might need.
+            _this.statusBar.styleDefault();
+            _this.splashScreen.hide();
+        });
+    };
+    MyApp.prototype.openPage = function (page) {
+        // Reset the content nav to have just this page
+        // we wouldn't want the back button to show in this scenario
+        this.nav.setRoot(page.component);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */])
+    ], MyApp.prototype, "nav", void 0);
+    MyApp = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/aashijit/24Online/src/app/app.html"*/'<ion-menu [content]="content" type="overlay">\n  <ion-header style="background-color : rgb(61, 192, 253) !important;">\n    <ion-row>\n      <ion-col style="text-align: center !important;">\n        <img src="../assets/imgs/logo.png" style="width: 90px !important;" />\n      </ion-col>\n    </ion-row>\n  </ion-header>\n\n  <ion-content style="background-image: radial-gradient(rgb(246, 246, 246) ,rgb(230, 230, 230));">\n\n    <p style="text-align:  center !important;">\n    <ion-label>\n      Sales Management\n    </ion-label>\n  </p>\n\n    <ion-card>\n      <ion-card-header>Lead Management</ion-card-header>\n         <p> <button ion-button clear (click)="nav.setRoot(\'CreateLeadPage\')" menuClose> <img src="../assets/imgs/create-lead.svg" style="width: 20px !important"/> &nbsp; Create Lead</button></p>\n        <p> <button ion-button clear (click)="nav.setRoot(\'ManageLeadPage\')" menuClose><img src="../assets/imgs/manage-lead.svg" style="width: 20px !important"/> &nbsp; Manage Lead</button></p>\n    </ion-card>\n\n\n    <ion-card>\n      <ion-card-header>Service Request</ion-card-header>\n         <p> <button ion-button clear (click)="nav.setRoot(\'ServiceManagementPage\')" menuClose> <img src="../assets/imgs/request.svg" style="width: 20px !important"/> &nbsp; Manage Service Request</button></p>\n    </ion-card>\n\n\n\n    <ion-card>\n        <ion-card-header>Settings</ion-card-header>  \n         <p> <button ion-button clear> <img src="../assets/imgs/user-edit.svg" style="width: 20px !important"/> &nbsp; Edit Profile</button></p>\n         <p> <button ion-button clear> <img src="../assets/imgs/contract.svg" style="width: 20px !important"/> &nbsp; Terms & Conditions</button></p>\n         <p> <button ion-button clear> <img src="../assets/imgs/logout.svg" style="width: 20px !important"/> &nbsp; Log out</button></p>\n         <p> <button ion-button clear> <img src="../assets/imgs/version.svg" style="width: 20px !important"/> &nbsp; App Version : 0.0.1</button></p>\n    </ion-card>\n\n    <!-- <ion-list>\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list> -->\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/home/aashijit/24Online/src/app/app.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+    ], MyApp);
+    return MyApp;
+}());
+
+//# sourceMappingURL=app.component.js.map
+
+/***/ })
+
+},[349]);
+//# sourceMappingURL=main.js.map

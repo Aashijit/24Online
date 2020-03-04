@@ -1,1 +1,87 @@
-webpackJsonp([5],{644:function(l,n,u){"use strict";function a(l){return t._19(0,[(l()(),t.Z(0,0,null,null,24,"ion-header",[],null,null,null,null,null)),t.Y(1,16384,null,0,p.a,[k.a,t.j,t.z,[2,f.a]],null,null),(l()(),t._18(-1,null,["\n"])),(l()(),t.Z(3,0,null,null,20,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,h.b,h.a)),t.Y(4,49152,null,0,j.a,[Y.a,[2,f.a],[2,Z.a],k.a,t.j,t.z],null,null),(l()(),t._18(-1,3,["\n    "])),(l()(),t.Z(6,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var a=!0;if("click"===n){a=!1!==t._11(l,8).toggle()&&a}return a},v.b,v.a)),t.Y(7,1097728,[[1,4]],0,C.a,[[8,""],k.a,t.j,t.z],null,null),t.Y(8,1064960,null,0,y.a,[x.a,[2,f.a],[2,C.a],[2,j.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(9,16384,null,1,z.a,[k.a,t.j,t.z,[2,P.a],[2,j.a]],null,null),t._16(603979776,1,{_buttons:1}),(l()(),t._18(-1,0,["\n      "])),(l()(),t.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(13,147456,null,0,q.a,[k.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._18(-1,0,["\n    "])),(l()(),t._18(-1,3,["\n    "])),(l()(),t.Z(16,0,null,3,0,"img",[["src","../../assets/imgs/logo.png"],["style","width: 70px !important;"]],null,null,null,null,null)),(l()(),t._18(-1,3,["\n  \n\n  "])),(l()(),t.Z(18,0,null,3,4,"span",[["style","float: right !important;"]],null,null,null,null,null)),(l()(),t._18(-1,null,["\n    "])),(l()(),t.Z(20,0,null,null,1,"ion-icon",[["name","notifications"],["role","img"],["style","margin-top: 15px !important; color: rgb(31, 115, 250) !important; margin-right: 15px !important;"]],[[2,"hide",null]],null,null,null,null)),t.Y(21,147456,null,0,q.a,[k.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._18(-1,null,["\n  "])),(l()(),t._18(-1,3,["\n  \n  \n  "])),(l()(),t._18(-1,null,["\n\n"])),(l()(),t._18(-1,null,["\n\n"])),(l()(),t.Z(26,0,null,null,7,"ion-content",[["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,w.b,w.a)),t.Y(27,4374528,null,0,A.a,[k.a,T.a,H.a,t.j,t.z,Y.a,V.a,t.u,[2,f.a],[2,Z.a]],null,null),(l()(),t._18(-1,1,["\n\n  "])),(l()(),t.Z(29,0,null,1,3,"p",[["style","text-align: center !important; margin-top: 55% !important;"]],null,null,null,null,null)),(l()(),t._18(-1,null,["\n  "])),(l()(),t.Z(31,0,null,null,0,"img",[["src","../../assets/imgs/logo.png"],["style","width: 100px !important;"]],null,null,null,null,null)),(l()(),t._18(-1,null,["\n"])),(l()(),t._18(-1,1,["\n"])),(l()(),t._18(-1,null,["\n"]))],function(l,n){l(n,8,0,"");l(n,13,0,"menu");l(n,21,0,"notifications")},function(l,n){l(n,3,0,t._11(n,4)._hidden,t._11(n,4)._sbPadding);l(n,6,0,t._11(n,8).isHidden);l(n,12,0,t._11(n,13)._hidden);l(n,20,0,t._11(n,21)._hidden);l(n,26,0,t._11(n,27).statusbarPadding,t._11(n,27)._hasRefresher)})}Object.defineProperty(n,"__esModule",{value:!0});var t=u(1),o=(u(2),u(106),function(){function l(l,n){this.navCtrl=l,this.navParams=n}return l.prototype.ionViewDidLoad=function(){console.log("ionViewDidLoad HomePage")},l}()),i=function(){return function(){}}(),e=u(339),s=u(340),r=u(341),c=u(342),_=u(343),b=u(344),d=u(345),g=u(346),m=u(347),p=u(110),k=u(3),f=u(7),h=u(650),j=u(52),Y=u(12),Z=u(29),v=u(48),C=u(28),y=u(181),x=u(32),z=u(182),P=u(72),q=u(53),w=u(348),A=u(30),T=u(6),H=u(13),V=u(35),B=u(16),D=t.X({encapsulation:2,styles:[],data:{}}),L=t.V("page-home",o,function(l){return t._19(0,[(l()(),t.Z(0,0,null,null,1,"page-home",[],null,null,null,a,D)),t.Y(1,49152,null,0,o,[Z.a,B.a],null,null)],null,null)},{},{},[]),M=u(23),X=u(26),F=u(175),I=u(49);u.d(n,"HomePageModuleNgFactory",function(){return J});var J=t.W(i,[],function(l){return t._7([t._8(512,t.i,t.S,[[8,[e.a,s.a,r.a,c.a,_.a,b.a,d.a,g.a,m.a,L]],[3,t.i],t.s]),t._8(4608,M.k,M.j,[t.r,[2,M.s]]),t._8(4608,X.m,X.m,[]),t._8(4608,X.c,X.c,[]),t._8(512,M.b,M.b,[]),t._8(512,X.l,X.l,[]),t._8(512,X.d,X.d,[]),t._8(512,X.k,X.k,[]),t._8(512,F.a,F.a,[]),t._8(512,F.b,F.b,[]),t._8(512,i,i,[]),t._8(256,I.a,o,[])])})},650:function(l,n,u){"use strict";function a(l){return t._19(0,[(l()(),t.Z(0,0,null,null,1,"div",[["class","toolbar-background"]],null,null,null,null,null)),t.Y(1,278528,null,0,o.g,[t.p,t.q,t.j,t.A],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),(l()(),t.Z(2,0,null,null,8,"button",[["class","back-button"],["ion-button","bar-button"]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var a=!0;if("click"===n){a=!1!==l.component.backButtonClick(u)&&a}return a},i.b,i.a)),t.Y(3,278528,null,0,o.g,[t.p,t.q,t.j,t.A],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),t.Y(4,1097728,null,0,e.a,[[8,"bar-button"],s.a,t.j,t.z],null,null),(l()(),t.Z(5,0,null,0,2,"ion-icon",[["class","back-button-icon"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(6,278528,null,0,o.g,[t.p,t.q,t.j,t.A],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),t.Y(7,147456,null,0,r.a,[s.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t.Z(8,0,null,0,2,"span",[["class","back-button-text"]],null,null,null,null,null)),t.Y(9,278528,null,0,o.g,[t.p,t.q,t.j,t.A],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),(l()(),t._18(10,null,["",""])),t._10(null,0),t._10(null,1),t._10(null,2),(l()(),t.Z(14,0,null,null,2,"div",[["class","toolbar-content"]],null,null,null,null,null)),t.Y(15,278528,null,0,o.g,[t.p,t.q,t.j,t.A],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),t._10(null,3)],function(l,n){var u=n.component;l(n,1,0,"toolbar-background","toolbar-background-"+u._mode);l(n,3,0,"back-button","back-button-"+u._mode);l(n,6,0,"back-button-icon","back-button-icon-"+u._mode);l(n,7,0,u._bbIcon);l(n,9,0,"back-button-text","back-button-text-"+u._mode);l(n,15,0,"toolbar-content","toolbar-content-"+u._mode)},function(l,n){var u=n.component;l(n,2,0,u._hideBb);l(n,5,0,t._11(n,7)._hidden);l(n,10,0,u._backText)})}u.d(n,"a",function(){return c}),n.b=a;var t=u(1),o=u(23),i=u(48),e=u(28),s=u(3),r=u(53),c=(u(7),u(29),t.X({encapsulation:2,styles:[],data:{}}))}});
+webpackJsonp([5],{
+
+/***/ 684:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LeadsPageModule", function() { return LeadsPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__leads__ = __webpack_require__(697);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var LeadsPageModule = /** @class */ (function () {
+    function LeadsPageModule() {
+    }
+    LeadsPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__leads__["a" /* LeadsPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__leads__["a" /* LeadsPage */]),
+            ],
+        })
+    ], LeadsPageModule);
+    return LeadsPageModule;
+}());
+
+//# sourceMappingURL=leads.module.js.map
+
+/***/ }),
+
+/***/ 697:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LeadsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(84);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the LeadsPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var LeadsPage = /** @class */ (function () {
+    function LeadsPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    LeadsPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad LeadsPage');
+    };
+    LeadsPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-leads',template:/*ion-inline-start:"/home/aashijit/24Online/src/pages/leads/leads.html"*/'<!--\n  Generated template for the LeadsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <ion-title>Leads</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/home/aashijit/24Online/src/pages/leads/leads.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+    ], LeadsPage);
+    return LeadsPage;
+}());
+
+//# sourceMappingURL=leads.js.map
+
+/***/ })
+
+});
+//# sourceMappingURL=5.js.map

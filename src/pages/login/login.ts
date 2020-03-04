@@ -62,7 +62,7 @@ export class LoginPage {
 
       this.msgHelper.showToast('Login Successfull !!!');
       
-      this.navCtrl.setRoot('HomePage');
+      this.navCtrl.setRoot('DashboardTabPage');
       
     },error => {
         loading.dismiss();
