@@ -80,10 +80,17 @@
     </ion-item>
 
     <ion-row>
-      <ion-col><button ion-button outline>Take Picture <ion-icon name="camera"></ion-icon></button></ion-col>
-      <ion-col><button ion-button outline>Select Image<ion-icon name="camera"></ion-icon></button></ion-col>
+      <ion-col><button ion-button outline (click)="addPicture(false)">Take Picture &nbsp;<ion-icon name="camera" ></ion-icon></button></ion-col>
+      <ion-col><button ion-button outline (click)="addPicture(true)">Select Image &nbsp;<ion-icon name="image" ></ion-icon></button></ion-col>
     </ion-row>
 
+    <ion-row *ngIf="!dataValidation.isEmptyJson(images)">
+      <ion-col style="text-align: left !important;" >
+        <span *ngFor="let image of images">
+          <img [src]="image" class="img-resp" />
+      </span>
+      </ion-col>
+    </ion-row>
 
   <p style="text-align: center !important;">
     <button ion-button round outline (click)="createLead()">Create Lead</button>

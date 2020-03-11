@@ -1,3 +1,4 @@
+import { Camera, CameraOptions } from '@ionic-native/camera';
 import { DataValidation } from './../../Utils/DataValidation';
 import { Codes } from './../../Utils/Codes';
 import { HttpProvider } from './../../providers/data/data';
@@ -25,14 +26,36 @@ export class CreateLeadPage {
   source : any = null;
   preferredCallTime : any = null;
   closureTime : any = null;
+  i : any = 0;
+  images : any = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public msgHelper : MessageHelper,
-    public http : HttpProvider,public codes : Codes,public dataValidation : DataValidation) {
+    public http : HttpProvider,public codes : Codes,public dataValidation : DataValidation,
+    public camera : Camera) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreateLeadPage');
 
+
+  }
+
+
+  addPicture(check){  
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      sourceType : !check ? this.camera.PictureSourceType.CAMERA : this.camera.PictureSourceType.PHOTOLIBRARY
+    }
+    console.error(options);
+    this.camera.getPicture(options).then((imageData) => {
+      let base64Image = 'data:image/jpeg;base64,' + imageData;
+      this.images[this.i++] = base64Image; 
+    }, (err) => {
+      console.error("Error Encountered" + err);
+    });
 
   }
 
