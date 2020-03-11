@@ -1,3 +1,4 @@
+import { Camera } from '@ionic-native/camera';
 import { HttpProvider } from './../providers/data/data';
 import { MessageHelper } from './../providers/message-helper';
 import { Codes } from './../Utils/Codes';
@@ -13,6 +14,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpClientModule } from '@angular/common/http';
 import { Http, ConnectionBackend, HttpModule } from '@angular/http';
 import { StringUtils } from '../Utils/StringUtils';
+
+
+
 
 @NgModule({
   declarations: [
@@ -37,6 +41,7 @@ import { StringUtils } from '../Utils/StringUtils';
     MessageHelper,
     HttpProvider,
     StringUtils,
+    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
