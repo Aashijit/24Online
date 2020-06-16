@@ -34,6 +34,7 @@ export class CreateLeadPage {
   imageView : any = null;
   pkglist : any = null;
   zonelist : any = null;
+  formdata:FormData = null;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public msgHelper : MessageHelper,
     public http : HttpProvider,public codes : Codes,public dataValidation : DataValidation,
@@ -108,28 +109,33 @@ export class CreateLeadPage {
 
     //Creare the request json
 
-    const formdata = new FormData();
-    formdata.append("firstname", this.firstName);
-    formdata.append("lastname", this.lastName);
-    formdata.append("emailid", this.emailId);
-    formdata.append("contactno", this.contactNo);
-    formdata.append("address1", this.address1);
-    formdata.append("address2", this.address2);
-    formdata.append("address3", this.address3);
-    formdata.append("comment", this.comment);
-    formdata.append("zonename", this.zonename);
-    formdata.append("usertype", "user");
-    formdata.append("paymentamount", this.paymentamount);
-    formdata.append("source", this.source);
-    formdata.append("preferedcalltime", this.preferredCallTime);
-    formdata.append("closertime", this.closureTime);
-    formdata.append("image", this.image);
+    this.formdata = new FormData();
+    this.formdata.append("firstname", this.firstName);
+    this.formdata.append("lastname", this.lastName);
+    this.formdata.append("emailid", this.emailId);
+    this.formdata.append("contactno", this.contactNo);
+    this.formdata.append("address1", this.address1);
+    this.formdata.append("address2", this.address2);
+    this.formdata.append("address3", this.address3);
+    this.formdata.append("comment", this.comment);
+    this.formdata.append("zonename", this.zonename);
+    this.formdata.append("usertype", "user");
+    this.formdata.append("paymentamount", this.paymentamount);
+    this.formdata.append("source", this.source);
+    this.formdata.append("preferedcalltime", this.preferredCallTime);
+    this.formdata.append("closertime", this.closureTime);
+    this.formdata.append("image", this.image);
 
 
-    console.log("Request Json : "+JSON.stringify(formdata));
+    console.log("Request Json : "+JSON.stringify(this.formdata));
     var loading = this.msgHelper.showWorkingDialog('Creating the lead ...');
 
-    this.http.uploadFile(formdata,this.codes.API_CREATE_LEAD).then(responseJson => {
+   
+    
+    //headers.append('Authorization', 'Bearer ' + token);
+    //let options = new RequestOptions({headers: headers});
+
+    this.http.uploadFile(this.formdata,this.codes.API_CREATE_LEAD).then(responseJson => {
 
 
       loading.dismiss();

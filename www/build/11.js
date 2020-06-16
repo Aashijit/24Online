@@ -1,6 +1,6 @@
 webpackJsonp([11],{
 
-/***/ 681:
+/***/ 682:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditServiceRequestPageModule", function() { return EditServiceRequestPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__edit_service_request__ = __webpack_require__(696);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__edit_service_request__ = __webpack_require__(697);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var EditServiceRequestPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 696:
+/***/ 697:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -124,7 +124,7 @@ var EditServiceRequestPage = /** @class */ (function () {
     };
     EditServiceRequestPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["m" /* Component */])({
-            selector: 'page-edit-service-request',template:/*ion-inline-start:"/home/aashijit/24Online/src/pages/edit-service-request/edit-service-request.html"*/'<ion-content class="popup">\n\n  <ion-card *ngIf="!dataValidation.isEmptyJson(serviceId)">\n    <ion-card-header>Update Service Ticket : {{serviceId}}\n      <span style="float: right !important;" (click)="close()"><ion-icon name="close-circle"></ion-icon></span>\n    </ion-card-header>\n\n   \n\n    <ion-item style="border: 1px solid #ddd !important">\n      <ion-label floating>New Comment</ion-label>\n      <ion-textarea [(ngModel)]="comment" rows="10" columns="20"></ion-textarea>\n    </ion-item>\n\n    <p style="text-align:center !important;">\n      <button ion-button clear (click)="updateService()">Update Service</button>\n    </p>\n  </ion-card>\n</ion-content>'/*ion-inline-end:"/home/aashijit/24Online/src/pages/edit-service-request/edit-service-request.html"*/,
+            selector: 'page-edit-service-request',template:/*ion-inline-start:"E:\24Online\Code\24onlineLatest\24Online\src\pages\edit-service-request\edit-service-request.html"*/'<ion-content class="popup">\n\n\n\n  <ion-card *ngIf="!dataValidation.isEmptyJson(serviceId)">\n\n    <ion-card-header>Update Service Ticket : {{serviceId}}\n\n      <span style="float: right !important;" (click)="close()"><ion-icon name="close-circle"></ion-icon></span>\n\n    </ion-card-header>\n\n\n\n   \n\n\n\n    <ion-item style="border: 1px solid #ddd !important">\n\n      <ion-label floating>New Comment</ion-label>\n\n      <ion-textarea [(ngModel)]="comment" rows="10" columns="20"></ion-textarea>\n\n    </ion-item>\n\n\n\n    <p style="text-align:center !important;">\n\n      <button ion-button clear (click)="updateService()">Update Service</button>\n\n    </p>\n\n  </ion-card>\n\n</ion-content>'/*ion-inline-end:"E:\24Online\Code\24onlineLatest\24Online\src\pages\edit-service-request\edit-service-request.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["j" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_3__Utils_DataValidation__["a" /* DataValidation */], __WEBPACK_IMPORTED_MODULE_2__providers_message_helper__["a" /* MessageHelper */],

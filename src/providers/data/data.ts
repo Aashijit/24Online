@@ -47,8 +47,9 @@ export class HttpProvider {
   uploadFile(data,apiName) {
     return new Promise(resolve => {
       let headers = new Headers();
-      headers.append('Content-Type', 'false');
-      headers.append('mimeType', 'multipart/form-data');
+      //headers.append('Content-Type', 'false');
+      headers.append('enctype', 'multipart/form-data');
+      headers.append('Content-Type', 'application/form-data');
       headers.append('Username',localStorage.getItem('username'));
       headers.append('Password',localStorage.getItem('password'));
 
@@ -56,7 +57,7 @@ export class HttpProvider {
 
       console.error(this.codes.API_ENDPOINT+ipAddress+apiName);
     
-      this.http.post(this.codes.API_ENDPOINT+ipAddress+apiName, JSON.stringify(data)
+      this.http.post(this.codes.API_ENDPOINT+ipAddress+apiName, (data)
       , {headers: headers}).map(res => res.json())
       .subscribe((data:any) => {
           console.log(data);

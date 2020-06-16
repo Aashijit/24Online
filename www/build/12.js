@@ -71,7 +71,7 @@ var DashboardTabPage = /** @class */ (function () {
     }
     DashboardTabPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-dashboard-tab',template:/*ion-inline-start:"/home/aashijit/24Online/src/pages/dashboard-tab/dashboard-tab.html"*/'<ion-tabs>\n    <ion-tab [root]="homeRoot" tabTitle="Home" tabIcon="home"></ion-tab>\n    <ion-tab [root]="ticketRoot" tabTitle="Ticket" tabIcon="cog"></ion-tab>\n    <ion-tab [root]="leadsRoot" tabTitle="Leads" tabIcon="bulb"></ion-tab>\n</ion-tabs>\n\n'/*ion-inline-end:"/home/aashijit/24Online/src/pages/dashboard-tab/dashboard-tab.html"*/
+            selector: 'page-dashboard-tab',template:/*ion-inline-start:"E:\24Online\Code\24onlineLatest\24Online\src\pages\dashboard-tab\dashboard-tab.html"*/'<ion-tabs>\n\n    <ion-tab [root]="homeRoot" tabTitle="Home" tabIcon="home"></ion-tab>\n\n    <ion-tab [root]="ticketRoot" tabTitle="Ticket" tabIcon="cog"></ion-tab>\n\n    <ion-tab [root]="leadsRoot" tabTitle="Leads" tabIcon="bulb"></ion-tab>\n\n</ion-tabs>\n\n\n\n'/*ion-inline-end:"E:\24Online\Code\24onlineLatest\24Online\src\pages\dashboard-tab\dashboard-tab.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]])
     ], DashboardTabPage);
