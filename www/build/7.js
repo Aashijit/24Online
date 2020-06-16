@@ -1,1 +1,88 @@
-webpackJsonp([7],{646:function(l,n,u){"use strict";function a(l){return t._19(0,[(l()(),t.Z(0,0,null,null,24,"ion-header",[],null,null,null,null,null)),t.Y(1,16384,null,0,p.a,[k.a,t.j,t.z,[2,f.a]],null,null),(l()(),t._18(-1,null,["\n  "])),(l()(),t.Z(3,0,null,null,20,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,h.b,h.a)),t.Y(4,49152,null,0,j.a,[Y.a,[2,f.a],[2,Z.a],k.a,t.j,t.z],null,null),(l()(),t._18(-1,3,["\n      "])),(l()(),t.Z(6,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var a=!0;if("click"===n){a=!1!==t._11(l,8).toggle()&&a}return a},v.b,v.a)),t.Y(7,1097728,[[1,4]],0,C.a,[[8,""],k.a,t.j,t.z],null,null),t.Y(8,1064960,null,0,y.a,[x.a,[2,f.a],[2,C.a],[2,j.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(9,16384,null,1,z.a,[k.a,t.j,t.z,[2,P.a],[2,j.a]],null,null),t._16(603979776,1,{_buttons:1}),(l()(),t._18(-1,0,["\n        "])),(l()(),t.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(13,147456,null,0,q.a,[k.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._18(-1,0,["\n      "])),(l()(),t._18(-1,3,["\n      "])),(l()(),t.Z(16,0,null,3,0,"img",[["src","../../assets/imgs/logo.png"],["style","width: 70px !important;"]],null,null,null,null,null)),(l()(),t._18(-1,3,["\n    \n  \n    "])),(l()(),t.Z(18,0,null,3,4,"span",[["style","float: right !important;"]],null,null,null,null,null)),(l()(),t._18(-1,null,["\n      "])),(l()(),t.Z(20,0,null,null,1,"ion-icon",[["name","notifications"],["role","img"],["style","margin-top: 15px !important; color: rgb(31, 115, 250) !important; margin-right: 15px !important;"]],[[2,"hide",null]],null,null,null,null)),t.Y(21,147456,null,0,q.a,[k.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._18(-1,null,["\n    "])),(l()(),t._18(-1,3,["\n    \n    \n    "])),(l()(),t._18(-1,null,["\n  \n  "])),(l()(),t._18(-1,null,["\n  \n  "])),(l()(),t.Z(26,0,null,null,7,"ion-content",[["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,w.b,w.a)),t.Y(27,4374528,null,0,A.a,[k.a,T.a,H.a,t.j,t.z,Y.a,V.a,t.u,[2,f.a],[2,Z.a]],null,null),(l()(),t._18(-1,1,["\n  \n    "])),(l()(),t.Z(29,0,null,1,3,"p",[["style","text-align: center !important; margin-top: 55% !important;"]],null,null,null,null,null)),(l()(),t._18(-1,null,["\n    "])),(l()(),t.Z(31,0,null,null,0,"img",[["src","../../assets/imgs/logo.png"],["style","width: 100px !important;"]],null,null,null,null,null)),(l()(),t._18(-1,null,["\n  "])),(l()(),t._18(-1,1,["\n  "]))],function(l,n){l(n,8,0,"");l(n,13,0,"menu");l(n,21,0,"notifications")},function(l,n){l(n,3,0,t._11(n,4)._hidden,t._11(n,4)._sbPadding);l(n,6,0,t._11(n,8).isHidden);l(n,12,0,t._11(n,13)._hidden);l(n,20,0,t._11(n,21)._hidden);l(n,26,0,t._11(n,27).statusbarPadding,t._11(n,27)._hasRefresher)})}Object.defineProperty(n,"__esModule",{value:!0});var t=u(1),o=(u(2),u(108),function(){function l(l,n){this.navCtrl=l,this.navParams=n}return l.prototype.ionViewDidLoad=function(){console.log("ionViewDidLoad HomePage")},l}()),i=function(){return function(){}}(),e=u(340),s=u(341),r=u(342),c=u(343),_=u(344),b=u(345),d=u(346),g=u(347),m=u(348),p=u(109),k=u(3),f=u(7),h=u(654),j=u(52),Y=u(12),Z=u(29),v=u(48),C=u(28),y=u(182),x=u(32),z=u(183),P=u(74),q=u(54),w=u(349),A=u(30),T=u(6),H=u(13),V=u(35),B=u(16),D=t.X({encapsulation:2,styles:[],data:{}}),L=t.V("page-home",o,function(l){return t._19(0,[(l()(),t.Z(0,0,null,null,1,"page-home",[],null,null,null,a,D)),t.Y(1,49152,null,0,o,[Z.a,B.a],null,null)],null,null)},{},{},[]),M=u(23),X=u(26),F=u(174),I=u(49);u.d(n,"HomePageModuleNgFactory",function(){return J});var J=t.W(i,[],function(l){return t._7([t._8(512,t.i,t.S,[[8,[e.a,s.a,r.a,c.a,_.a,b.a,d.a,g.a,m.a,L]],[3,t.i],t.s]),t._8(4608,M.k,M.j,[t.r,[2,M.s]]),t._8(4608,X.m,X.m,[]),t._8(4608,X.c,X.c,[]),t._8(512,M.b,M.b,[]),t._8(512,X.l,X.l,[]),t._8(512,X.d,X.d,[]),t._8(512,X.k,X.k,[]),t._8(512,F.a,F.a,[]),t._8(512,F.b,F.b,[]),t._8(512,i,i,[]),t._8(256,I.a,o,[])])})},654:function(l,n,u){"use strict";function a(l){return t._19(0,[(l()(),t.Z(0,0,null,null,1,"div",[["class","toolbar-background"]],null,null,null,null,null)),t.Y(1,278528,null,0,o.g,[t.p,t.q,t.j,t.A],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),(l()(),t.Z(2,0,null,null,8,"button",[["class","back-button"],["ion-button","bar-button"]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var a=!0;if("click"===n){a=!1!==l.component.backButtonClick(u)&&a}return a},i.b,i.a)),t.Y(3,278528,null,0,o.g,[t.p,t.q,t.j,t.A],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),t.Y(4,1097728,null,0,e.a,[[8,"bar-button"],s.a,t.j,t.z],null,null),(l()(),t.Z(5,0,null,0,2,"ion-icon",[["class","back-button-icon"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(6,278528,null,0,o.g,[t.p,t.q,t.j,t.A],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),t.Y(7,147456,null,0,r.a,[s.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t.Z(8,0,null,0,2,"span",[["class","back-button-text"]],null,null,null,null,null)),t.Y(9,278528,null,0,o.g,[t.p,t.q,t.j,t.A],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),(l()(),t._18(10,null,["",""])),t._10(null,0),t._10(null,1),t._10(null,2),(l()(),t.Z(14,0,null,null,2,"div",[["class","toolbar-content"]],null,null,null,null,null)),t.Y(15,278528,null,0,o.g,[t.p,t.q,t.j,t.A],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),t._10(null,3)],function(l,n){var u=n.component;l(n,1,0,"toolbar-background","toolbar-background-"+u._mode);l(n,3,0,"back-button","back-button-"+u._mode);l(n,6,0,"back-button-icon","back-button-icon-"+u._mode);l(n,7,0,u._bbIcon);l(n,9,0,"back-button-text","back-button-text-"+u._mode);l(n,15,0,"toolbar-content","toolbar-content-"+u._mode)},function(l,n){var u=n.component;l(n,2,0,u._hideBb);l(n,5,0,t._11(n,7)._hidden);l(n,10,0,u._backText)})}u.d(n,"a",function(){return c}),n.b=a;var t=u(1),o=u(23),i=u(48),e=u(28),s=u(3),r=u(54),c=(u(7),u(29),t.X({encapsulation:2,styles:[],data:{}}))}});
+webpackJsonp([7],{
+
+/***/ 685:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LeadDetailPageModule", function() { return LeadDetailPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lead_detail__ = __webpack_require__(700);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var LeadDetailPageModule = /** @class */ (function () {
+    function LeadDetailPageModule() {
+    }
+    LeadDetailPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__lead_detail__["a" /* LeadDetailPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__lead_detail__["a" /* LeadDetailPage */]),
+            ],
+        })
+    ], LeadDetailPageModule);
+    return LeadDetailPageModule;
+}());
+
+//# sourceMappingURL=lead-detail.module.js.map
+
+/***/ }),
+
+/***/ 700:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LeadDetailPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Utils_DataValidation__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(84);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var LeadDetailPage = /** @class */ (function () {
+    function LeadDetailPage(navCtrl, navParams, dataValidation) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.dataValidation = dataValidation;
+        this.leadDetail = null;
+        this.leadTicketData = null;
+    }
+    LeadDetailPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad LeadDetailPage');
+        //Loading the ticket details from the previous page
+        this.leadTicketData = this.navParams.get('leadTicketDate');
+    };
+    LeadDetailPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
+            selector: 'page-lead-detail',template:/*ion-inline-start:"/home/aashijit/24Online/src/pages/lead-detail/lead-detail.html"*/'\n<ion-content padding class="popup">\n\n\n\n\n\n\n    \n  <p style="text-align: center !important; color: #919191; margin-top:35% !important" *ngIf=\'dataValidation.isEmptyJson(leadTicketData)\'>\n    <ion-spinner name="bubbles"></ion-spinner>\n  </p>\n  <p style="text-align: center !important; color: #919191;" *ngIf=\'dataValidation.isEmptyJson(leadTicketData)\'>\n    Loading the lead detail ...\n  </p>\n\n  <ion-grid *ngIf="!dataValidation.isEmptyJson(leadTicketData)">\n    <ion-row>\n      <ion-col style="margin-top: 12px !important; font-size: 18px !important; color:rgb(31, 115, 250) !important;">Lead Id : {{leadTicketData[\'leadid\']}}</ion-col>\n      <ion-col style="text-align: right !important;"><button ion-button clear (click)="navCtrl.pop()"><ion-icon name="close-circle"></ion-icon></button></ion-col>\n    </ion-row>\n  </ion-grid>\n\n\n  <ion-grid *ngIf="!dataValidation.isEmptyJson(leadTicketData)">\n    <ion-row>\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">First name</ion-col>\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'firstname\']}}</ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Last name</ion-col>\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'lastname\']}}</ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Source</ion-col>\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'source\']}}</ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">State</ion-col>\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'state\']}}</ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">City</ion-col>\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'city\']}}</ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Country</ion-col>\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'country\']}}</ion-col>\n    </ion-row>\n\n    \n    <ion-row>\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Zipcode</ion-col>\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'zipcode\']}}</ion-col>\n    </ion-row>\n        \n    <ion-row>\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Contact number</ion-col>\n      <ion-col col-7 style="color: #919191 !important;"><a href="tel:leadTicketData[\'contactno\']" style="text-decoration: none !important;">{{leadTicketData[\'contactno\']}}</a></ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Email id</ion-col>\n      <ion-col col-7 style="color: #919191 !important;"><a href="mailto:leadTicketData[\'emailid\']" style="text-decoration: none !important;">{{leadTicketData[\'emailid\']}}</a></ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Address line 1</ion-col>\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'address1\']}}</ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Address line 2</ion-col>\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'address2\']}}</ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Address line 3</ion-col>\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'address3\']}}</ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Comment</ion-col>\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'comment\']}}</ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Latitude</ion-col>\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'latitude\']}}</ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Longitude</ion-col>\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'longitude\']}}</ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Preferred call time</ion-col>\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'preferredcalltime\']}}</ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Payment amount</ion-col>\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'paymentamount\']}}</ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Status</ion-col>\n      <ion-col col-7 style="color: #919191 !important;"><ion-badge>{{leadTicketData[\'status\']}}</ion-badge></ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Create date</ion-col>\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'createdate\']}}</ion-col>\n    </ion-row>\n\n    \n    <ion-row>\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Modify date</ion-col>\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'modifydate\']}}</ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Created by</ion-col>\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'createdby\']}}</ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Priority</ion-col>\n      <ion-col col-7 style="color: #919191 !important;"><ion-badge>{{leadTicketData[\'priority\']}}</ion-badge></ion-col>\n    </ion-row>\n\n  </ion-grid>\n\n\n\n</ion-content>\n'/*ion-inline-end:"/home/aashijit/24Online/src/pages/lead-detail/lead-detail.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_0__Utils_DataValidation__["a" /* DataValidation */]])
+    ], LeadDetailPage);
+    return LeadDetailPage;
+}());
+
+//# sourceMappingURL=lead-detail.js.map
+
+/***/ })
+
+});
+//# sourceMappingURL=7.js.map

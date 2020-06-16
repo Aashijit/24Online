@@ -1,0 +1,107 @@
+<ion-header>
+  <ion-navbar >
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+
+  <ion-grid *ngIf="!dataValidation.isEmptyJson(profile)">
+    <ion-row>
+      <ion-col col-6 style="color: dodgerblue !important; font-weight: 600 !important;">
+        Next Bill Date
+      </ion-col>
+      <ion-col col-6 style="color: #666 !important; font-weight: 600 !important;">
+        {{profile['nextbilldate']}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 style="color: dodgerblue !important; font-weight: 600 !important;">
+        Phone
+      </ion-col>
+      <ion-col col-6 style="color: #666 !important; font-weight: 600 !important;">
+        {{profile['phone']}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 style="color: dodgerblue !important; font-weight: 600 !important;">
+        Username
+      </ion-col>
+      <ion-col col-6 style="color: #666 !important; font-weight: 600 !important;">
+        {{profile['username']}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 style="color: dodgerblue !important; font-weight: 600 !important;">
+        Account Number
+      </ion-col>
+      <ion-col col-6 style="color: #666 !important; font-weight: 600 !important;">
+        {{profile['accountno']}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 style="color: dodgerblue !important; font-weight: 600 !important;">
+        Package Name
+      </ion-col>
+      <ion-col col-6 style="color: #666 !important; font-weight: 600 !important;">
+        {{profile['packagename']}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 style="color: dodgerblue !important; font-weight: 600 !important;">
+        Name
+      </ion-col>
+      <ion-col col-6 style="color: #666 !important; font-weight: 600 !important;">
+        {{profile['name']}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 style="color: dodgerblue !important; font-weight: 600 !important;">
+        Create Date
+      </ion-col>
+      <ion-col col-6 style="color: #666 !important; font-weight: 600 !important;">
+        {{profile['createdate']}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 style="color: dodgerblue !important; font-weight: 600 !important;">
+        Date of Birth
+      </ion-col>
+      <ion-col col-6 style="color: #666 !important; font-weight: 600 !important;">
+        {{profile['dateofbirth']}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 style="color: dodgerblue !important; font-weight: 600 !important;">
+        IP Address
+      </ion-col>
+      <ion-col col-6 style="color: #666 !important; font-weight: 600 !important;">
+        {{profile['ipaddress']}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 style="color: dodgerblue !important; font-weight: 600 !important;">
+        Expiry Date
+      </ion-col>
+      <ion-col col-6 style="color: #666 !important; font-weight: 600 !important;">
+        {{profile['expirydate']}}
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-6 style="color: dodgerblue !important; font-weight: 600 !important;">
+        Email Id
+      </ion-col>
+      <ion-col col-6 style="color: #666 !important; font-weight: 600 !important;">
+        {{profile['emailid']}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>

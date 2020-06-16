@@ -1,4 +1,4 @@
-webpackJsonp([13],{
+webpackJsonp([15],{
 
 /***/ 162:
 /***/ (function(module, exports) {
@@ -21,56 +21,64 @@ webpackEmptyAsyncContext.id = 162;
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"../pages/create-lead/create-lead.module": [
+	"../pages/change-password/change-password.module": [
 		678,
-		12
+		14
+	],
+	"../pages/create-lead/create-lead.module": [
+		679,
+		13
 	],
 	"../pages/dashboard-tab/dashboard-tab.module": [
-		679,
-		11
+		680,
+		12
 	],
 	"../pages/edit-service-request/edit-service-request.module": [
-		680,
-		10
+		681,
+		11
 	],
 	"../pages/filter-lead-management/filter-lead-management.module": [
-		681,
-		9
+		682,
+		10
 	],
 	"../pages/filter-service-management/filter-service-management.module": [
-		682,
-		8
+		683,
+		9
 	],
 	"../pages/home/home.module": [
-		683,
-		7
+		684,
+		8
 	],
 	"../pages/lead-detail/lead-detail.module": [
-		684,
-		6
+		685,
+		7
 	],
 	"../pages/leads/leads.module": [
-		685,
-		5
+		686,
+		6
 	],
 	"../pages/login/login.module": [
 		687,
-		4
+		5
 	],
 	"../pages/manage-lead/manage-lead.module": [
-		686,
+		688,
+		4
+	],
+	"../pages/my-profile/my-profile.module": [
+		689,
 		3
 	],
 	"../pages/service-management/service-management.module": [
-		688,
+		690,
 		2
 	],
 	"../pages/service-ticket-detail/service-ticket-detail.module": [
-		690,
+		691,
 		1
 	],
 	"../pages/ticket/ticket.module": [
-		689,
+		692,
 		0
 	]
 };
@@ -278,8 +286,10 @@ var HttpProvider = /** @class */ (function () {
         return new Promise(function (resolve) {
             var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Headers */]();
             headers.append('Content-Type', 'application/json');
-            headers.append('Username', 'avijit.ghosh');
-            headers.append('Password', 'avijit.ghosh');
+            headers.append('Username', localStorage.getItem('username'));
+            headers.append('Password', localStorage.getItem('password'));
+            // headers.append('Username','avijit.ghosh');
+            // headers.append('Password','avijit.ghosh');
             var ipAddress = localStorage.getItem(_this.codes.LSK_IPADDRESS);
             _this.http.post(_this.codes.API_ENDPOINT + ipAddress + apiName, JSON.stringify(data), { headers: headers }).map(function (res) { return res.json(); })
                 .subscribe(function (data) {
@@ -294,12 +304,20 @@ var HttpProvider = /** @class */ (function () {
     HttpProvider.prototype.uploadFile = function (data, apiName) {
         var _this = this;
         return new Promise(function (resolve) {
-            _this.httpClient.post(_this.codes.API_ENDPOINT + apiName, data).subscribe(function (res) {
-                console.log("Success: " + JSON.stringify(res));
-                resolve(res);
+            var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Headers */]();
+            headers.append('Content-Type', 'false');
+            headers.append('mimeType', 'multipart/form-data');
+            headers.append('Username', localStorage.getItem('username'));
+            headers.append('Password', localStorage.getItem('password'));
+            var ipAddress = localStorage.getItem(_this.codes.LSK_IPADDRESS);
+            console.error(_this.codes.API_ENDPOINT + ipAddress + apiName);
+            _this.http.post(_this.codes.API_ENDPOINT + ipAddress + apiName, JSON.stringify(data), { headers: headers }).map(function (res) { return res.json(); })
+                .subscribe(function (data) {
+                console.log(data);
+                resolve(data);
             }, function (err) {
                 console.log(err);
-                resolve(err);
+                resolve({ status: _this.codes.API_ERROR });
             });
         });
     };
@@ -329,7 +347,7 @@ var HttpProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 348:
+/***/ 349:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -378,7 +396,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_native_camera__ = __webpack_require__(349);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_native_camera__ = __webpack_require__(348);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_data_data__ = __webpack_require__(347);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_message_helper__ = __webpack_require__(346);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Utils_Codes__ = __webpack_require__(86);
@@ -391,7 +409,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_splash_screen__ = __webpack_require__(345);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_common_http__ = __webpack_require__(264);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__angular_http__ = __webpack_require__(167);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__Utils_StringUtils__ = __webpack_require__(348);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__Utils_StringUtils__ = __webpack_require__(349);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -424,6 +442,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_7_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* MyApp */], {}, {
                     links: [
+                        { loadChildren: '../pages/change-password/change-password.module#ChangePasswordPageModule', name: 'ChangePasswordPage', segment: 'change-password', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/create-lead/create-lead.module#CreateLeadPageModule', name: 'CreateLeadPage', segment: 'create-lead', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/dashboard-tab/dashboard-tab.module#DashboardTabPageModule', name: 'DashboardTabPage', segment: 'dashboard-tab', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/edit-service-request/edit-service-request.module#EditServiceRequestPageModule', name: 'EditServiceRequestPage', segment: 'edit-service-request', priority: 'low', defaultHistory: [] },
@@ -432,11 +451,12 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/lead-detail/lead-detail.module#LeadDetailPageModule', name: 'LeadDetailPage', segment: 'lead-detail', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/leads/leads.module#LeadsPageModule', name: 'LeadsPage', segment: 'leads', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/manage-lead/manage-lead.module#ManageLeadPageModule', name: 'ManageLeadPage', segment: 'manage-lead', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/manage-lead/manage-lead.module#ManageLeadPageModule', name: 'ManageLeadPage', segment: 'manage-lead', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/my-profile/my-profile.module#MyProfilePageModule', name: 'MyProfilePage', segment: 'my-profile', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/service-management/service-management.module#ServiceManagementPageModule', name: 'ServiceManagementPage', segment: 'service-management', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/ticket/ticket.module#TicketPageModule', name: 'TicketPage', segment: 'ticket', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/service-ticket-detail/service-ticket-detail.module#ServiceTicketDetailPageModule', name: 'ServiceTicketDetailPage', segment: 'service-ticket-detail', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/service-ticket-detail/service-ticket-detail.module#ServiceTicketDetailPageModule', name: 'ServiceTicketDetailPage', segment: 'service-ticket-detail', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/ticket/ticket.module#TicketPageModule', name: 'TicketPage', segment: 'ticket', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_11__angular_common_http__["b" /* HttpClientModule */],
@@ -537,7 +557,7 @@ var MyApp = /** @class */ (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\24Online\24Online\src\app\app.html"*/'<ion-menu [content]="content" type="overlay">\n\n  <ion-header style="background-color : rgb(61, 192, 253) !important;">\n\n    <ion-row>\n\n      <ion-col style="text-align: center !important;">\n\n        <img src="../assets/imgs/logo.png" style="width: 90px !important;" />\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-header>\n\n\n\n  <ion-content style="background-image: radial-gradient(rgb(246, 246, 246) ,rgb(230, 230, 230));">\n\n\n\n    <p style="text-align:  center !important;">\n\n    <ion-label>\n\n      Sales Management\n\n    </ion-label>\n\n  </p>\n\n\n\n    <ion-card>\n\n      <ion-card-header>Lead Management</ion-card-header>\n\n         <p> <button ion-button clear (click)="nav.setRoot(\'CreateLeadPage\')" menuClose> <img src="../assets/imgs/create-lead.svg" style="width: 20px !important"/> &nbsp; Create Lead</button></p>\n\n        <p> <button ion-button clear (click)="nav.setRoot(\'ManageLeadPage\')" menuClose><img src="../assets/imgs/manage-lead.svg" style="width: 20px !important"/> &nbsp; Manage Lead</button></p>\n\n    </ion-card>\n\n\n\n\n\n    <ion-card>\n\n      <ion-card-header>Service Request</ion-card-header>\n\n         <p> <button ion-button clear (click)="nav.setRoot(\'ServiceManagementPage\')" menuClose> <img src="../assets/imgs/request.svg" style="width: 20px !important"/> &nbsp; Manage Service Request</button></p>\n\n    </ion-card>\n\n\n\n\n\n\n\n    <ion-card>\n\n        <ion-card-header>Settings</ion-card-header>  \n\n         <p> <button ion-button clear> <img src="../assets/imgs/user-edit.svg" style="width: 20px !important"/> &nbsp; Edit Profile</button></p>\n\n         <p> <button ion-button clear> <img src="../assets/imgs/contract.svg" style="width: 20px !important"/> &nbsp; Terms & Conditions</button></p>\n\n         <p> <button ion-button clear (click)="logOut()" menuClose> <img src="../assets/imgs/logout.svg" style="width: 20px !important" /> &nbsp; Log out</button></p>\n\n         <p> <button ion-button clear> <img src="../assets/imgs/version.svg" style="width: 20px !important"/> &nbsp; App Version : 0.0.1</button></p>\n\n    </ion-card>\n\n\n\n    <!-- <ion-list>\n\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n\n        {{p.title}}\n\n      </button>\n\n    </ion-list> -->\n\n  </ion-content>\n\n\n\n</ion-menu>\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"C:\24Online\24Online\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/aashijit/24Online/src/app/app.html"*/'<ion-menu [content]="content" type="overlay">\n  <ion-header style="background-color : rgb(61, 192, 253) !important;">\n    <ion-row>\n      <ion-col style="text-align: center !important;">\n        <img src="../assets/imgs/logo.png" style="width: 90px !important;" />\n      </ion-col>\n    </ion-row>\n  </ion-header>\n\n  <ion-content style="background-image: radial-gradient(rgb(246, 246, 246) ,rgb(230, 230, 230));">\n\n    <p style="text-align:  center !important;">\n    <ion-label>\n      Sales Management\n    </ion-label>\n  </p>\n\n  <ion-card>\n    <ion-card-header>Home</ion-card-header>\n       <p> <button ion-button clear (click)="nav.setRoot(\'DashboardTabPage\')" menuClose> <img src="../assets/imgs/real-estate.svg" style="width: 20px !important"/> &nbsp; Dashboard</button></p>\n  </ion-card>\n\n    <ion-card>\n      <ion-card-header>Lead Management</ion-card-header>\n         <p> <button ion-button clear (click)="nav.setRoot(\'CreateLeadPage\')" menuClose> <img src="../assets/imgs/create-lead.svg" style="width: 20px !important"/> &nbsp; Create Lead</button></p>\n        <p> <button ion-button clear (click)="nav.setRoot(\'ManageLeadPage\')" menuClose><img src="../assets/imgs/manage-lead.svg" style="width: 20px !important"/> &nbsp; Manage Lead</button></p>\n    </ion-card>\n\n\n    <ion-card>\n      <ion-card-header>Service Request</ion-card-header>\n         <p> <button ion-button clear (click)="nav.setRoot(\'ServiceManagementPage\')" menuClose> <img src="../assets/imgs/request.svg" style="width: 20px !important"/> &nbsp; Manage Service Request</button></p>\n    </ion-card>\n\n\n\n    <ion-card>\n        <ion-card-header>Settings</ion-card-header>  \n         <p> <button ion-button clear (click)="nav.setRoot(\'MyProfilePage\')" menuClose> <img src="../assets/imgs/user-edit.svg" style="width: 20px !important"/> &nbsp; My Profile</button></p>\n         <p> <button ion-button clear (click)="nav.push(\'ChangePasswordPage\')" menuClose> <img src="../assets/imgs/password.svg" style="width: 20px !important"/> &nbsp; Change Password</button></p>\n         <p> <button ion-button clear menuClose> <img src="../assets/imgs/contract.svg" style="width: 20px !important"/> &nbsp; Terms & Conditions</button></p>\n         <p> <button ion-button clear (click)="logOut()" menuClose> <img src="../assets/imgs/logout.svg" style="width: 20px !important" /> &nbsp; Log out</button></p>\n         <p> <button ion-button clear menuClose> <img src="../assets/imgs/version.svg" style="width: 20px !important"/> &nbsp; App Version : 0.0.1</button></p>\n    </ion-card>\n\n    <!-- <ion-list>\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list> -->\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/home/aashijit/24Online/src/app/app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_5__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_1__Utils_Codes__["a" /* Codes */], __WEBPACK_IMPORTED_MODULE_0__Utils_DataValidation__["a" /* DataValidation */]])
     ], MyApp);
@@ -734,6 +754,7 @@ var Codes = /** @class */ (function () {
         this.LSK_PASSWORD = "password";
         this.LSK_USER_INFO_PREFERENCES = "user_info_preferences";
         this.API_ENDPOINT = "https://cors-anywhere.herokuapp.com/http://";
+        this.API_ENDPOINT_2 = "http://";
         this.API_AUTHENTICATE_USER = ":10080/24online/service/MobileApplicationService/authenticateUser";
         this.API_SEARCH_LEAD = ":10080/24online/service/SalesService/searchLead";
         this.API_SEARCH_SERVICE = ":10080/24online/service/SalesService/searchService";
@@ -741,6 +762,11 @@ var Codes = /** @class */ (function () {
         this.API_GET_LEAD_DETAILS = ":10080/24online/service/SalesService/searchLeadTicketwithDetail";
         this.API_GET_SERVICE_DETAILS = ":10080/24online/service/SalesService/searchServiceTicketwithDetail";
         this.API_UPDATE_SERVICE_REQUEST = ":10080/24online/service/SalesService/updateServiceTicket";
+        this.API_CHANGE_PASSWORD = ":10080/24online/service/MyAccountService/changePassword";
+        this.API_USER_INFO = ":10080/24online/service/MyAccountService/userInfo";
+        this.API_USAGE_INFO = ":10080/24online/service/MyAccountService/usageInfo";
+        this.API_GET_PACKAGE_LIST = ":10080/24online/service/PackageService/getPackageList";
+        this.API_GET_ZONE_DETAIL_LIST = ":10080/24online/service/ZoneService/getZoneDetailList";
     }
     return Codes;
 }());

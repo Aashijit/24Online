@@ -39,16 +39,36 @@
       <ion-label floating>Address Line 1</ion-label>
       <ion-input [(ngModel)]="address1" ></ion-input>
     </ion-item>
+    <ion-item>
+      <ion-label floating>Address Line 2</ion-label>
+      <ion-input [(ngModel)]="address2" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Address Line 3</ion-label>
+      <ion-input [(ngModel)]="address3" ></ion-input>
+    </ion-item>
 
 
     <ion-item>
       <ion-label floating>Group name</ion-label>
-      <ion-input [(ngModel)]="groupname" ></ion-input>
+      <ion-select [(ngModel)]="groupname" interface="popover">
+        <p *ngFor="let group of pkglist">
+          <ion-option [value]="group['groupname']">
+            {{group['groupname']}}
+          </ion-option>
+        </p>
+      </ion-select>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Zone name</ion-label>
-      <ion-input [(ngModel)]="zonename" ></ion-input>
+      <ion-select [(ngModel)]="zonename" interface="popover">
+        <p *ngFor="let zone of zonelist">
+          <ion-option [value]="zone['zonename']">
+            {{zone['zonename']}}
+          </ion-option>
+        </p>
+      </ion-select>
     </ion-item>
    
     <ion-item>
@@ -84,13 +104,19 @@
       <ion-col><button ion-button outline (click)="addPicture(true)">Select Image &nbsp;<ion-icon name="image" ></ion-icon></button></ion-col>
     </ion-row>
 
-    <ion-row *ngIf="!dataValidation.isEmptyJson(images)">
+    <ion-row *ngIf="!dataValidation.isEmptyJson(imageView)">
+      <ion-col>
+        <img [src]="imageView" class="img-resp" />
+      </ion-col>
+    </ion-row>
+
+    <!-- <ion-row *ngIf="!dataValidation.isEmptyJson(images)">
       <ion-col style="text-align: left !important;" >
         <span *ngFor="let image of images">
           <img [src]="image" class="img-resp" />
       </span>
       </ion-col>
-    </ion-row>
+    </ion-row> -->
 
   <p style="text-align: center !important;">
     <button ion-button round outline (click)="createLead()">Create Lead</button>

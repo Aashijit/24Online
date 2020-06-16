@@ -1,14 +1,14 @@
 webpackJsonp([6],{
 
-/***/ 684:
+/***/ 686:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LeadDetailPageModule", function() { return LeadDetailPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LeadsPageModule", function() { return LeadsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lead_detail__ = __webpack_require__(697);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__leads__ = __webpack_require__(701);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,34 +18,33 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var LeadDetailPageModule = /** @class */ (function () {
-    function LeadDetailPageModule() {
+var LeadsPageModule = /** @class */ (function () {
+    function LeadsPageModule() {
     }
-    LeadDetailPageModule = __decorate([
+    LeadsPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__lead_detail__["a" /* LeadDetailPage */],
+                __WEBPACK_IMPORTED_MODULE_2__leads__["a" /* LeadsPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__lead_detail__["a" /* LeadDetailPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__leads__["a" /* LeadsPage */]),
             ],
         })
-    ], LeadDetailPageModule);
-    return LeadDetailPageModule;
+    ], LeadsPageModule);
+    return LeadsPageModule;
 }());
 
-//# sourceMappingURL=lead-detail.module.js.map
+//# sourceMappingURL=leads.module.js.map
 
 /***/ }),
 
-/***/ 697:
+/***/ 701:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LeadDetailPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Utils_DataValidation__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(84);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LeadsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(84);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -57,30 +56,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
-var LeadDetailPage = /** @class */ (function () {
-    function LeadDetailPage(navCtrl, navParams, dataValidation) {
+/**
+ * Generated class for the LeadsPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var LeadsPage = /** @class */ (function () {
+    function LeadsPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.dataValidation = dataValidation;
-        this.leadDetail = null;
-        this.leadTicketData = null;
     }
-    LeadDetailPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad LeadDetailPage');
-        //Loading the ticket details from the previous page
-        this.leadTicketData = this.navParams.get('leadTicketDate');
+    LeadsPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad LeadsPage');
     };
-    LeadDetailPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-lead-detail',template:/*ion-inline-start:"C:\24Online\24Online\src\pages\lead-detail\lead-detail.html"*/'\n\n<ion-content padding class="popup">\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n\n  <p style="text-align: center !important; color: #919191; margin-top:35% !important" *ngIf=\'dataValidation.isEmptyJson(leadTicketData)\'>\n\n    <ion-spinner name="bubbles"></ion-spinner>\n\n  </p>\n\n  <p style="text-align: center !important; color: #919191;" *ngIf=\'dataValidation.isEmptyJson(leadTicketData)\'>\n\n    Loading the lead detail ...\n\n  </p>\n\n\n\n  <ion-grid *ngIf="!dataValidation.isEmptyJson(leadTicketData)">\n\n    <ion-row>\n\n      <ion-col style="margin-top: 12px !important; font-size: 18px !important; color:rgb(31, 115, 250) !important;">Lead Id : {{leadTicketData[\'leadid\']}}</ion-col>\n\n      <ion-col style="text-align: right !important;"><button ion-button clear (click)="navCtrl.pop()"><ion-icon name="close-circle"></ion-icon></button></ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n\n\n  <ion-grid *ngIf="!dataValidation.isEmptyJson(leadTicketData)">\n\n    <ion-row>\n\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">First name</ion-col>\n\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'firstname\']}}</ion-col>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Last name</ion-col>\n\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'lastname\']}}</ion-col>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Source</ion-col>\n\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'source\']}}</ion-col>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">State</ion-col>\n\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'state\']}}</ion-col>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">City</ion-col>\n\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'city\']}}</ion-col>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Country</ion-col>\n\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'country\']}}</ion-col>\n\n    </ion-row>\n\n\n\n    \n\n    <ion-row>\n\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Zipcode</ion-col>\n\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'zipcode\']}}</ion-col>\n\n    </ion-row>\n\n        \n\n    <ion-row>\n\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Contact number</ion-col>\n\n      <ion-col col-7 style="color: #919191 !important;"><a href="tel:leadTicketData[\'contactno\']" style="text-decoration: none !important;">{{leadTicketData[\'contactno\']}}</a></ion-col>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Email id</ion-col>\n\n      <ion-col col-7 style="color: #919191 !important;"><a href="mailto:leadTicketData[\'emailid\']" style="text-decoration: none !important;">{{leadTicketData[\'emailid\']}}</a></ion-col>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Address line 1</ion-col>\n\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'address1\']}}</ion-col>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Address line 2</ion-col>\n\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'address2\']}}</ion-col>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Address line 3</ion-col>\n\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'address3\']}}</ion-col>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Comment</ion-col>\n\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'comment\']}}</ion-col>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Latitude</ion-col>\n\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'latitude\']}}</ion-col>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Longitude</ion-col>\n\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'longitude\']}}</ion-col>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Preferred call time</ion-col>\n\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'preferredcalltime\']}}</ion-col>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Payment amount</ion-col>\n\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'paymentamount\']}}</ion-col>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Status</ion-col>\n\n      <ion-col col-7 style="color: #919191 !important;"><ion-badge>{{leadTicketData[\'status\']}}</ion-badge></ion-col>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Create date</ion-col>\n\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'createdate\']}}</ion-col>\n\n    </ion-row>\n\n\n\n    \n\n    <ion-row>\n\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Modify date</ion-col>\n\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'modifydate\']}}</ion-col>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Created by</ion-col>\n\n      <ion-col col-7 style="color: #919191 !important;">{{leadTicketData[\'createdby\']}}</ion-col>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Priority</ion-col>\n\n      <ion-col col-7 style="color: #919191 !important;"><ion-badge>{{leadTicketData[\'priority\']}}</ion-badge></ion-col>\n\n    </ion-row>\n\n\n\n  </ion-grid>\n\n\n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\24Online\24Online\src\pages\lead-detail\lead-detail.html"*/,
+    LeadsPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-leads',template:/*ion-inline-start:"/home/aashijit/24Online/src/pages/leads/leads.html"*/'<!--\n  Generated template for the LeadsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <ion-title>Leads</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/home/aashijit/24Online/src/pages/leads/leads.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_0__Utils_DataValidation__["a" /* DataValidation */]])
-    ], LeadDetailPage);
-    return LeadDetailPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+    ], LeadsPage);
+    return LeadsPage;
 }());
 
-//# sourceMappingURL=lead-detail.js.map
+//# sourceMappingURL=leads.js.map
 
 /***/ })
 

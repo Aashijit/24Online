@@ -25910,6 +25910,10 @@ page-filter-service-management .checkbox-ios .checkbox-checked {
   background-color: #444;
 }
 
+page-home .card-md p {
+  color: #fff !important;
+}
+
 page-login .card-md {
   border-radius: 8px !important;
   padding: 5px !important;

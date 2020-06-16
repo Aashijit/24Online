@@ -16,8 +16,121 @@
   </ion-header>
   
   <ion-content padding>
+
+    <ion-card style="background-color: rgba(0,0,0,0.9) !important; color: #fff !important;" *ngIf="!dataValidation.isEmptyJson(usage)">
+      <ion-card-content>
+        <p style="font-weight: 600 !important;">
+          <span style="color: rgb(123, 255, 0) !important;"><ion-icon name="information-circle"></ion-icon></span> 
+          &nbsp;
+         <span style="color: #fff !important;">Usage Information</span> 
+        </p>
+        <ion-grid>
+          <ion-row>
+            <ion-col style="color: dodgerblue !important; font-weight: 600 !important;">
+              Download Remaining
+            </ion-col>
+            <ion-col style="color: #fff !important; font-weight: 600 !important;">
+              {{usage['downloadremaining']}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col style="color: dodgerblue !important; font-weight: 600 !important;">
+              Cycle Total Used
+            </ion-col>
+            <ion-col style="color: #fff !important; font-weight: 600 !important;">
+              {{usage['cycletotalused']}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col style="color: dodgerblue !important; font-weight: 600 !important;">
+              Download Used
+            </ion-col>
+            <ion-col style="color: #fff !important; font-weight: 600 !important;">
+              {{usage['downloadused']}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col style="color: dodgerblue !important; font-weight: 600 !important;">
+              Allotted Total
+            </ion-col>
+            <ion-col style="color: #fff !important; font-weight: 600 !important;">
+              {{usage['allottedtotal']}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col style="color: dodgerblue !important; font-weight: 600 !important;">
+              Cycle Download Remaining
+            </ion-col>
+            <ion-col style="color: #fff !important; font-weight: 600 !important;">
+              {{usage['cycledownloadremaining']}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col style="color: dodgerblue !important; font-weight: 600 !important;">
+              Allotted Download
+            </ion-col>
+            <ion-col style="color: #fff !important; font-weight: 600 !important;">
+              {{usage['allotteddownload']}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col style="color: dodgerblue !important; font-weight: 600 !important;">
+              Upload Account Used
+            </ion-col>
+            <ion-col style="color: #fff !important; font-weight: 600 !important;">
+              {{usage['uploadaccountused']}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col style="color: dodgerblue !important; font-weight: 600 !important;">
+              Total Remaining
+            </ion-col>
+            <ion-col style="color: #fff !important; font-weight: 600 !important;">
+              {{usage['totalremaining']}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col style="color: dodgerblue !important; font-weight: 600 !important;">
+              Allotted Minutes
+            </ion-col>
+            <ion-col style="color: #fff !important; font-weight: 600 !important;">
+              {{usage['allottedminutes']}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col style="color: dodgerblue !important; font-weight: 600 !important;">
+              Used Minutes Account Wise
+            </ion-col>
+            <ion-col style="color: #fff !important; font-weight: 600 !important;">
+              {{usage['usedminutesaccountwise']}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col style="color: dodgerblue !important; font-weight: 600 !important;">
+              Remaining Time
+            </ion-col>
+            <ion-col style="color: #fff !important; font-weight: 600 !important;">
+              {{usage['remainingtime']}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col style="color: dodgerblue !important; font-weight: 600 !important;">
+              Total Account Used
+            </ion-col>
+            <ion-col style="color: #fff !important; font-weight: 600 !important;">
+              {{usage['totalaccountused']}}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+
+      </ion-card-content>
+    </ion-card>
   
-    <p style="text-align: center !important; margin-top: 55% !important;">
-    <img src="../../assets/imgs/logo.png" style="width: 100px !important;" />
+    <p style="position: absolute;
+    top: 165px !important;
+    left: 38px !important;
+    z-index: -100;">
+    <img src="../../assets/imgs/logo.png" style="width: 300px !important;" />
   </p>
   </ion-content>

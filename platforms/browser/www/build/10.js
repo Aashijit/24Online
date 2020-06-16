@@ -1,14 +1,14 @@
 webpackJsonp([10],{
 
-/***/ 680:
+/***/ 682:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditServiceRequestPageModule", function() { return EditServiceRequestPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FilterLeadManagementPageModule", function() { return FilterLeadManagementPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__edit_service_request__ = __webpack_require__(693);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__filter_lead_management__ = __webpack_require__(697);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,38 +18,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var EditServiceRequestPageModule = /** @class */ (function () {
-    function EditServiceRequestPageModule() {
+var FilterLeadManagementPageModule = /** @class */ (function () {
+    function FilterLeadManagementPageModule() {
     }
-    EditServiceRequestPageModule = __decorate([
+    FilterLeadManagementPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__edit_service_request__["a" /* EditServiceRequestPage */],
+                __WEBPACK_IMPORTED_MODULE_2__filter_lead_management__["a" /* FilterLeadManagementPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__edit_service_request__["a" /* EditServiceRequestPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__filter_lead_management__["a" /* FilterLeadManagementPage */]),
             ],
         })
-    ], EditServiceRequestPageModule);
-    return EditServiceRequestPageModule;
+    ], FilterLeadManagementPageModule);
+    return FilterLeadManagementPageModule;
 }());
 
-//# sourceMappingURL=edit-service-request.module.js.map
+//# sourceMappingURL=filter-lead-management.module.js.map
 
 /***/ }),
 
-/***/ 693:
+/***/ 697:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditServiceRequestPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Utils_Codes__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_data_data__ = __webpack_require__(347);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_message_helper__ = __webpack_require__(346);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Utils_DataValidation__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Utils_StringUtils__ = __webpack_require__(348);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FilterLeadManagementPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Utils_DataValidation__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_message_helper__ = __webpack_require__(346);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(84);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -63,78 +60,144 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
-
-var EditServiceRequestPage = /** @class */ (function () {
-    function EditServiceRequestPage(navCtrl, navParams, dataValidation, msgHelper, http, codes, stringUtils, modalCtrl) {
+var FilterLeadManagementPage = /** @class */ (function () {
+    function FilterLeadManagementPage(navCtrl, navParams, msgHelper, dataValidation) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.dataValidation = dataValidation;
         this.msgHelper = msgHelper;
-        this.http = http;
-        this.codes = codes;
-        this.stringUtils = stringUtils;
-        this.modalCtrl = modalCtrl;
-        this.serviceId = null;
-        this.comment = null;
-    }
-    EditServiceRequestPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad EditServiceRequestPage');
-        this.serviceId = this.navParams.get('serviceId');
-        console.error(this.serviceId);
-        if (this.dataValidation.isEmptyJson(this.serviceId)) {
-            this.msgHelper.showErrorDialog('Error !!!', 'Sorry!!! Could not find the service id. Please go back !!!');
-            this.navCtrl.pop();
-            return;
-        }
-    };
-    EditServiceRequestPage.prototype.updateService = function () {
-        var _this = this;
-        //Validate the comment
-        if (this.dataValidation.isEmptyJson(this.comment)) {
-            this.msgHelper.showToast('Please add a comment');
-            return;
-        }
-        var requestJson = {
-            "serviceid": this.serviceId,
-            "comment": this.comment,
-            "username": localStorage.getItem(this.codes.LSK_USERNAME),
-            "password": localStorage.getItem(this.codes.LSK_PASSWORD)
+        this.dataValidation = dataValidation;
+        //Filter options json
+        this.filterOptions = {
+            'SearchByLeadId': false,
+            'SearchByStatus': false,
+            'SearchByPriority': false,
+            'SearchByContactNo': false,
+            'SearchByLeadCreateDate': false,
+            'SearchByCloserDate': false,
+            'SearchByPopZoneName': false
         };
-        console.debug(requestJson);
-        var loading = this.msgHelper.showWorkingDialog('Updating service request : ' + this.serviceId + ' ...');
-        this.http.callApi(requestJson, this.codes.API_UPDATE_SERVICE_REQUEST).then(function (responseJson) {
-            loading.dismiss();
-            if (_this.dataValidation.isEmptyJson(responseJson)) {
-                _this.msgHelper.showErrorDialog('Error !!!', ' Empty response received from Server !!!');
+        //Keep the data
+        this.leadId = null;
+        this.status = null;
+        this.priority = null;
+        this.contactNumber = null;
+        this.createStartDate = null;
+        this.createEndDate = null;
+        this.closerStartDate = null;
+        this.closerEndDate = null;
+        this.popName = null;
+        this.zoneName = null;
+        //Initialize the request Json which is to be built.
+        this.requestJson = {};
+    }
+    FilterLeadManagementPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad FilterLeadManagementPage');
+    };
+    //TODO: This requires to be done -- when one option is clicked, others will be disabled.
+    FilterLeadManagementPage.prototype.disableOtherOptions = function (option) {
+    };
+    FilterLeadManagementPage.prototype.searchUsingFilter = function () {
+        //Check if more than one option is selected.
+        //Remove this if search with more than one option is allowed
+        if (this.checkIfMoreThanOneOptionIsSelected()) {
+            this.msgHelper.showToast('Please search with atmost one option !!!');
+            return;
+        }
+        //Else Check which option is selected and grow the filter option accordingly
+        if (this.filterOptions['SearchByLeadId']) {
+            //Validate the Lead Id
+            if (this.dataValidation.isEmptyJson(this.leadId)) {
+                this.msgHelper.showToast('Lead Id cannot be empty !!!');
                 return;
             }
-            _this.msgHelper.showToast(responseJson['responsemsg']);
-            if (responseJson['responsemsg'] == " Service Ticket updated Successfully  ") {
-                _this.navCtrl.pop();
+            this.requestJson['leadid'] = this.leadId;
+        }
+        if (this.filterOptions['SearchByStatus']) {
+            //Validate the Lead Id
+            if (this.dataValidation.isEmptyJson(this.status)) {
+                this.msgHelper.showToast('Status cannot be empty !!!');
+                return;
             }
-        }, function (error) {
-            console.error(error);
-            loading.dismiss();
-        });
+            this.requestJson['status'] = this.status;
+        }
+        if (this.filterOptions['SearchByPriority']) {
+            //Validate the Lead Id
+            if (this.dataValidation.isEmptyJson(this.status)) {
+                this.msgHelper.showToast('Status cannot be empty !!!');
+                return;
+            }
+            this.requestJson['status'] = this.status;
+        }
+        if (this.filterOptions['SearchByContactNo']) {
+            //Validate the Lead Id
+            if (this.dataValidation.isEmptyJson(this.contactNumber)) {
+                this.msgHelper.showToast('Contact number be empty !!!');
+                return;
+            }
+            this.requestJson['contactno'] = this.contactNumber;
+        }
+        if (this.filterOptions['SearchByLeadCreateDate']) {
+            //Validate the Create Start Date
+            if (this.dataValidation.isEmptyJson(this.createStartDate)) {
+                this.msgHelper.showToast('Create start date cannot be empty !!!');
+                return;
+            }
+            if (this.dataValidation.isEmptyJson(this.createEndDate)) {
+                this.msgHelper.showToast('Create end date cannot be empty !!!');
+                return;
+            }
+            this.requestJson['createdate'] = this.createStartDate;
+            this.requestJson['todate'] = this.createEndDate;
+        }
+        //
+        if (this.filterOptions['SearchByCloserDate']) {
+            //Validate the Create Start Date
+            if (this.dataValidation.isEmptyJson(this.closerStartDate)) {
+                this.msgHelper.showToast('Closer start date cannot be empty !!!');
+                return;
+            }
+            if (this.dataValidation.isEmptyJson(this.closerEndDate)) {
+                this.msgHelper.showToast('Closer end date cannot be empty !!!');
+                return;
+            }
+            this.requestJson['fromcloserdate'] = this.closerStartDate;
+            this.requestJson['tocloserdate'] = this.closerEndDate;
+        }
+        if (this.filterOptions['SearchByPopZoneName']) {
+            //Validate the Create Start Date
+            if (this.dataValidation.isEmptyJson(this.popName)) {
+                this.msgHelper.showToast('Pop name cannot be empty !!!');
+                return;
+            }
+            if (this.dataValidation.isEmptyJson(this.zoneName)) {
+                this.msgHelper.showToast('Zone name cannot be empty !!!');
+                return;
+            }
+            this.requestJson['popname'] = this.popName;
+            this.requestJson['zonename'] = this.zoneName;
+        }
+        this.navCtrl.setRoot('ManageLeadPage', { 'requestJson': this.requestJson });
     };
-    EditServiceRequestPage.prototype.close = function () {
-        this.navCtrl.pop();
+    FilterLeadManagementPage.prototype.checkIfMoreThanOneOptionIsSelected = function () {
+        var count = 0;
+        for (var i = 0; i < this.filterOptions.length - 1; i++) {
+            if (this.filterOptions[i] == true)
+                count++;
+        }
+        if (count > 1)
+            return true;
+        return false;
     };
-    EditServiceRequestPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["m" /* Component */])({
-            selector: 'page-edit-service-request',template:/*ion-inline-start:"C:\24Online\24Online\src\pages\edit-service-request\edit-service-request.html"*/'<ion-content class="popup">\n\n\n\n  <ion-card *ngIf="!dataValidation.isEmptyJson(serviceId)">\n\n    <ion-card-header>Update Service Ticket : {{serviceId}}\n\n      <span style="float: right !important;" (click)="close()"><ion-icon name="close-circle"></ion-icon></span>\n\n    </ion-card-header>\n\n\n\n   \n\n\n\n    <ion-item style="border: 1px solid #ddd !important">\n\n      <ion-label floating>New Comment</ion-label>\n\n      <ion-textarea [(ngModel)]="comment" rows="10" columns="20"></ion-textarea>\n\n    </ion-item>\n\n\n\n    <p style="text-align:center !important;">\n\n      <button ion-button clear (click)="updateService()">Update Service</button>\n\n    </p>\n\n  </ion-card>\n\n</ion-content>'/*ion-inline-end:"C:\24Online\24Online\src\pages\edit-service-request\edit-service-request.html"*/,
+    FilterLeadManagementPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
+            selector: 'page-filter-lead-management',template:/*ion-inline-start:"/home/aashijit/24Online/src/pages/filter-lead-management/filter-lead-management.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Filter Leads</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content>\n  <p class="filter-sub-header">\n    <ion-row>\n      <ion-col>Search by lead id</ion-col>\n      <ion-col style="text-align: right !important;" class="nopadding"><ion-checkbox mode="ios" [(ngModel)]="filterOptions[\'SearchByLeadId\']" (ionChange)="disableOtherOptions(\'SearchByLeadId\')"></ion-checkbox></ion-col>\n    </ion-row>\n  </p>\n  <p class="nomargin" *ngIf="filterOptions[\'SearchByLeadId\']">\n    <ion-item>\n      <ion-label>Label Id</ion-label>\n      <ion-input [(ngModel)]="leadId"></ion-input>\n    </ion-item>\n  </p>\n\n\n\n  <p class="filter-sub-header">\n    <ion-row>\n      <ion-col>Search by status</ion-col>\n      <ion-col style="text-align: right !important;" class="nopadding"><ion-checkbox mode="ios" [(ngModel)]="filterOptions[\'SearchByStatus\']" (ionChange)="disableOtherOptions(\'SearchByStatus\')"></ion-checkbox></ion-col>\n    </ion-row>\n  </p>\n  <p class="nomargin" *ngIf="filterOptions[\'SearchByStatus\']">  \n    <ion-item>\n      <ion-label>Status</ion-label>\n      <ion-select interface="popover" [(ngModel)]="status">\n        <ion-option value="CLOSE">Close</ion-option>\n        <ion-option value="OPEN">Open</ion-option>\n      </ion-select>\n    </ion-item>\n  </p>\n\n\n\n  <p class="filter-sub-header">\n    <ion-row>\n      <ion-col>Search by priority</ion-col>\n      <ion-col style="text-align: right !important;" class="nopadding"><ion-checkbox mode="ios" [(ngModel)]="filterOptions[\'SearchByPriority\']" (ionChange)="disableOtherOptions(\'SearchByPriority\')"></ion-checkbox></ion-col>\n    </ion-row>\n  </p>\n  <p class="nomargin" *ngIf="filterOptions[\'SearchByPriority\']">\n    <ion-item>\n      <ion-label>Priority</ion-label>\n      <ion-select interface="popover" [(ngModel)]="priority">\n        <ion-option value="HIGH">High</ion-option>\n        <ion-option value="LOW">Low</ion-option>\n      </ion-select>\n    </ion-item>\n  </p>\n\n\n\n  <p class="filter-sub-header">\n    <ion-row>\n      <ion-col>Search by contact number</ion-col>\n      <ion-col style="text-align: right !important;" class="nopadding"><ion-checkbox mode="ios" [(ngModel)]="filterOptions[\'SearchByContactNo\']" (ionChange)="disableOtherOptions(\'SearchByContactNo\')"></ion-checkbox></ion-col>\n    </ion-row>\n  </p>\n  <p class="nomargin" *ngIf="filterOptions[\'SearchByContactNo\']">\n    <ion-item>\n      <ion-label>Contact number</ion-label>\n      <ion-input type="tel" maxlength="10" [(ngModel)]="contactNumber"></ion-input>\n    </ion-item>\n  </p>\n\n\n\n\n  <p class="filter-sub-header">\n    <ion-row>\n      <ion-col>Search by lead create date</ion-col>\n      <ion-col style="text-align: right !important;" class="nopadding"><ion-checkbox mode="ios" [(ngModel)]="filterOptions[\'SearchByLeadCreateDate\']" (ionChange)="disableOtherOptions(\'SearchByLeadCreateDate\')"></ion-checkbox></ion-col>\n    </ion-row>\n  </p>\n  <p class="nomargin" *ngIf="filterOptions[\'SearchByLeadCreateDate\']">\n    <ion-row>\n      <ion-col>\n        <ion-item>\n          <ion-label floating>From Date</ion-label>\n          <ion-datetime displayFormat="D - MMM, YYYY" pickerFormat="YYYY-MM-DD" [(ngModel)]="createStartDate"></ion-datetime>\n        </ion-item>\n      </ion-col>\n      <ion-col>\n        <ion-item>\n          <ion-label floating>To Date</ion-label>\n          <ion-datetime displayFormat="D - MMM, YYYY" pickerFormat="YYYY-MM-DD" [(ngModel)]="createEndDate"></ion-datetime>\n        </ion-item>\n      </ion-col>\n    </ion-row>\n  </p>\n\n\n\n  <p class="filter-sub-header">\n    <ion-row>\n      <ion-col>Search by closer date</ion-col>\n      <ion-col style="text-align: right !important;" class="nopadding"><ion-checkbox mode="ios" [(ngModel)]="filterOptions[\'SearchByCloserDate\']" (ionChange)="disableOtherOptions(\'SearchByCloserDate\')"></ion-checkbox></ion-col>\n    </ion-row>\n  </p>\n  <p class="nomargin" *ngIf="filterOptions[\'SearchByCloserDate\']">\n    <ion-row>\n      <ion-col>\n        <ion-item>\n          <ion-label floating>From Date</ion-label>\n          <ion-datetime displayFormat="D - MMM, YYYY" pickerFormat="YYYY-MM-DD" [(ngModel)]="closerStartDate"></ion-datetime>\n        </ion-item>\n      </ion-col>\n      <ion-col>\n        <ion-item>\n          <ion-label floating>To Date</ion-label>\n          <ion-datetime displayFormat="D - MMM, YYYY" pickerFormat="YYYY-MM-DD" [(ngModel)]="closerEndDate"></ion-datetime>\n        </ion-item>\n      </ion-col>\n    </ion-row>\n  </p>\n\n\n\n  <p class="filter-sub-header">\n    <ion-row>\n      <ion-col>Search by pop/zone name</ion-col>\n      <ion-col style="text-align: right !important;" class="nopadding"><ion-checkbox mode="ios" [(ngModel)]="filterOptions[\'SearchByPopZoneName\']" (ionChange)="disableOtherOptions(\'SearchByPopZoneName\')"></ion-checkbox></ion-col>\n    </ion-row>\n  </p>\n  <p class="nomargin" *ngIf="filterOptions[\'SearchByPopZoneName\']">\n    <ion-row>\n      <ion-col>\n        <ion-item>\n          <ion-label>Zonename</ion-label>\n          <ion-input></ion-input>\n        </ion-item>\n        <ion-item>\n          <ion-label>Popname</ion-label>\n          <ion-input></ion-input>\n        </ion-item>\n      </ion-col>\n    </ion-row>\n  </p>\n  \n\n</ion-content>\n\n\n<ion-footer>\n  <ion-row>\n    <ion-col col-6 style="text-align: center !important; background-color: #fff !important; border-right: 1px solid #ddd !important;"> \n      <button ion-button clear disabled=true>Reset</button>\n    </ion-col>\n    <ion-col col-6 style="text-align: center !important;"> \n      <button ion-button clear (click)="searchUsingFilter()">Apply</button>\n    </ion-col>\n  </ion-row>\n</ion-footer>'/*ion-inline-end:"/home/aashijit/24Online/src/pages/filter-lead-management/filter-lead-management.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["j" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_3__Utils_DataValidation__["a" /* DataValidation */], __WEBPACK_IMPORTED_MODULE_2__providers_message_helper__["a" /* MessageHelper */],
-            __WEBPACK_IMPORTED_MODULE_1__providers_data_data__["a" /* HttpProvider */], __WEBPACK_IMPORTED_MODULE_0__Utils_Codes__["a" /* Codes */], __WEBPACK_IMPORTED_MODULE_6__Utils_StringUtils__["a" /* StringUtils */],
-            __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["g" /* ModalController */]])
-    ], EditServiceRequestPage);
-    return EditServiceRequestPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1__providers_message_helper__["a" /* MessageHelper */], __WEBPACK_IMPORTED_MODULE_0__Utils_DataValidation__["a" /* DataValidation */]])
+    ], FilterLeadManagementPage);
+    return FilterLeadManagementPage;
 }());
 
-//# sourceMappingURL=edit-service-request.js.map
+//# sourceMappingURL=filter-lead-management.js.map
 
 /***/ })
 

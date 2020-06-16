@@ -1,1 +1,110 @@
-webpackJsonp([3],{652:function(l,n,u){"use strict";function a(l){return t._19(0,[(l()(),t._18(-1,null,["\n"])),(l()(),t.Z(1,0,null,null,10,"ion-header",[],null,null,null,null,null)),t.Y(2,16384,null,0,f.a,[p.a,t.j,t.z,[2,m.a]],null,null),(l()(),t._18(-1,null,["\n  "])),(l()(),t.Z(4,0,null,null,6,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,j.b,j.a)),t.Y(5,49152,null,0,v.a,[C.a,[2,m.a],[2,h.a],p.a,t.j,t.z],null,null),(l()(),t._18(-1,3,["\n    "])),(l()(),t.Z(7,0,null,3,2,"ion-title",[],null,null,null,Y.b,Y.a)),t.Y(8,49152,null,0,Z.a,[p.a,t.j,t.z,[2,q.a],[2,v.a]],null,null),(l()(),t._18(-1,0,["Ticket"])),(l()(),t._18(-1,3,["\n  "])),(l()(),t._18(-1,null,["\n"])),(l()(),t._18(-1,null,["\n\n"])),(l()(),t.Z(13,0,null,null,2,"ion-content",[["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,y.b,y.a)),t.Y(14,4374528,null,0,z.a,[p.a,A.a,P.a,t.j,t.z,C.a,x.a,t.u,[2,m.a],[2,h.a]],null,null),(l()(),t._18(-1,1,["\n\n"])),(l()(),t._18(-1,null,["\n"]))],null,function(l,n){l(n,4,0,t._11(n,5)._hidden,t._11(n,5)._sbPadding);l(n,13,0,t._11(n,14).statusbarPadding,t._11(n,14)._hasRefresher)})}Object.defineProperty(n,"__esModule",{value:!0});var t=u(1),o=(u(2),u(108),function(){function l(l,n){this.navCtrl=l,this.navParams=n}return l.prototype.ionViewDidLoad=function(){console.log("ionViewDidLoad TicketPage")},l}()),s=function(){return function(){}}(),e=u(340),c=u(341),i=u(342),r=u(343),b=u(344),_=u(345),d=u(346),k=u(347),g=u(348),f=u(109),p=u(3),m=u(7),j=u(654),v=u(52),C=u(12),h=u(29),Y=u(655),Z=u(173),q=u(74),y=u(349),z=u(30),A=u(6),P=u(13),x=u(35),T=u(16),w=t.X({encapsulation:2,styles:[],data:{}}),V=t.V("page-ticket",o,function(l){return t._19(0,[(l()(),t.Z(0,0,null,null,1,"page-ticket",[],null,null,null,a,w)),t.Y(1,49152,null,0,o,[h.a,T.a],null,null)],null,null)},{},{},[]),X=u(23),B=u(26),D=u(174),L=u(49);u.d(n,"TicketPageModuleNgFactory",function(){return M});var M=t.W(s,[],function(l){return t._7([t._8(512,t.i,t.S,[[8,[e.a,c.a,i.a,r.a,b.a,_.a,d.a,k.a,g.a,V]],[3,t.i],t.s]),t._8(4608,X.k,X.j,[t.r,[2,X.s]]),t._8(4608,B.m,B.m,[]),t._8(4608,B.c,B.c,[]),t._8(512,X.b,X.b,[]),t._8(512,B.l,B.l,[]),t._8(512,B.d,B.d,[]),t._8(512,B.k,B.k,[]),t._8(512,D.a,D.a,[]),t._8(512,D.b,D.b,[]),t._8(512,s,s,[]),t._8(256,L.a,o,[])])})},654:function(l,n,u){"use strict";function a(l){return t._19(0,[(l()(),t.Z(0,0,null,null,1,"div",[["class","toolbar-background"]],null,null,null,null,null)),t.Y(1,278528,null,0,o.g,[t.p,t.q,t.j,t.A],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),(l()(),t.Z(2,0,null,null,8,"button",[["class","back-button"],["ion-button","bar-button"]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var a=!0;if("click"===n){a=!1!==l.component.backButtonClick(u)&&a}return a},s.b,s.a)),t.Y(3,278528,null,0,o.g,[t.p,t.q,t.j,t.A],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),t.Y(4,1097728,null,0,e.a,[[8,"bar-button"],c.a,t.j,t.z],null,null),(l()(),t.Z(5,0,null,0,2,"ion-icon",[["class","back-button-icon"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(6,278528,null,0,o.g,[t.p,t.q,t.j,t.A],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),t.Y(7,147456,null,0,i.a,[c.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t.Z(8,0,null,0,2,"span",[["class","back-button-text"]],null,null,null,null,null)),t.Y(9,278528,null,0,o.g,[t.p,t.q,t.j,t.A],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),(l()(),t._18(10,null,["",""])),t._10(null,0),t._10(null,1),t._10(null,2),(l()(),t.Z(14,0,null,null,2,"div",[["class","toolbar-content"]],null,null,null,null,null)),t.Y(15,278528,null,0,o.g,[t.p,t.q,t.j,t.A],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),t._10(null,3)],function(l,n){var u=n.component;l(n,1,0,"toolbar-background","toolbar-background-"+u._mode);l(n,3,0,"back-button","back-button-"+u._mode);l(n,6,0,"back-button-icon","back-button-icon-"+u._mode);l(n,7,0,u._bbIcon);l(n,9,0,"back-button-text","back-button-text-"+u._mode);l(n,15,0,"toolbar-content","toolbar-content-"+u._mode)},function(l,n){var u=n.component;l(n,2,0,u._hideBb);l(n,5,0,t._11(n,7)._hidden);l(n,10,0,u._backText)})}u.d(n,"a",function(){return r}),n.b=a;var t=u(1),o=u(23),s=u(48),e=u(28),c=u(3),i=u(54),r=(u(7),u(29),t.X({encapsulation:2,styles:[],data:{}}))},655:function(l,n,u){"use strict";function a(l){return t._19(2,[(l()(),t.Z(0,0,null,null,2,"div",[["class","toolbar-title"]],null,null,null,null,null)),t.Y(1,278528,null,0,o.g,[t.p,t.q,t.j,t.A],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),t._10(null,0)],function(l,n){l(n,1,0,"toolbar-title","toolbar-title-"+n.component._mode)},null)}u.d(n,"a",function(){return s}),n.b=a;var t=u(1),o=u(23),s=(u(3),t.X({encapsulation:2,styles:[],data:{}}))}});
+webpackJsonp([3],{
+
+/***/ 689:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MyProfilePageModule", function() { return MyProfilePageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__my_profile__ = __webpack_require__(704);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var MyProfilePageModule = /** @class */ (function () {
+    function MyProfilePageModule() {
+    }
+    MyProfilePageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__my_profile__["a" /* MyProfilePage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__my_profile__["a" /* MyProfilePage */]),
+            ],
+        })
+    ], MyProfilePageModule);
+    return MyProfilePageModule;
+}());
+
+//# sourceMappingURL=my-profile.module.js.map
+
+/***/ }),
+
+/***/ 704:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyProfilePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_native_camera__ = __webpack_require__(348);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Utils_DataValidation__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Utils_Codes__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_data_data__ = __webpack_require__(347);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_message_helper__ = __webpack_require__(346);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_angular__ = __webpack_require__(84);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var MyProfilePage = /** @class */ (function () {
+    function MyProfilePage(navCtrl, navParams, msgHelper, http, codes, dataValidation, camera) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.msgHelper = msgHelper;
+        this.http = http;
+        this.codes = codes;
+        this.dataValidation = dataValidation;
+        this.camera = camera;
+        this.profile = null;
+    }
+    MyProfilePage.prototype.ionViewDidLoad = function () {
+        var _this = this;
+        console.log('ionViewDidLoad MyProfilePage');
+        var data = {};
+        this.http.callApi(data, this.codes.API_USER_INFO).then(function (responseJson) {
+            if (_this.dataValidation.isEmptyJson(responseJson)) {
+                _this.msgHelper.showErrorDialog('Error', 'Empty response received from the Server');
+                return;
+            }
+            if (responseJson['responsecode'] == '1') {
+                _this.profile = responseJson['responsemsg'];
+            }
+        });
+    };
+    MyProfilePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_5__angular_core__["m" /* Component */])({
+            selector: 'page-my-profile',template:/*ion-inline-start:"/home/aashijit/24Online/src/pages/my-profile/my-profile.html"*/'<ion-header>\n  <ion-navbar >\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>My Profile</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n\n\n  <ion-grid *ngIf="!dataValidation.isEmptyJson(profile)">\n    <ion-row>\n      <ion-col col-6 style="color: dodgerblue !important; font-weight: 600 !important;">\n        Next Bill Date\n      </ion-col>\n      <ion-col col-6 style="color: #666 !important; font-weight: 600 !important;">\n        {{profile[\'nextbilldate\']}}\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col col-6 style="color: dodgerblue !important; font-weight: 600 !important;">\n        Phone\n      </ion-col>\n      <ion-col col-6 style="color: #666 !important; font-weight: 600 !important;">\n        {{profile[\'phone\']}}\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col col-6 style="color: dodgerblue !important; font-weight: 600 !important;">\n        Username\n      </ion-col>\n      <ion-col col-6 style="color: #666 !important; font-weight: 600 !important;">\n        {{profile[\'username\']}}\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col col-6 style="color: dodgerblue !important; font-weight: 600 !important;">\n        Account Number\n      </ion-col>\n      <ion-col col-6 style="color: #666 !important; font-weight: 600 !important;">\n        {{profile[\'accountno\']}}\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col col-6 style="color: dodgerblue !important; font-weight: 600 !important;">\n        Package Name\n      </ion-col>\n      <ion-col col-6 style="color: #666 !important; font-weight: 600 !important;">\n        {{profile[\'packagename\']}}\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col col-6 style="color: dodgerblue !important; font-weight: 600 !important;">\n        Name\n      </ion-col>\n      <ion-col col-6 style="color: #666 !important; font-weight: 600 !important;">\n        {{profile[\'name\']}}\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col col-6 style="color: dodgerblue !important; font-weight: 600 !important;">\n        Create Date\n      </ion-col>\n      <ion-col col-6 style="color: #666 !important; font-weight: 600 !important;">\n        {{profile[\'createdate\']}}\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col col-6 style="color: dodgerblue !important; font-weight: 600 !important;">\n        Date of Birth\n      </ion-col>\n      <ion-col col-6 style="color: #666 !important; font-weight: 600 !important;">\n        {{profile[\'dateofbirth\']}}\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col col-6 style="color: dodgerblue !important; font-weight: 600 !important;">\n        IP Address\n      </ion-col>\n      <ion-col col-6 style="color: #666 !important; font-weight: 600 !important;">\n        {{profile[\'ipaddress\']}}\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col col-6 style="color: dodgerblue !important; font-weight: 600 !important;">\n        Expiry Date\n      </ion-col>\n      <ion-col col-6 style="color: #666 !important; font-weight: 600 !important;">\n        {{profile[\'expirydate\']}}\n      </ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col col-6 style="color: dodgerblue !important; font-weight: 600 !important;">\n        Email Id\n      </ion-col>\n      <ion-col col-6 style="color: #666 !important; font-weight: 600 !important;">\n        {{profile[\'emailid\']}}\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n\n</ion-content>\n'/*ion-inline-end:"/home/aashijit/24Online/src/pages/my-profile/my-profile.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_6_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_4__providers_message_helper__["a" /* MessageHelper */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_data_data__["a" /* HttpProvider */], __WEBPACK_IMPORTED_MODULE_2__Utils_Codes__["a" /* Codes */], __WEBPACK_IMPORTED_MODULE_1__Utils_DataValidation__["a" /* DataValidation */],
+            __WEBPACK_IMPORTED_MODULE_0__ionic_native_camera__["a" /* Camera */]])
+    ], MyProfilePage);
+    return MyProfilePage;
+}());
+
+//# sourceMappingURL=my-profile.js.map
+
+/***/ })
+
+});
+//# sourceMappingURL=3.js.map

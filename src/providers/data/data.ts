@@ -1,5 +1,5 @@
 import { Codes } from './../../Utils/Codes';
-import {Injectable} from '@angular/core';
+import {Injectable, ComponentFactoryResolver} from '@angular/core';
 import 'rxjs/add/operator/map';
 import { Http,Headers } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
@@ -21,8 +21,10 @@ export class HttpProvider {
     return new Promise(resolve => {
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
-      headers.append('Username','avijit.ghosh');
-      headers.append('Password','avijit.ghosh');
+      headers.append('Username',localStorage.getItem('username'));
+      headers.append('Password',localStorage.getItem('password'));
+      // headers.append('Username','avijit.ghosh');
+      // headers.append('Password','avijit.ghosh');
       var ipAddress = localStorage.getItem(this.codes.LSK_IPADDRESS);
       this.http.post(this.codes.API_ENDPOINT+ipAddress+apiName, JSON.stringify(data)
         , {headers: headers}).map(res => res.json())
@@ -44,18 +46,27 @@ export class HttpProvider {
 
   uploadFile(data,apiName) {
     return new Promise(resolve => {
+      let headers = new Headers();
+      headers.append('Content-Type', 'false');
+      headers.append('mimeType', 'multipart/form-data');
+      headers.append('Username',localStorage.getItem('username'));
+      headers.append('Password',localStorage.getItem('password'));
 
-      this.httpClient.post(this.codes.API_ENDPOINT+apiName, data).subscribe(
-        (res) => {
+      var ipAddress = localStorage.getItem(this.codes.LSK_IPADDRESS);
 
-          console.log("Success: " + JSON.stringify(res))
-          resolve(res);
+      console.error(this.codes.API_ENDPOINT+ipAddress+apiName);
+    
+      this.http.post(this.codes.API_ENDPOINT+ipAddress+apiName, JSON.stringify(data)
+      , {headers: headers}).map(res => res.json())
+      .subscribe((data:any) => {
+          console.log(data);
+          resolve(data);
         },
-        (err) => {
+        err => {
           console.log(err);
-          resolve(err);
+          resolve({status: this.codes.API_ERROR});
         }
-    );
+      );
       
     });
   }

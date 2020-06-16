@@ -15,6 +15,11 @@
     </ion-label>
   </p>
 
+  <ion-card>
+    <ion-card-header>Home</ion-card-header>
+       <p> <button ion-button clear (click)="nav.setRoot('DashboardTabPage')" menuClose> <img src="../assets/imgs/real-estate.svg" style="width: 20px !important"/> &nbsp; Dashboard</button></p>
+  </ion-card>
+
     <ion-card>
       <ion-card-header>Lead Management</ion-card-header>
          <p> <button ion-button clear (click)="nav.setRoot('CreateLeadPage')" menuClose> <img src="../assets/imgs/create-lead.svg" style="width: 20px !important"/> &nbsp; Create Lead</button></p>
@@ -31,10 +36,11 @@
 
     <ion-card>
         <ion-card-header>Settings</ion-card-header>  
-         <p> <button ion-button clear> <img src="../assets/imgs/user-edit.svg" style="width: 20px !important"/> &nbsp; Edit Profile</button></p>
-         <p> <button ion-button clear> <img src="../assets/imgs/contract.svg" style="width: 20px !important"/> &nbsp; Terms & Conditions</button></p>
+         <p> <button ion-button clear (click)="nav.setRoot('MyProfilePage')" menuClose> <img src="../assets/imgs/user-edit.svg" style="width: 20px !important"/> &nbsp; My Profile</button></p>
+         <p> <button ion-button clear (click)="nav.push('ChangePasswordPage')" menuClose> <img src="../assets/imgs/password.svg" style="width: 20px !important"/> &nbsp; Change Password</button></p>
+         <p> <button ion-button clear menuClose> <img src="../assets/imgs/contract.svg" style="width: 20px !important"/> &nbsp; Terms & Conditions</button></p>
          <p> <button ion-button clear (click)="logOut()" menuClose> <img src="../assets/imgs/logout.svg" style="width: 20px !important" /> &nbsp; Log out</button></p>
-         <p> <button ion-button clear> <img src="../assets/imgs/version.svg" style="width: 20px !important"/> &nbsp; App Version : 0.0.1</button></p>
+         <p> <button ion-button clear menuClose> <img src="../assets/imgs/version.svg" style="width: 20px !important"/> &nbsp; App Version : 0.0.1</button></p>
     </ion-card>
 
     <!-- <ion-list>
