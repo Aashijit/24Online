@@ -49,7 +49,7 @@ export class HttpProvider {
       let headers = new Headers();
       //headers.append('Content-Type', 'false');
       headers.append('enctype', 'multipart/form-data');
-      headers.append('Content-Type', 'application/form-data');
+      headers.append('Content-Type', 'multipart/form-data');
       headers.append('Username',localStorage.getItem('username'));
       headers.append('Password',localStorage.getItem('password'));
 
