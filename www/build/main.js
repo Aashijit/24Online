@@ -301,17 +301,38 @@ var HttpProvider = /** @class */ (function () {
             });
         });
     };
+    HttpProvider.prototype.callGetApi = function (data, apiName) {
+        var _this = this;
+        return new Promise(function (resolve) {
+            var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Headers */]();
+            headers.append('Content-Type', 'application/json');
+            headers.append('Username', localStorage.getItem('username'));
+            headers.append('Password', localStorage.getItem('password'));
+            // headers.append('Username','avijit.ghosh');
+            // headers.append('Password','avijit.ghosh');
+            var ipAddress = localStorage.getItem(_this.codes.LSK_IPADDRESS);
+            _this.http.get(_this.codes.API_ENDPOINT + ipAddress + apiName, JSON.stringify(data)).map(function (res) { return res.json(); })
+                .subscribe(function (data) {
+                console.log(data);
+                resolve(data);
+            }, function (err) {
+                console.log(err);
+                resolve({ status: _this.codes.API_ERROR });
+            });
+        });
+    };
     HttpProvider.prototype.uploadFile = function (data, apiName) {
         var _this = this;
         return new Promise(function (resolve) {
             var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Headers */]();
-            headers.append('Content-Type', 'false');
-            headers.append('mimeType', 'multipart/form-data');
+            //headers.append('Content-Type', 'false');
+            headers.append('enctype', 'multipart/form-data');
+            headers.append('Content-Type', 'multipart/form-data');
             headers.append('Username', localStorage.getItem('username'));
             headers.append('Password', localStorage.getItem('password'));
             var ipAddress = localStorage.getItem(_this.codes.LSK_IPADDRESS);
             console.error(_this.codes.API_ENDPOINT + ipAddress + apiName);
-            _this.http.post(_this.codes.API_ENDPOINT + ipAddress + apiName, JSON.stringify(data), { headers: headers }).map(function (res) { return res.json(); })
+            _this.http.post(_this.codes.API_ENDPOINT + ipAddress + apiName, (data), { headers: headers }).map(function (res) { return res.json(); })
                 .subscribe(function (data) {
                 console.log(data);
                 resolve(data);
@@ -337,10 +358,10 @@ var HttpProvider = /** @class */ (function () {
     };
     HttpProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_0__Utils_Codes__["a" /* Codes */],
-            __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["a" /* HttpClient */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__Utils_Codes__["a" /* Codes */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__Utils_Codes__["a" /* Codes */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["a" /* HttpClient */]) === "function" && _c || Object])
     ], HttpProvider);
     return HttpProvider;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=data.js.map
@@ -767,6 +788,8 @@ var Codes = /** @class */ (function () {
         this.API_USAGE_INFO = ":10080/24online/service/MyAccountService/usageInfo";
         this.API_GET_PACKAGE_LIST = ":10080/24online/service/PackageService/getPackageList";
         this.API_GET_ZONE_DETAIL_LIST = ":10080/24online/service/ZoneService/getZoneDetailList";
+        this.API_GET_FILE_LIST = ":10080/24online/service/SalesService/getFileList";
+        this.API_DOWNLOAD_FILE = ":10080/24online/service/SalesService/downloadFile";
     }
     return Codes;
 }());

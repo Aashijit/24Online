@@ -95,6 +95,7 @@ var CreateLeadPage = /** @class */ (function () {
         this.imageView = null;
         this.pkglist = null;
         this.zonelist = null;
+        this.formdata = null;
     }
     CreateLeadPage.prototype.ionViewDidLoad = function () {
         var _this = this;
@@ -153,25 +154,28 @@ var CreateLeadPage = /** @class */ (function () {
             return;
         }
         //Creare the request json
-        var formdata = new FormData();
-        formdata.append("firstname", this.firstName);
-        formdata.append("lastname", this.lastName);
-        formdata.append("emailid", this.emailId);
-        formdata.append("contactno", this.contactNo);
-        formdata.append("address1", this.address1);
-        formdata.append("address2", this.address2);
-        formdata.append("address3", this.address3);
-        formdata.append("comment", this.comment);
-        formdata.append("zonename", this.zonename);
-        formdata.append("usertype", "user");
-        formdata.append("paymentamount", this.paymentamount);
-        formdata.append("source", this.source);
-        formdata.append("preferedcalltime", "16/06/2020 22:00");
-        formdata.append("closertime", "16/06/2020 23:00");
-        formdata.append("image", this.image);
-        console.log("Request Json : " + JSON.stringify(formdata));
+        this.formdata = new FormData();
+        this.formdata.append("firstname", this.firstName);
+        this.formdata.append("lastname", this.lastName);
+        this.formdata.append("emailid", this.emailId);
+        this.formdata.append("contactno", this.contactNo);
+        this.formdata.append("address1", this.address1);
+        this.formdata.append("address2", this.address2);
+        this.formdata.append("address3", this.address3);
+        this.formdata.append("comment", this.comment);
+        this.formdata.append("groupname", this.groupname);
+        this.formdata.append("zonename", this.zonename);
+        this.formdata.append("usertype", "user");
+        this.formdata.append("paymentamount", this.paymentamount);
+        this.formdata.append("source", this.source);
+        this.formdata.append("preferedcalltime", this.preferredCallTime);
+        this.formdata.append("closertime", this.closureTime);
+        this.formdata.append("image", this.image);
+        console.log("Request Json : " + JSON.stringify(this.formdata));
         var loading = this.msgHelper.showWorkingDialog('Creating the lead ...');
-        this.http.uploadFile(formdata, this.codes.API_CREATE_LEAD).then(function (responseJson) {
+        //headers.append('Authorization', 'Bearer ' + token);
+        //let options = new RequestOptions({headers: headers});
+        this.http.uploadFile(this.formdata, this.codes.API_CREATE_LEAD).then(function (responseJson) {
             loading.dismiss();
             if (_this.dataValidation.isEmptyJson(responseJson)) {
                 _this.msgHelper.showErrorDialog('Error!!', 'Empty response received from server !!!');

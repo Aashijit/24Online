@@ -134,6 +134,30 @@
       <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Priority</ion-col>
       <ion-col col-7 style="color: #919191 !important;"><ion-badge>{{leadTicketData['priority']}}</ion-badge></ion-col>
     </ion-row>
+    <ion-row *ngIf="!dataValidation.isEmptyJson(files)">
+      <ion-col style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;"> Files </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="!dataValidation.isEmptyJson(files)">
+      <ion-col *ngIf="!dataValidation.isEmptyJson(files['file0'])">
+        <button ion-button outline (click)="download(files['file0'])"> {{files['file0']}} &nbsp; <ion-icon name="download"></ion-icon> </button>
+      </ion-col>
+      <ion-col *ngIf="!dataValidation.isEmptyJson(files['file1'])">
+        <button ion-button outline (click)="download(files['file1'])"> {{files['file1']}} &nbsp; <ion-icon name="download"></ion-icon> </button>
+      </ion-col>
+      <ion-col *ngIf="!dataValidation.isEmptyJson(files['file2'])">
+        <button ion-button outline (click)="download(files['file2'])"> {{files['file2']}} &nbsp; <ion-icon name="download"></ion-icon> </button>
+      </ion-col>
+      <ion-col *ngIf="!dataValidation.isEmptyJson(files['file3'])">
+        <button ion-button outline (click)="download(files['file3'])"> {{files['file3']}} &nbsp; <ion-icon name="download"></ion-icon> </button>
+      </ion-col>
+      <ion-col *ngIf="!dataValidation.isEmptyJson(files['file4'])">
+        <button ion-button outline (click)="download(files['file4'])"> {{files['file4']}} &nbsp; <ion-icon name="download"></ion-icon> </button>
+      </ion-col>
+      <ion-col *ngIf="!dataValidation.isEmptyJson(files['file5'])">
+        <button ion-button outline (click)="download(files['file5'])"> {{files['file5']}} &nbsp; <ion-icon name="download"></ion-icon> </button>
+      </ion-col>
+    </ion-row>
 
   </ion-grid>
 

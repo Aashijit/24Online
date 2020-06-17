@@ -30,5 +30,9 @@ export class Codes{
     public API_GET_PACKAGE_LIST=":10080/24online/service/PackageService/getPackageList";
     public API_GET_ZONE_DETAIL_LIST=":10080/24online/service/ZoneService/getZoneDetailList";
     
+    public API_GET_FILE_LIST=":10080/24online/service/SalesService/getFileList";
+    public API_DOWNLOAD_FILE=":10080/24online/service/SalesService/downloadFile";
+    
+    
 
 }
