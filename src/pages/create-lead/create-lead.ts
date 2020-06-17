@@ -93,6 +93,9 @@ export class CreateLeadPage {
 
   createLead(){
 
+    this.closureTime="16/06/2020 22:00";
+    this.preferredCallTime="16/06/2020 22:00";
+
     //Validation
     //-- Contact number
     if (!this.dataValidation.isValidMobileNumber(this.contactNo)) {
@@ -121,8 +124,8 @@ export class CreateLeadPage {
     formdata.append("usertype", "user");
     formdata.append("paymentamount", this.paymentamount);
     formdata.append("source", this.source);
-    formdata.append("preferedcalltime", this.preferredCallTime);
-    formdata.append("closertime", this.closureTime);
+    formdata.append("preferedcalltime", "16/06/2020 22:00");
+    formdata.append("closertime", "16/06/2020 23:00");
     formdata.append("image", this.image);
 
 
