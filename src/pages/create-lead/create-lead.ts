@@ -35,6 +35,7 @@ export class CreateLeadPage {
   pkglist : any = null;
   zonelist : any = null;
   formdata:FormData = null;
+  view = null;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public msgHelper : MessageHelper,
     public http : HttpProvider,public codes : Codes,public dataValidation : DataValidation,
@@ -48,14 +49,24 @@ export class CreateLeadPage {
 
     this.http.callApi(data,this.codes.API_GET_PACKAGE_LIST).then(responseJson => {
       this.pkglist = [];
-       this.pkglist.push(responseJson['responsemsg']['1']);
-       this.pkglist.push(responseJson['responsemsg']['2']);
-       this.pkglist.push(responseJson['responsemsg']['3']);
-       this.pkglist.push(responseJson['responsemsg']['4']);
-       this.pkglist.push(responseJson['responsemsg']['5']);
-       this.pkglist.push(responseJson['responsemsg']['6']);
-       this.pkglist.push(responseJson['responsemsg']['7']);
-       this.pkglist.push(responseJson['responsemsg']['8']);
+      if (!this.dataValidation.isEmptyJson(responseJson['responsemsg']['1']))
+        this.pkglist.push(responseJson['responsemsg']['1']);
+      if (!this.dataValidation.isEmptyJson(responseJson['responsemsg']['2']))
+        this.pkglist.push(responseJson['responsemsg']['2']);
+      if (!this.dataValidation.isEmptyJson(responseJson['responsemsg']['3']))
+        this.pkglist.push(responseJson['responsemsg']['3']);
+      if (!this.dataValidation.isEmptyJson(responseJson['responsemsg']['4']))
+        this.pkglist.push(responseJson['responsemsg']['4']);
+      if (!this.dataValidation.isEmptyJson(responseJson['responsemsg']['5']))
+        this.pkglist.push(responseJson['responsemsg']['5']);
+      if (!this.dataValidation.isEmptyJson(responseJson['responsemsg']['6']))
+        this.pkglist.push(responseJson['responsemsg']['6']);
+      if (!this.dataValidation.isEmptyJson(responseJson['responsemsg']['7']))
+        this.pkglist.push(responseJson['responsemsg']['7']);
+      if (!this.dataValidation.isEmptyJson(responseJson['responsemsg']['8']))
+        this.pkglist.push(responseJson['responsemsg']['8']);
+
+       console.error(responseJson['responsemsg']['8']);
 
         console.error(this.pkglist);
     });
@@ -72,23 +83,23 @@ export class CreateLeadPage {
   addPicture(check){  
     const options: CameraOptions = {
       quality: 100,
-      destinationType: this.camera.DestinationType.FILE_URI,
+      destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
       sourceType : !check ? this.camera.PictureSourceType.CAMERA : this.camera.PictureSourceType.PHOTOLIBRARY
     }
-    alert(JSON.stringify(options));
-    this.camera.getPicture(options).then((imageData) => {
+      // alert(JSON.stringify(options));
+      this.camera.getPicture(options).then((imageData) => {
       let base64Image = 'data:image/jpeg;base64,' + imageData;
+      this.view = base64Image;
       // alert(base64Image);
-      this.imageView = base64Image;
+      this.imageView = imageData;
       this.image = this.convertBase64ToBlob(base64Image);
       
       // this.images[this.i++] = base64Image; 
     }, (err) => {
       console.error("Error Encountered" + err);
     });
-
   }
 
 

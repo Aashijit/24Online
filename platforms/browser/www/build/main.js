@@ -22,63 +22,63 @@ webpackEmptyAsyncContext.id = 162;
 
 var map = {
 	"../pages/change-password/change-password.module": [
-		678,
+		679,
 		14
 	],
 	"../pages/create-lead/create-lead.module": [
-		679,
+		680,
 		13
 	],
 	"../pages/dashboard-tab/dashboard-tab.module": [
-		680,
+		681,
 		12
 	],
 	"../pages/edit-service-request/edit-service-request.module": [
-		681,
+		682,
 		11
 	],
 	"../pages/filter-lead-management/filter-lead-management.module": [
-		682,
+		683,
 		10
 	],
 	"../pages/filter-service-management/filter-service-management.module": [
-		683,
+		684,
 		9
 	],
 	"../pages/home/home.module": [
-		684,
+		685,
 		8
 	],
 	"../pages/lead-detail/lead-detail.module": [
-		685,
+		686,
 		7
 	],
 	"../pages/leads/leads.module": [
-		686,
+		687,
 		6
 	],
 	"../pages/login/login.module": [
-		687,
+		688,
 		5
 	],
 	"../pages/manage-lead/manage-lead.module": [
-		688,
+		689,
 		4
 	],
 	"../pages/my-profile/my-profile.module": [
-		689,
+		690,
 		3
 	],
 	"../pages/service-management/service-management.module": [
-		690,
+		691,
 		2
 	],
 	"../pages/service-ticket-detail/service-ticket-detail.module": [
-		691,
+		692,
 		1
 	],
 	"../pages/ticket/ticket.module": [
-		692,
+		693,
 		0
 	]
 };
@@ -103,7 +103,7 @@ module.exports = webpackAsyncContext;
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MessageHelper; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(85);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -250,7 +250,7 @@ var MessageHelper = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HttpProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Utils_Codes__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Utils_Codes__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(166);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
@@ -301,17 +301,39 @@ var HttpProvider = /** @class */ (function () {
             });
         });
     };
+    HttpProvider.prototype.callGetApi = function (data, apiName) {
+        var _this = this;
+        return new Promise(function (resolve) {
+            var headers = new __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["c" /* HttpHeaders */]().set("Content-Type", "application/json");
+            // let headers = new Headers();
+            headers.append('Username', localStorage.getItem('username'));
+            headers.append('Password', localStorage.getItem('password'));
+            // headers.append('Username','avijit.ghosh');
+            // headers.append('Password','avijit.ghosh');
+            var ipAddress = localStorage.getItem(_this.codes.LSK_IPADDRESS);
+            _this.http.get(_this.codes.API_ENDPOINT + ipAddress + apiName, JSON.stringify(data))
+                .map(function (res) { return res.json(); })
+                .subscribe(function (data) {
+                console.log(data);
+                resolve(data);
+            }, function (err) {
+                console.log(err);
+                resolve({ status: _this.codes.API_ERROR });
+            });
+        });
+    };
     HttpProvider.prototype.uploadFile = function (data, apiName) {
         var _this = this;
         return new Promise(function (resolve) {
             var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Headers */]();
-            headers.append('Content-Type', 'false');
-            headers.append('mimeType', 'multipart/form-data');
+            //headers.append('Content-Type', 'false');
+            headers.append('enctype', 'multipart/form-data');
+            headers.append('Content-Type', 'multipart/form-data');
             headers.append('Username', localStorage.getItem('username'));
             headers.append('Password', localStorage.getItem('password'));
             var ipAddress = localStorage.getItem(_this.codes.LSK_IPADDRESS);
             console.error(_this.codes.API_ENDPOINT + ipAddress + apiName);
-            _this.http.post(_this.codes.API_ENDPOINT + ipAddress + apiName, JSON.stringify(data), { headers: headers }).map(function (res) { return res.json(); })
+            _this.http.post(_this.codes.API_ENDPOINT + ipAddress + apiName, (data), { headers: headers }).map(function (res) { return res.json(); })
                 .subscribe(function (data) {
                 console.log(data);
                 resolve(data);
@@ -352,7 +374,7 @@ var HttpProvider = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StringUtils; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__DataValidation__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__DataValidation__ = __webpack_require__(86);
 
 var StringUtils = /** @class */ (function () {
     function StringUtils() {
@@ -377,13 +399,13 @@ var StringUtils = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 350:
+/***/ 351:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(351);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(355);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(352);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(356);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -391,7 +413,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 355:
+/***/ 356:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -399,23 +421,25 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_native_camera__ = __webpack_require__(348);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_data_data__ = __webpack_require__(347);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_message_helper__ = __webpack_require__(346);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Utils_Codes__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Utils_DataValidation__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Utils_Codes__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Utils_DataValidation__ = __webpack_require__(86);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ionic_angular__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(677);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ionic_angular__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(678);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_status_bar__ = __webpack_require__(344);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_splash_screen__ = __webpack_require__(345);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_common_http__ = __webpack_require__(264);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__angular_http__ = __webpack_require__(167);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__Utils_StringUtils__ = __webpack_require__(349);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_http__ = __webpack_require__(350);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -475,6 +499,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_1__providers_data_data__["a" /* HttpProvider */],
                 __WEBPACK_IMPORTED_MODULE_13__Utils_StringUtils__["a" /* StringUtils */],
                 __WEBPACK_IMPORTED_MODULE_0__ionic_native_camera__["a" /* Camera */],
+                __WEBPACK_IMPORTED_MODULE_14__ionic_native_http__["a" /* HTTP */],
                 { provide: __WEBPACK_IMPORTED_MODULE_6__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_7_ionic_angular__["c" /* IonicErrorHandler */] }
             ]
         })
@@ -486,15 +511,15 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 677:
+/***/ 678:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Utils_DataValidation__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Utils_Codes__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Utils_DataValidation__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Utils_Codes__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(85);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(344);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_splash_screen__ = __webpack_require__(345);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -568,7 +593,7 @@ var MyApp = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 85:
+/***/ 86:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -737,7 +762,7 @@ var DataValidation = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 86:
+/***/ 87:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -767,6 +792,8 @@ var Codes = /** @class */ (function () {
         this.API_USAGE_INFO = ":10080/24online/service/MyAccountService/usageInfo";
         this.API_GET_PACKAGE_LIST = ":10080/24online/service/PackageService/getPackageList";
         this.API_GET_ZONE_DETAIL_LIST = ":10080/24online/service/ZoneService/getZoneDetailList";
+        this.API_GET_FILE_LIST = ":10080/24online/service/SalesService/getFileList";
+        this.API_DOWNLOAD_FILE = ":10080/24online/service/SalesService/downloadFile";
     }
     return Codes;
 }());
@@ -775,5 +802,5 @@ var Codes = /** @class */ (function () {
 
 /***/ })
 
-},[350]);
+},[351]);
 //# sourceMappingURL=main.js.map

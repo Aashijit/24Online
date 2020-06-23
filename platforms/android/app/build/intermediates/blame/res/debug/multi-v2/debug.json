@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\24Online\\Code\\24onlineLatest\\24Online\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\values_values.arsc.flat",
+            "outputFile": "/home/aashijit/24Online/platforms/android/app/build/intermediates/res/merged/debug/values_values.arsc.flat",
             "map": [
                 {
-                    "source": "E:\\24Online\\Code\\24onlineLatest\\24Online\\platforms\\android\\app\\src\\main\\res\\values\\strings.xml",
+                    "source": "/home/aashijit/24Online/platforms/android/app/src/main/res/values/strings.xml",
                     "from": {
                         "startLines": "4,2,3",
                         "startColumns": "4,4,4",

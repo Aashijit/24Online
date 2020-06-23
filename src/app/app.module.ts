@@ -14,6 +14,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpClientModule } from '@angular/common/http';
 import { Http, ConnectionBackend, HttpModule } from '@angular/http';
 import { StringUtils } from '../Utils/StringUtils';
+import { HTTP } from '@ionic-native/http';
 
 
 
@@ -42,6 +43,7 @@ import { StringUtils } from '../Utils/StringUtils';
     HttpProvider,
     StringUtils,
     Camera,
+    HTTP,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

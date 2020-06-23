@@ -1,14 +1,14 @@
 webpackJsonp([13],{
 
-/***/ 679:
+/***/ 680:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreateLeadPageModule", function() { return CreateLeadPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__create_lead__ = __webpack_require__(694);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__create_lead__ = __webpack_require__(695);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,18 +38,18 @@ var CreateLeadPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 694:
+/***/ 695:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreateLeadPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_native_camera__ = __webpack_require__(348);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Utils_DataValidation__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Utils_Codes__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Utils_DataValidation__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Utils_Codes__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_data_data__ = __webpack_require__(347);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_message_helper__ = __webpack_require__(346);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_angular__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_angular__ = __webpack_require__(85);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -95,6 +95,8 @@ var CreateLeadPage = /** @class */ (function () {
         this.imageView = null;
         this.pkglist = null;
         this.zonelist = null;
+        this.formdata = null;
+        this.view = null;
     }
     CreateLeadPage.prototype.ionViewDidLoad = function () {
         var _this = this;
@@ -102,14 +104,23 @@ var CreateLeadPage = /** @class */ (function () {
         var data = {};
         this.http.callApi(data, this.codes.API_GET_PACKAGE_LIST).then(function (responseJson) {
             _this.pkglist = [];
-            _this.pkglist.push(responseJson['responsemsg']['1']);
-            _this.pkglist.push(responseJson['responsemsg']['2']);
-            _this.pkglist.push(responseJson['responsemsg']['3']);
-            _this.pkglist.push(responseJson['responsemsg']['4']);
-            _this.pkglist.push(responseJson['responsemsg']['5']);
-            _this.pkglist.push(responseJson['responsemsg']['6']);
-            _this.pkglist.push(responseJson['responsemsg']['7']);
-            _this.pkglist.push(responseJson['responsemsg']['8']);
+            if (!_this.dataValidation.isEmptyJson(responseJson['responsemsg']['1']))
+                _this.pkglist.push(responseJson['responsemsg']['1']);
+            if (!_this.dataValidation.isEmptyJson(responseJson['responsemsg']['2']))
+                _this.pkglist.push(responseJson['responsemsg']['2']);
+            if (!_this.dataValidation.isEmptyJson(responseJson['responsemsg']['3']))
+                _this.pkglist.push(responseJson['responsemsg']['3']);
+            if (!_this.dataValidation.isEmptyJson(responseJson['responsemsg']['4']))
+                _this.pkglist.push(responseJson['responsemsg']['4']);
+            if (!_this.dataValidation.isEmptyJson(responseJson['responsemsg']['5']))
+                _this.pkglist.push(responseJson['responsemsg']['5']);
+            if (!_this.dataValidation.isEmptyJson(responseJson['responsemsg']['6']))
+                _this.pkglist.push(responseJson['responsemsg']['6']);
+            if (!_this.dataValidation.isEmptyJson(responseJson['responsemsg']['7']))
+                _this.pkglist.push(responseJson['responsemsg']['7']);
+            if (!_this.dataValidation.isEmptyJson(responseJson['responsemsg']['8']))
+                _this.pkglist.push(responseJson['responsemsg']['8']);
+            console.error(responseJson['responsemsg']['8']);
             console.error(_this.pkglist);
         });
         this.http.callApi(data, this.codes.API_GET_ZONE_DETAIL_LIST).then(function (responseJson) {
@@ -121,16 +132,17 @@ var CreateLeadPage = /** @class */ (function () {
         var _this = this;
         var options = {
             quality: 100,
-            destinationType: this.camera.DestinationType.FILE_URI,
+            destinationType: this.camera.DestinationType.DATA_URL,
             encodingType: this.camera.EncodingType.JPEG,
             mediaType: this.camera.MediaType.PICTURE,
             sourceType: !check ? this.camera.PictureSourceType.CAMERA : this.camera.PictureSourceType.PHOTOLIBRARY
         };
-        alert(JSON.stringify(options));
+        // alert(JSON.stringify(options));
         this.camera.getPicture(options).then(function (imageData) {
             var base64Image = 'data:image/jpeg;base64,' + imageData;
+            _this.view = base64Image;
             // alert(base64Image);
-            _this.imageView = base64Image;
+            _this.imageView = imageData;
             _this.image = _this.convertBase64ToBlob(base64Image);
             // this.images[this.i++] = base64Image; 
         }, function (err) {
@@ -153,25 +165,28 @@ var CreateLeadPage = /** @class */ (function () {
             return;
         }
         //Creare the request json
-        var formdata = new FormData();
-        formdata.append("firstname", this.firstName);
-        formdata.append("lastname", this.lastName);
-        formdata.append("emailid", this.emailId);
-        formdata.append("contactno", this.contactNo);
-        formdata.append("address1", this.address1);
-        formdata.append("address2", this.address2);
-        formdata.append("address3", this.address3);
-        formdata.append("comment", this.comment);
-        formdata.append("zonename", this.zonename);
-        formdata.append("usertype", "user");
-        formdata.append("paymentamount", this.paymentamount);
-        formdata.append("source", this.source);
-        formdata.append("preferedcalltime", "16/06/2020 22:00");
-        formdata.append("closertime", "16/06/2020 23:00");
-        formdata.append("image", this.image);
-        console.log("Request Json : " + JSON.stringify(formdata));
+        this.formdata = new FormData();
+        this.formdata.append("firstname", this.firstName);
+        this.formdata.append("lastname", this.lastName);
+        this.formdata.append("emailid", this.emailId);
+        this.formdata.append("contactno", this.contactNo);
+        this.formdata.append("address1", this.address1);
+        this.formdata.append("address2", this.address2);
+        this.formdata.append("address3", this.address3);
+        this.formdata.append("comment", this.comment);
+        this.formdata.append("groupname", this.groupname);
+        this.formdata.append("zonename", this.zonename);
+        this.formdata.append("usertype", "user");
+        this.formdata.append("paymentamount", this.paymentamount);
+        this.formdata.append("source", this.source);
+        this.formdata.append("preferedcalltime", this.preferredCallTime);
+        this.formdata.append("closertime", this.closureTime);
+        this.formdata.append("image", this.image);
+        console.log("Request Json : " + JSON.stringify(this.formdata));
         var loading = this.msgHelper.showWorkingDialog('Creating the lead ...');
-        this.http.uploadFile(formdata, this.codes.API_CREATE_LEAD).then(function (responseJson) {
+        //headers.append('Authorization', 'Bearer ' + token);
+        //let options = new RequestOptions({headers: headers});
+        this.http.uploadFile(this.formdata, this.codes.API_CREATE_LEAD).then(function (responseJson) {
             loading.dismiss();
             if (_this.dataValidation.isEmptyJson(responseJson)) {
                 _this.msgHelper.showErrorDialog('Error!!', 'Empty response received from server !!!');
@@ -212,7 +227,7 @@ var CreateLeadPage = /** @class */ (function () {
     };
     CreateLeadPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_5__angular_core__["m" /* Component */])({
-            selector: 'page-create-lead',template:/*ion-inline-start:"/home/aashijit/24Online/src/pages/create-lead/create-lead.html"*/'<ion-header>\n  <ion-navbar >\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Create Lead</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n  <ion-list style="text-align: center !important;">\n\n    <ion-item>\n      <ion-label floating>First name</ion-label>\n      <ion-input [(ngModel)]="firstName"></ion-input>\n    </ion-item>\n\n\n    <ion-item>\n      <ion-label floating>Last name</ion-label>\n      <ion-input [(ngModel)]="lastName"></ion-input>\n    </ion-item>\n\n\n    <ion-item>\n      <ion-label floating>Email id</ion-label>\n      <ion-input [(ngModel)]="emailId" type="email"></ion-input>\n    </ion-item>\n\n\n    <ion-item>\n      <ion-label floating>Contact number</ion-label>\n      <ion-input [(ngModel)]="contactNo" type="tel" maxlength=10></ion-input>\n    </ion-item>\n\n\n    <ion-item>\n      <ion-label floating>Address Line 1</ion-label>\n      <ion-input [(ngModel)]="address1" ></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Address Line 2</ion-label>\n      <ion-input [(ngModel)]="address2" ></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Address Line 3</ion-label>\n      <ion-input [(ngModel)]="address3" ></ion-input>\n    </ion-item>\n\n\n    <ion-item>\n      <ion-label floating>Group name</ion-label>\n      <ion-select [(ngModel)]="groupname" interface="popover">\n        <p *ngFor="let group of pkglist">\n          <ion-option [value]="group[\'groupname\']">\n            {{group[\'groupname\']}}\n          </ion-option>\n        </p>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Zone name</ion-label>\n      <ion-select [(ngModel)]="zonename" interface="popover">\n        <p *ngFor="let zone of zonelist">\n          <ion-option [value]="zone[\'zonename\']">\n            {{zone[\'zonename\']}}\n          </ion-option>\n        </p>\n      </ion-select>\n    </ion-item>\n   \n    <ion-item>\n      <ion-label floating>Payment Amount</ion-label>\n      <ion-input [(ngModel)]="paymentamount"  type="tel"></ion-input>\n    </ion-item>\n\n    \n    <ion-item>\n      <ion-label floating>Source of lead</ion-label>\n      <ion-input [(ngModel)]="source" ></ion-input>\n    </ion-item>\n\n\n    <ion-item>\n      <ion-label floating>Preferred call time</ion-label>\n      <ion-datetime displayFormat="DD/MM/YYYY HH:mm" pickerFormat="D/MM/YYYY HH:mm" [(ngModel)]="preferredCallTime"></ion-datetime>\n    </ion-item>\n\n\n    <ion-item>\n      <ion-label floating>Closure time</ion-label>\n      <ion-datetime displayFormat="DD/MM/YYYY HH:mm" pickerFormat="D/MM/YYYY HH:mm" [(ngModel)]="closureTime"></ion-datetime>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Comment</ion-label>\n      <ion-textarea [(ngModel)]="comment"  rows="8" cols="20"></ion-textarea>\n    </ion-item>\n\n    <ion-row>\n      <ion-col><button ion-button outline (click)="addPicture(false)">Take Picture &nbsp;<ion-icon name="camera" ></ion-icon></button></ion-col>\n      <ion-col><button ion-button outline (click)="addPicture(true)">Select Image &nbsp;<ion-icon name="image" ></ion-icon></button></ion-col>\n    </ion-row>\n\n    <ion-row *ngIf="!dataValidation.isEmptyJson(imageView)">\n      <ion-col>\n        <img [src]="imageView" class="img-resp" />\n      </ion-col>\n    </ion-row>\n\n    <!-- <ion-row *ngIf="!dataValidation.isEmptyJson(images)">\n      <ion-col style="text-align: left !important;" >\n        <span *ngFor="let image of images">\n          <img [src]="image" class="img-resp" />\n      </span>\n      </ion-col>\n    </ion-row> -->\n\n  <p style="text-align: center !important;">\n    <button ion-button round outline (click)="createLead()">Create Lead</button>\n  </p>\n\n  </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/home/aashijit/24Online/src/pages/create-lead/create-lead.html"*/,
+            selector: 'page-create-lead',template:/*ion-inline-start:"/home/aashijit/24Online/src/pages/create-lead/create-lead.html"*/'<ion-header>\n  <ion-navbar >\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Create Lead</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n  <ion-list style="text-align: center !important;">\n\n    <ion-item>\n      <ion-label floating>First name</ion-label>\n      <ion-input [(ngModel)]="firstName"></ion-input>\n    </ion-item>\n\n\n    <ion-item>\n      <ion-label floating>Last name</ion-label>\n      <ion-input [(ngModel)]="lastName"></ion-input>\n    </ion-item>\n\n\n    <ion-item>\n      <ion-label floating>Email id</ion-label>\n      <ion-input [(ngModel)]="emailId" type="email"></ion-input>\n    </ion-item>\n\n\n    <ion-item>\n      <ion-label floating>Contact number</ion-label>\n      <ion-input [(ngModel)]="contactNo" type="tel" maxlength=10></ion-input>\n    </ion-item>\n\n\n    <ion-item>\n      <ion-label floating>Address Line 1</ion-label>\n      <ion-input [(ngModel)]="address1" ></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Address Line 2</ion-label>\n      <ion-input [(ngModel)]="address2" ></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Address Line 3</ion-label>\n      <ion-input [(ngModel)]="address3" ></ion-input>\n    </ion-item>\n\n\n    <ion-item>\n      <ion-label floating>Group name</ion-label>\n      <ion-select [(ngModel)]="groupname" interface="popover">\n        <p *ngFor="let group of pkglist">\n          <ion-option [value]="group[\'groupname\']">\n            {{group[\'groupname\']}}\n          </ion-option>\n        </p>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Zone name</ion-label>\n      <ion-select [(ngModel)]="zonename" interface="popover">\n        <p *ngFor="let zone of zonelist">\n          <ion-option [value]="zone[\'zonename\']">\n            {{zone[\'zonename\']}}\n          </ion-option>\n        </p>\n      </ion-select>\n    </ion-item>\n   \n    <ion-item>\n      <ion-label floating>Payment Amount</ion-label>\n      <ion-input [(ngModel)]="paymentamount"  type="tel"></ion-input>\n    </ion-item>\n\n    \n    <ion-item>\n      <ion-label floating>Source of lead</ion-label>\n      <ion-input [(ngModel)]="source" ></ion-input>\n    </ion-item>\n\n\n    <ion-item>\n      <ion-label floating>Preferred call time</ion-label>\n      <ion-datetime displayFormat="DD/MM/YYYY HH:mm" pickerFormat="D/MM/YYYY HH:mm" [(ngModel)]="preferredCallTime"></ion-datetime>\n    </ion-item>\n\n\n    <ion-item>\n      <ion-label floating>Closure time</ion-label>\n      <ion-datetime displayFormat="DD/MM/YYYY HH:mm" pickerFormat="D/MM/YYYY HH:mm" [(ngModel)]="closureTime"></ion-datetime>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Comment</ion-label>\n      <ion-textarea [(ngModel)]="comment"  rows="8" cols="20"></ion-textarea>\n    </ion-item>\n\n    <ion-row>\n      <ion-col><button ion-button outline (click)="addPicture(false)">Take Picture &nbsp;<ion-icon name="camera" ></ion-icon></button></ion-col>\n      <ion-col><button ion-button outline (click)="addPicture(true)">Select Image &nbsp;<ion-icon name="image" ></ion-icon></button></ion-col>\n    </ion-row>\n\n    <ion-row *ngIf="!dataValidation.isEmptyJson(imageView)">\n      <ion-col>\n        <img [src]="view" class="img-resp" />\n      </ion-col>\n    </ion-row>\n\n    <!-- <ion-row *ngIf="!dataValidation.isEmptyJson(images)">\n      <ion-col style="text-align: left !important;" >\n        <span *ngFor="let image of images">\n          <img [src]="image" class="img-resp" />\n      </span>\n      </ion-col>\n    </ion-row> -->\n\n  <p style="text-align: center !important;">\n    <button ion-button round outline (click)="createLead()">Create Lead</button>\n  </p>\n\n  </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/home/aashijit/24Online/src/pages/create-lead/create-lead.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_6_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_4__providers_message_helper__["a" /* MessageHelper */],
             __WEBPACK_IMPORTED_MODULE_3__providers_data_data__["a" /* HttpProvider */], __WEBPACK_IMPORTED_MODULE_2__Utils_Codes__["a" /* Codes */], __WEBPACK_IMPORTED_MODULE_1__Utils_DataValidation__["a" /* DataValidation */],

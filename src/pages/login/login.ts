@@ -14,9 +14,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class LoginPage {
 
   //Set to default
-  ipAddress : any = "123.201.20.60"; 
-  userName : any = "avijit.ghosh";
-  password : any = "avijit.ghosh";
+  ipAddress : any = "103.244.7.220"; 
+  userName : any = "administrator";
+  password : any = "Admin@123";
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public dataValidation : DataValidation, public msgHelper : MessageHelper,
