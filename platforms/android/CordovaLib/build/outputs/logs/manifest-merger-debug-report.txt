@@ -1,12 +1,12 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/aashijit/24Online/platforms/android/CordovaLib/AndroidManifest.xml:20:1-22:12
-INJECTED from /home/aashijit/24Online/platforms/android/CordovaLib/AndroidManifest.xml:20:1-22:12
-INJECTED from /home/aashijit/24Online/platforms/android/CordovaLib/AndroidManifest.xml:20:1-22:12
-INJECTED from /home/aashijit/24Online/platforms/android/CordovaLib/AndroidManifest.xml:20:1-22:12
-INJECTED from /home/aashijit/24Online/platforms/android/CordovaLib/AndroidManifest.xml:20:1-22:12
-INJECTED from /home/aashijit/24Online/platforms/android/CordovaLib/AndroidManifest.xml:20:1-22:12
-INJECTED from /home/aashijit/24Online/platforms/android/CordovaLib/AndroidManifest.xml:20:1-22:12
+ADDED from /home/aashijit/24Online/platforms/android/CordovaLib/AndroidManifest.xml:20:1-23:12
+INJECTED from /home/aashijit/24Online/platforms/android/CordovaLib/AndroidManifest.xml:20:1-23:12
+INJECTED from /home/aashijit/24Online/platforms/android/CordovaLib/AndroidManifest.xml:20:1-23:12
+INJECTED from /home/aashijit/24Online/platforms/android/CordovaLib/AndroidManifest.xml:20:1-23:12
+INJECTED from /home/aashijit/24Online/platforms/android/CordovaLib/AndroidManifest.xml:20:1-23:12
+INJECTED from /home/aashijit/24Online/platforms/android/CordovaLib/AndroidManifest.xml:20:1-23:12
+INJECTED from /home/aashijit/24Online/platforms/android/CordovaLib/AndroidManifest.xml:20:1-23:12
 	package
 		ADDED from /home/aashijit/24Online/platforms/android/CordovaLib/AndroidManifest.xml:21:7-35
 		INJECTED from /home/aashijit/24Online/platforms/android/CordovaLib/AndroidManifest.xml
@@ -22,10 +22,6 @@ INJECTED from /home/aashijit/24Online/platforms/android/CordovaLib/AndroidManife
 		INJECTED from /home/aashijit/24Online/platforms/android/CordovaLib/AndroidManifest.xml
 		INJECTED from /home/aashijit/24Online/platforms/android/CordovaLib/AndroidManifest.xml
 uses-sdk
-INJECTED from /home/aashijit/24Online/platforms/android/CordovaLib/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /home/aashijit/24Online/platforms/android/CordovaLib/AndroidManifest.xml
-INJECTED from /home/aashijit/24Online/platforms/android/CordovaLib/AndroidManifest.xml
+ADDED from /home/aashijit/24Online/platforms/android/CordovaLib/AndroidManifest.xml:22:5-44
 	android:minSdkVersion
-		INJECTED from /home/aashijit/24Online/platforms/android/CordovaLib/AndroidManifest.xml
-		ADDED from /home/aashijit/24Online/platforms/android/CordovaLib/AndroidManifest.xml
-		INJECTED from /home/aashijit/24Online/platforms/android/CordovaLib/AndroidManifest.xml
+		ADDED from /home/aashijit/24Online/platforms/android/CordovaLib/AndroidManifest.xml:22:15-41

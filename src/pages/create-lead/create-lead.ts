@@ -6,6 +6,7 @@ import { MessageHelper } from './../../providers/message-helper';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ResponseOptions } from '@angular/http';
+import { dateDataSortValue } from 'ionic-angular/umd/util/datetime-util';
 
 @IonicPage()
 @Component({
@@ -36,10 +37,22 @@ export class CreateLeadPage {
   zonelist : any = null;
   formdata:FormData = null;
   view = null;
-
+  dat = new Date();
+  mindt : any = null;
+  
   constructor(public navCtrl: NavController, public navParams: NavParams, public msgHelper : MessageHelper,
     public http : HttpProvider,public codes : Codes,public dataValidation : DataValidation,
     public camera : Camera) {
+
+     var dat  = new Date();
+
+     var mnth = (dat.getMonth() + 1 ) > 9 ? (dat.getMonth()+1) : '0'+(dat.getMonth()+1);
+
+     this.mindt = dat.getFullYear()+"-"+mnth+"-"+dat.getDate();
+
+
+      
+
   }
 
   ionViewDidLoad() {

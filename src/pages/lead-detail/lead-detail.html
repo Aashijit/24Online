@@ -134,7 +134,7 @@
       <ion-col col-5 style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;">Priority</ion-col>
       <ion-col col-7 style="color: #919191 !important;"><ion-badge>{{leadTicketData['priority']}}</ion-badge></ion-col>
     </ion-row>
-    <ion-row *ngIf="!dataValidation.isEmptyJson(files)">
+    <!-- <ion-row *ngIf="!dataValidation.isEmptyJson(files)">
       <ion-col style=" color:rgb(31, 115, 250) !important; font-weight: 600 !important;"> Files </ion-col>
     </ion-row>
 
@@ -156,8 +156,8 @@
       </ion-col>
       <ion-col *ngIf="!dataValidation.isEmptyJson(files['file5'])">
         <button ion-button outline (click)="download(files['file5'])"> {{files['file5']}} &nbsp; <ion-icon name="download"></ion-icon> </button>
-      </ion-col>
-    </ion-row>
+      </ion-col> -->
+    <!-- </ion-row> -->
 
   </ion-grid>
 

@@ -49,14 +49,6 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-camera": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-camera@2.3.0"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "cordova-plugin-compat": {
     "source": {
       "type": "registry",
@@ -73,14 +65,12 @@
     "is_top_level": false,
     "variables": {}
   },
-  "cordova-plugin-advanced-http": {
+  "cordova-plugin-camera": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-advanced-http"
+      "id": "cordova-plugin-camera@4.1.0"
     },
     "is_top_level": true,
-    "variables": {
-      "OKHTTP_VERSION": "3.10.0"
-    }
+    "variables": {}
   }
 }
